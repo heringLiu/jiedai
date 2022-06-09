@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huaxiajiedai/&#x7b49;&#x5f85;&#x533a;&#x57df;/&#x9879;&#x76ee;&#x540d;&#x79f0;/LJSelectedProjectViewController.m"
+            timestampString = "543245429.1286269"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "536"
+            endingLineNumber = "536"
+            landmarkName = "-rightButtonPressed"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huaxiajiedai/&#x7b49;&#x5f85;&#x533a;&#x57df;/&#x9879;&#x76ee;&#x540d;&#x79f0;/LJSelectedProjectViewController.m"
+            timestampString = "543245429.12919"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "530"
+            endingLineNumber = "530"
+            landmarkName = "-rightButtonPressed"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__53-[LJSelectedProjectViewController rightButtonPressed]_block_invoke"
+                  moduleName = "huaxiajiedai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gjhgj/Documents/%E4%BB%A3%E7%A0%81/hxlz/huaxiajiedai/huaxiajiedai/%E7%AD%89%E5%BE%85%E5%8C%BA%E5%9F%9F/%E9%A1%B9%E7%9B%AE%E5%90%8D%E7%A7%B0/LJSelectedProjectViewController.m"
+                  timestampString = "531218802.947814"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "511"
+                  endingLineNumber = "511"
+                  offsetFromSymbolStart = "140">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__53-[LJSelectedProjectViewController rightButtonPressed]_block_invoke_2"
+                  moduleName = "huaxiajiedai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gjhgj/Documents/%E4%BB%A3%E7%A0%81/hxlz/huaxiajiedai/huaxiajiedai/%E7%AD%89%E5%BE%85%E5%8C%BA%E5%9F%9F/%E9%A1%B9%E7%9B%AE%E5%90%8D%E7%A7%B0/LJSelectedProjectViewController.m"
+                  timestampString = "531218802.950008"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "512"
+                  endingLineNumber = "512"
+                  offsetFromSymbolStart = "100">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huaxiajiedai/&#x7b49;&#x5f85;&#x533a;&#x57df;/LJReceptionListViewController.m"
+            timestampString = "531219265.89476"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "-loadData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huaxiajiedai/&#x623f;&#x6001;/LJConsumptionViewController.m"
+            timestampString = "560957681.436209"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "-loadData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huaxiajiedai/&#x7b49;&#x5f85;&#x533a;&#x57df;/&#x9879;&#x76ee;&#x540d;&#x79f0;/LJSelectedProjectViewController.m"
+            timestampString = "543245474.217556"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "404"
+            endingLineNumber = "404"
+            landmarkName = "-alertView:clickedButtonAtIndex:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huaxiajiedai/&#x7b49;&#x5f85;&#x533a;&#x57df;/&#x9879;&#x76ee;&#x540d;&#x79f0;/LJSelectedProjectViewController.m"
+            timestampString = "543245478.909681"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "299"
+            endingLineNumber = "299"
+            landmarkName = "-nextButtonClick:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huaxiajiedai/&#x7b49;&#x5f85;&#x533a;&#x57df;/&#x9009;&#x62e9;&#x6280;&#x5e08;/LJSelectTechnicianViewController.m"
+            timestampString = "543245482.12368"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "933"
+            endingLineNumber = "933"
+            landmarkName = "-alertView:clickedButtonAtIndex:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huaxiajiedai/&#x7b49;&#x5f85;&#x533a;&#x57df;/&#x9009;&#x62e9;&#x6280;&#x5e08;/LJSelectTechnicianViewController.m"
+            timestampString = "543245485.053834"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "794"
+            endingLineNumber = "794"
+            landmarkName = "-nextButtonClick:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huaxiajiedai/&#x623f;&#x6001;/LJConsumptionViewController.m"
+            timestampString = "560957681.436828"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "802"
+            endingLineNumber = "802"
+            landmarkName = "-alertView:clickedButtonAtIndex:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huaxiajiedai/&#x623f;&#x6001;/LJConsumptionViewController.m"
+            timestampString = "560957681.4372211"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "768"
+            endingLineNumber = "768"
+            landmarkName = "-alertView:clickedButtonAtIndex:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huaxiajiedai/tabBar/ShoppingMallTabBarViewController.m"
+            timestampString = "599402221.050699"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "-tabBarItemSelectedWithIndex:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huaxiajiedai/tabBar/ShoppingMallTabBarViewController.m"
+            timestampString = "599402221.051132"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "-tabBarItemSelectedWithIndex:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huaxiajiedai/&#x7b49;&#x5f85;&#x533a;&#x57df;/LJWaitingAreaViewController.m"
+            timestampString = "600771462.678043"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "673"
+            endingLineNumber = "673"
+            landmarkName = "-leftButtonPressed"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huaxiajiedai/tabBar/ShoppingMallTabBarViewController.m"
+            timestampString = "599402221.051469"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
+            landmarkName = "-tabBarItemSelectedWithIndex:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__64-[ShoppingMallTabBarViewController tabBarItemSelectedWithIndex:]_block_invoke"
+                  moduleName = "huaxiajiedai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gjhgj/Documents/code/hxlz/huaxiajiedai/huaxiajiedai/tabBar/ShoppingMallTabBarViewController.m"
+                  timestampString = "600771462.980639"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "185"
+                  endingLineNumber = "185"
+                  offsetFromSymbolStart = "2328">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_.188"
+                  moduleName = "huaxiajiedai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gjhgj/Documents/code/hxlz/huaxiajiedai/huaxiajiedai/tabBar/ShoppingMallTabBarViewController.m"
+                  timestampString = "600771462.98199"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "185"
+                  endingLineNumber = "185"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.189"
+                  moduleName = "huaxiajiedai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gjhgj/Documents/code/hxlz/huaxiajiedai/huaxiajiedai/tabBar/ShoppingMallTabBarViewController.m"
+                  timestampString = "600771462.98331"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "185"
+                  endingLineNumber = "185"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__64-[ShoppingMallTabBarViewController tabBarItemSelectedWithIndex:]_block_invoke.192"
+                  moduleName = "huaxiajiedai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gjhgj/Documents/code/hxlz/huaxiajiedai/huaxiajiedai/tabBar/ShoppingMallTabBarViewController.m"
+                  timestampString = "600771462.984627"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "186"
+                  endingLineNumber = "186"
+                  offsetFromSymbolStart = "104">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huaxiajiedai/&#x7b49;&#x5f85;&#x533a;&#x57df;/LJWaitingAreaViewController.m"
+            timestampString = "600771462.678206"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "719"
+            endingLineNumber = "719"
+            landmarkName = "-leftButtonPressed"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__48-[LJWaitingAreaViewController leftButtonPressed]_block_invoke"
+                  moduleName = "huaxiajiedai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gjhgj/Documents/code/hxlz/huaxiajiedai/huaxiajiedai/%E7%AD%89%E5%BE%85%E5%8C%BA%E5%9F%9F/LJWaitingAreaViewController.m"
+                  timestampString = "600771462.988873"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "721"
+                  endingLineNumber = "721"
+                  offsetFromSymbolStart = "2432">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_.586"
+                  moduleName = "huaxiajiedai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gjhgj/Documents/code/hxlz/huaxiajiedai/huaxiajiedai/%E7%AD%89%E5%BE%85%E5%8C%BA%E5%9F%9F/LJWaitingAreaViewController.m"
+                  timestampString = "600771462.990217"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "721"
+                  endingLineNumber = "721"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.587"
+                  moduleName = "huaxiajiedai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gjhgj/Documents/code/hxlz/huaxiajiedai/huaxiajiedai/%E7%AD%89%E5%BE%85%E5%8C%BA%E5%9F%9F/LJWaitingAreaViewController.m"
+                  timestampString = "600771462.991533"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "721"
+                  endingLineNumber = "721"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__48-[LJWaitingAreaViewController leftButtonPressed]_block_invoke.589"
+                  moduleName = "huaxiajiedai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gjhgj/Documents/code/hxlz/huaxiajiedai/huaxiajiedai/%E7%AD%89%E5%BE%85%E5%8C%BA%E5%9F%9F/LJWaitingAreaViewController.m"
+                  timestampString = "600771462.9928679"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "722"
+                  endingLineNumber = "722"
+                  offsetFromSymbolStart = "104">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huaxiajiedai/&#x7b49;&#x5f85;&#x533a;&#x57df;/LJWaitingAreaViewController.m"
+            timestampString = "600771462.678262"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
+            landmarkName = "-addConsumption"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huaxiajiedai/&#x7b49;&#x5f85;&#x533a;&#x57df;/LJWaitingAreaViewController.m"
+            timestampString = "600771466.635931"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "723"
+            endingLineNumber = "723"
+            landmarkName = "-leftButtonPressed"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huaxiajiedai/tabBar/ShoppingMallTabBarViewController.m"
+            timestampString = "600771593.529863"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
+            landmarkName = "-tabBarItemSelectedWithIndex:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

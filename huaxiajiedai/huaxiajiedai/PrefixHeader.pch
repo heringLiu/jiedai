@@ -1,0 +1,147 @@
+//
+//  PrefixHeader.pch
+//  huaxia
+//
+//  Created by qm on 16/4/8.
+//  Copyright © 2016年 LJ. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "Masonry.h"
+#import "MJRefresh.h"
+#import "CustomTopNavigationView.h"
+#import "LJColorImage.h"
+#import "Contention.h"
+#import "AFNetworking.h"
+#import "NetWorkingModel.h"
+#import "SVProgressHUD.h"
+#import "MBProgressHUD.h"
+
+#define ISSUCCESS [@"success" isEqualToString:[obj objectForKey:@"status"]]
+
+#define userDefaults [NSUserDefaults standardUserDefaults]
+#define USERID @"employeeId"
+#define UUID @"uuid"
+#define ISLOGIN @"isLogin"
+#define POSITON @"position"
+#define STORECD @"e_STORE_CD"
+#define USERNAME @"e_NAME"
+#define IPADD @"ip"
+#define RoleId @"RoleId"
+
+
+#define STORCDSTRING [[userDefaults objectForKey:STORECD] length] ? [userDefaults objectForKey:STORECD] : @""
+
+#define OBJMESSAGE [obj objectForKey:@"message"]
+#define CONTENTOBJ [obj objectForKey:@"content"]
+
+//#define SHOWSTATUSCLEAR [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
+#define SHOWSTATUSCLEAR UIWindow *window = [UIApplication sharedApplication].keyWindow;\
+[MBProgressHUD showHUDAddedTo:window animated:YES];\
+
+#define DISMISS \
+[MBProgressHUD hideAllHUDsForView:[UIApplication sharedApplication].keyWindow animated:YES];
+
+
+#define BADREQUEST SHOWTEXTINWINDOW(@"操作失败", 1);
+#define SUCCESSMESAGE SHOWTEXTINWINDOW(@"操作成功", 1);
+
+#define WINDOWSHOWTEXT(text,time) \
+[MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];\
+MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];\
+hud.mode = MBProgressHUDModeText;\
+hud.detailsLabelText = text;\
+[hud hide:YES afterDelay:time];\
+
+#define SHOWTEXTINWINDOW(text,time) \
+[MBProgressHUD hideAllHUDsForView:[UIApplication sharedApplication].keyWindow animated:YES];\
+MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];\
+hud.mode = MBProgressHUDModeText;\
+hud.detailsLabelText = text;\
+[hud hide:YES afterDelay:time];\
+
+#define SHOWTEXTSELFVIEW(text,time)\
+MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];\
+hud.mode = MBProgressHUDModeText;\
+hud.labelText = text;\
+dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, time * NSEC_PER_SEC);\
+dispatch_after(popTime, dispatch_get_main_queue(), ^(void){\
+    [MBProgressHUD hideHUDForView:self.view animated:YES];\
+});\
+
+
+//UIWindow *window = [UIApplication sharedApplication].keyWindow;\
+//[MBProgressHUD hideHUDForView:window animated:YES];\
+//MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:window animated:YES];\
+//hud.mode = MBProgressHUDModeText;\
+//hud.detailsLabelText = text;\
+//dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, time * NSEC_PER_SEC);\
+//dispatch_after(popTime, dispatch_get_main_queue(), ^(void){\
+//[MBProgressHUD hideHUDForView:window animated:YES];\
+//});
+//[LJOMGToast showWithText:text duration:3];
+//[[iToast makeText:text] show];
+
+
+
+#define SHOWSTATUS [SVProgressHUD showWithStatus:@"操作中"];
+
+#define WhiteColor [UIColor whiteColor]
+#define kMainScreenHeight [[UIScreen mainScreen] bounds].size.height
+#define kMainScreenWidth [[UIScreen mainScreen] bounds].size.width
+#define kappScreenWidth kMainScreenWidth
+#define kappScreenHeight kMainScreenHeight
+#define kTopScreenWidth 64.0f
+#define RGB(r,g,b) ((COLORREF)(((BYTE)(r)|((WORD)((BYTE)(g))<<8))|((DWORD)(BYTE)(b)
+#define leftMargin 30.0f
+#define LightBrownColor [UIColor colorWithRed:224/255.0f green:182/255.0f blue:126/255.0f alpha:1]
+#define navLightBrownColor [UIColor colorWithRed:239/255.0f green:210/255.0f blue:171/255.0f alpha:1]
+#define gray238 [UIColor colorWithRed:238.0f/255 green:238.0f/255 blue:238.0f/255 alpha:1]
+
+#define gray210 [UIColor colorWithRed:210/255.0f green:210/255.0f blue:210/255.0f alpha:1]
+
+#define gray81 [UIColor colorWithRed:81.0f/255 green:81.0f/255 blue:81.0f/255 alpha:1]
+
+#define gray70 [UIColor colorWithRed:70/255.0f green:70/255.0f blue:70/255.0f alpha:1]
+#define gray80 [UIColor colorWithRed:80/255.0f green:80/255.0f blue:80/255.0f alpha:1]
+#define gray90 [UIColor colorWithRed:90/255.0f green:90/255.0f blue:90/255.0f alpha:1]
+#define gray250 [UIColor colorWithRed:250.0f/255.0f green:250.0f/255.0f blue:250.0f/255.0f alpha:1]
+#define gray104 [UIColor colorWithRed:104.0f/255 green:104.0f/255 blue:104.0f/255 alpha:1]
+#define gray146 [UIColor colorWithRed:146.0f/255.0f green:146.0f/255.0f blue:146.0f/255.0f alpha:1]
+#define gray191 [UIColor colorWithRed:191/255.0f green:191/255.0f blue:191/255.0f alpha:1]
+#define NavBackColor [UIColor colorWithRed:139/255.0f green:207/255.0f blue:226/255.0f alpha:1]
+
+#define SYSTEMFONT(n) [UIFont systemFontOfSize:(n * kappScreenWidth / 320.0f)]
+#define FONT(n) [UIFont systemFontOfSize:n]
+#define FONTBOLD(n) [UIFont boldSystemFontOfSize:n]
+#define FONT8 [UIFont systemFontOfSize:8]
+#define FONT9 [UIFont systemFontOfSize:9]
+#define FONT10 [UIFont systemFontOfSize:10]
+#define FONT11 [UIFont systemFontOfSize:11]
+#define FONT12 [UIFont systemFontOfSize:12]
+#define FONT13 [UIFont systemFontOfSize:13]
+#define FONT14 [UIFont systemFontOfSize:14]
+#define FONT15 [UIFont systemFontOfSize:15]
+#define FONT16 [UIFont systemFontOfSize:16]
+#define FONT17 [UIFont systemFontOfSize:17]
+#define FONT18 [UIFont systemFontOfSize:18]
+#define FONT19 [UIFont systemFontOfSize:19]
+#define FONT20 [UIFont systemFontOfSize:20]
+#define FONT21 [UIFont systemFontOfSize:21]
+#define FONT22 [UIFont systemFontOfSize:22]
+#define FONT23 [UIFont systemFontOfSize:23]
+#define FONT24 [UIFont systemFontOfSize:24]
+#define FONT25 [UIFont systemFontOfSize:25]
+#define FONT30 [UIFont systemFontOfSize:30]
+#define FONT35 [UIFont systemFontOfSize:35]
+#define FONT40 [UIFont systemFontOfSize:40]
+
+
+
+#endif /* PrefixHeader_pch */
