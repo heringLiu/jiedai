@@ -191,7 +191,7 @@
         
         return;
     } else if (index == 104) {
-        UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"请选择菜单" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"开单明细", @"销售业绩", nil];
+        UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"请选择菜单" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"开单", @"开单明细", @"销售业绩", @"等待区域", nil];
         [as showInView:self.view];
         return;
     }
@@ -219,14 +219,29 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
-        NSLog(@"开单明细");
+        NSLog(@"开单");
         LJCollectViewController *next = [[LJCollectViewController alloc] init];
         [self presentViewController:next animated:YES completion:^{
             
         }];
         
     } else if (buttonIndex == 1) {
+        NSLog(@"开单明细");
+        LJCollectViewController *next = [[LJCollectViewController alloc] init];
+        [self presentViewController:next animated:YES completion:^{
+            
+        }];
+        
+    } else if (buttonIndex == 2) {
         NSLog(@"销售业绩");
+        HLTotalViewController *totalViewController = [[HLTotalViewController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:totalViewController];
+        [nav setNavigationBarHidden:YES];
+        [self presentViewController:nav animated:YES completion:^{
+            
+        }];
+    } else if (buttonIndex == 3) {
+        NSLog(@"等待区域");
         HLTotalViewController *totalViewController = [[HLTotalViewController alloc] init];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:totalViewController];
         [nav setNavigationBarHidden:YES];

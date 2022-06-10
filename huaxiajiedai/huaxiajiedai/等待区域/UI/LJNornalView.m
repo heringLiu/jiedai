@@ -20,7 +20,7 @@
 
 
 - (instancetype)initWithTitleName:(NSString *)titleString {
-    self.backgroundColor = WhiteColor;
+//    self.backgroundColor = WhiteColor;
     if (self = [super init]) {
         self.backgroundColor = WhiteColor;
         self.titleLabel = [UILabel new];
