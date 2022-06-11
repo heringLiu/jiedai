@@ -45,10 +45,14 @@
         UINavigationController *technicianNavController = [[UINavigationController alloc] initWithRootViewController:self.technicianViewController];
         technicianNavController.navigationBarHidden = YES;
         
-        UIViewController *vc = [[UIViewController alloc] init];
+        HLShouPaiViewController *shoupaiViewController= [[HLShouPaiViewController alloc] init];
+        UINavigationController *shoupaiNav = [[UINavigationController alloc] initWithRootViewController:shoupaiViewController];
+        shoupaiNav.navigationBarHidden = YES;
+        
+//        UIViewController *vc = [[UIViewController alloc] init];
         UIViewController *vc2 = [[UIViewController alloc] init];
         
-        NSArray *controllsersArray = [NSArray arrayWithObjects:roomNavController,waitingNavController, technicianNavController, vc,vc2, nil];
+        NSArray *controllsersArray = [NSArray arrayWithObjects:roomNavController,waitingNavController, technicianNavController, shoupaiNav,vc2, nil];
         [self.tabBar setHidden:YES];
         
         [self setViewControllers:controllsersArray];
@@ -123,7 +127,14 @@
     
 }
 -(void)tabBarItemSelectedWithIndex:(int)index{
-    if (index == 103) {
+    if (index == 101) {
+        SHOWTEXTINWINDOW(@"暂未开放", 1.5);
+        return;
+    }
+
+    if (index == 109) {
+        SHOWTEXTINWINDOW(@"暂未开放", 1.5);
+        return;
         SHOWSTATUSCLEAR
         [[NetWorkingModel sharedInstance] POST:BUSINESSDATE parameters:@{} success:^(AFHTTPRequestOperation *operation, id obj) {
             DISMISS
@@ -219,15 +230,77 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
-        NSLog(@"开单");
-        LJCollectViewController *next = [[LJCollectViewController alloc] init];
-        [self presentViewController:next animated:YES completion:^{
+        SHOWSTATUSCLEAR
+        [[NetWorkingModel sharedInstance] POST:BUSINESSDATE parameters:@{} success:^(AFHTTPRequestOperation *operation, id obj) {
+            DISMISS
+            NSData *jsonData = [NSJSONSerialization dataWithJSONObject:obj options:NSJSONWritingPrettyPrinted error:nil];
+            NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+            
+            NSLog(@"%@", jsonString);
+            
+            if (ISSUCCESS) {
+                NSString *dateStr = [CONTENTOBJ objectForKey:@"BusinessDate"];
+                NSDateFormatter *df = [[NSDateFormatter alloc] init];
+                [df setTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Shanghai"]];
+                df.dateFormat = @"YYYY-MM-dd";
+                NSDate *date = [df dateFromString:dateStr];
+                date = [self getNowDateFromatAnDate:date];
+                
+                NSCalendar *calendar = [NSCalendar currentCalendar];
+                
+                NSDate *nowDate = [NSDate date];
+                
+                NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:nowDate];
+                nowDate = [calendar dateFromComponents:components];
+                nowDate = [self getNowDateFromatAnDate:nowDate];
+                
+                NSLog(@"date = %@, nowdate = %@", date, nowDate);
+                NSTimeInterval business = [date timeIntervalSince1970];
+                NSTimeInterval now = [nowDate timeIntervalSince1970];
+                
+                if (business > now) {
+                    //NSLog(@"Date1  is in the future");
+                    NSLog(@"大");
+                } else if (business < now){
+                    //NSLog(@"Date1 is in the past");
+                    NSLog(@"小");
+                    NSCalendar *calendar = [NSCalendar currentCalendar];
+                    NSUInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+                    NSDate *now = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
+                    NSDateComponents *dateComponent = [calendar components:unitFlags fromDate:now];
+                    int hour = (int) [dateComponent hour];
+                    if (hour >= 7) {
+                        SHOWTEXTINWINDOW(@"还未日结，请日结后开单", 1);
+                        return ;
+                    }
+                } else  {
+                    NSLog(@"相等");
+                }
+                
+                
+                LJAddClientViewController *add = [[LJAddClientViewController alloc] init];
+                UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:add];
+                nav.navigationBarHidden = YES;
+                nav.modalPresentationStyle = UIModalPresentationFullScreen;
+                [self presentViewController:nav animated:YES completion:^{
+                    
+                }];
+                
+            }
+            
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            DISMISS
+            SHOWTEXTINWINDOW(@"获取营业日失败", 1);
             
         }];
+        
+        
         
     } else if (buttonIndex == 1) {
         NSLog(@"开单明细");
         LJCollectViewController *next = [[LJCollectViewController alloc] init];
+        next.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:next animated:YES completion:^{
             
         }];
@@ -237,15 +310,16 @@
         HLTotalViewController *totalViewController = [[HLTotalViewController alloc] init];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:totalViewController];
         [nav setNavigationBarHidden:YES];
+        nav.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:nav animated:YES completion:^{
             
         }];
     } else if (buttonIndex == 3) {
         NSLog(@"等待区域");
-        HLTotalViewController *totalViewController = [[HLTotalViewController alloc] init];
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:totalViewController];
-        [nav setNavigationBarHidden:YES];
-        [self presentViewController:nav animated:YES completion:^{
+        UINavigationController *waitingNavController = [[UINavigationController alloc] initWithRootViewController:self.waitingViewController];
+        waitingNavController.navigationBarHidden = YES;
+//        waitingNavController.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:waitingNavController animated:YES completion:^{
             
         }];
     }

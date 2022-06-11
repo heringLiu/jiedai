@@ -15,6 +15,7 @@
 		07A2B8BC2851E5D500638C86 /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2B8B22851E5D500638C86 /* SWTableViewCell.m */; };
 		07A2B8BD2851E5D500638C86 /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2B8B42851E5D500638C86 /* SWUtilityButtonView.m */; };
 		07A2B8BE2851E5D500638C86 /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2B8B52851E5D500638C86 /* NSMutableArray+SWUtilityButtons.m */; };
+		07A2B8C228532C4C00638C86 /* HLShouPaiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2B8C128532C4C00638C86 /* HLShouPaiViewController.m */; };
 		9105A0711CBCC218000820F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9105A0701CBCC218000820F1 /* main.m */; };
 		9105A0741CBCC218000820F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9105A0731CBCC218000820F1 /* AppDelegate.m */; };
 		9105A0771CBCC218000820F1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9105A0761CBCC218000820F1 /* ViewController.m */; };
@@ -161,6 +162,8 @@
 		07A2B8B62851E5D500638C86 /* SWUtilityButtonTapGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonTapGestureRecognizer.h; sourceTree = "<group>"; };
 		07A2B8B72851E5D500638C86 /* SWLongPressGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWLongPressGestureRecognizer.h; sourceTree = "<group>"; };
 		07A2B8B82851E5D500638C86 /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
+		07A2B8C028532C4C00638C86 /* HLShouPaiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLShouPaiViewController.h; sourceTree = "<group>"; };
+		07A2B8C128532C4C00638C86 /* HLShouPaiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLShouPaiViewController.m; sourceTree = "<group>"; };
 		276B033E086FD28433CDA64F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9105A06C1CBCC218000820F1 /* huaxiajiedai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = huaxiajiedai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9105A0701CBCC218000820F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -384,6 +387,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07A2B8BF28532B9100638C86 /* 手牌 */ = {
+			isa = PBXGroup;
+			children = (
+				07A2B8C028532C4C00638C86 /* HLShouPaiViewController.h */,
+				07A2B8C128532C4C00638C86 /* HLShouPaiViewController.m */,
+			);
+			path = "手牌";
+			sourceTree = "<group>";
+		};
 		3EC10C383AB670A7965B1132 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -418,6 +430,7 @@
 		9105A06E1CBCC218000820F1 /* huaxiajiedai */ = {
 			isa = PBXGroup;
 			children = (
+				07A2B8BF28532B9100638C86 /* 手牌 */,
 				A8C508B71FB4867700B25098 /* 做活信息 */,
 				A8C508AA1FB4862D00B25098 /* 汇总 */,
 				A8BE00FC1FA9B2FA00DA8002 /* 套盒信息 */,
@@ -1122,6 +1135,7 @@
 				91347C851CC5D73A009D5DA7 /* LJMenuView.m in Sources */,
 				910AD76D1CC896880092801F /* LJColorImage.m in Sources */,
 				9105A0A51CBCDA44000820F1 /* LJLoginViewController.m in Sources */,
+				07A2B8C228532C4C00638C86 /* HLShouPaiViewController.m in Sources */,
 				91AA86F81CD845010062027C /* LJProjectTitleModel.m in Sources */,
 				A8BE01031FA9B2FA00DA8002 /* HLBoxInfoView.m in Sources */,
 				910AD7751CC8CDF50092801F /* LJSelectRoomViewController.m in Sources */,

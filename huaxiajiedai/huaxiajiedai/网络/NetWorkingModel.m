@@ -294,6 +294,7 @@ static AFHTTPRequestOperationManager *manager = nil;
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         DISMISS
+        NSLog(operation.response.description);
         if (operation.response.statusCode == 500) {
             
             WINDOWSHOWTEXT(@"服务器内部错误 500", 1);

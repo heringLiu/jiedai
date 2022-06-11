@@ -499,6 +499,28 @@
  */
 #define BUSINESSDATE [NSString stringWithFormat:@"%@%@",REQUESTADDRESS,@"/technician/serve/getBusinessDate/"]
 
+// 2022年6月11日新增
+/* 接口名称：获取手牌列表
+ * 请求地址：/hxlz/reception/hand/handIndex/
+ * 请求方式：GET
+ * 请求参数：handCd
+ */
+#define HANDINDEX [NSString stringWithFormat:@"%@%@",REQUESTADDRESS,@"/reception/hand/handIndex/"]
+
+/* 接口名称：获取系统参数值
+ * 请求地址：/hxlz/reception/consumerOrder/getSysSetValueBySetCd/
+ * 请求方式：POST
+ * 请求参数：setCd
+ */
+#define GETSYSTEMVALUEBYSETCD [NSString stringWithFormat:@"%@%@",REQUESTADDRESS,@"/reception/consumerOrder/getSysSetValueBySetCd/"]
+
+/* 接口名称：根据手牌获取订单列表
+ * 请求地址：/reception/hand/getHandOrder/
+ * 请求方式：POST
+ * 请求参数：setCd
+ */
+#define GETHANDERORDER [NSString stringWithFormat:@"%@%@",REQUESTADDRESS,@"/reception/hand/getHandOrder/"]
+
 
 
 #endif /* Contention_h */

@@ -13,7 +13,7 @@
 @synthesize delegate;
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
-    NSArray *array = [NSArray arrayWithObjects:@"房态",@"等待",@"技师",@"开单",@"其他", nil];
+    NSArray *array = [NSArray arrayWithObjects:@"房态",@"预约",@"技师",@"手牌",@"其他", nil];
 //    NSArray *SelectImages = [NSArray arrayWithObjects:@"Store_tab_icon_Store_pre",@"Store_tab_icon_fenlei_pre",@"Store_tab_icon_pinlei_pre",@"Store_tab_icon_user_pre", nil];
 //    NSArray *imagesArray = [NSArray arrayWithObjects:@"Store_tab_icon_Store",@"Store_tab_icon_fenlei",@"Store_tab_icon_pinlei",@"Store_tab_icon_user", nil];
     
@@ -47,29 +47,60 @@
     return self;
 }
 - (void)buttonPressed:(id)sender{
-    
     CustomTabBarButton *btn = (CustomTabBarButton *)sender;
-    if (btn.tag == 103 || index == 104) {
-        [delegate tabBarItemSelectedWithIndex:(int)btn.tag];
-        return;
-    }
-//    NSArray *SelectImages = [NSArray arrayWithObjects:@"Store_tab_icon_Store_pre",@"Store_tab_icon_fenlei_pre",@"Store_tab_icon_pinlei_pre",@"Store_tab_icon_user_pre", nil];
-//    NSArray *imagesArray = [NSArray arrayWithObjects:@"Store_tab_icon_Store",@"Store_tab_icon_fenlei",@"Store_tab_icon_pinlei",@"Store_tab_icon_user", nil];
-    
-    for (int i = 0; i < 4; i++) {
-        
-        CustomTabBarButton *button = (CustomTabBarButton *)[self viewWithTag:100+i];
-        if (button == btn) {
-//            button.myImageView.image = [UIImage imageNamed:[SelectImages objectAtIndex:i]];
-            button.nameLabel.textColor = LightBrownColor;
-        } else {
-//            button.myImageView.image = [UIImage imageNamed:[imagesArray objectAtIndex:i]];
-            button.nameLabel.textColor = gray104;
-        }
+    if (btn.tag == 103) {
+        [[NetWorkingModel sharedInstance] POST:GETSYSTEMVALUEBYSETCD parameters:@{@"setCd":@"HAND_FLG"} success:^(AFHTTPRequestOperation *operation, id obj) {
+            NSData *jsonData = [NSJSONSerialization dataWithJSONObject:obj options:NSJSONWritingPrettyPrinted error:nil];
+            NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+            NSLog(@"%@", jsonString);
+            if (ISSUCCESS) {
+                NSString *setValue = [CONTENTOBJ objectForKey:@"SetValue"];
+                if (setValue == nil || setValue.length <= 0 || [setValue isEqual:@"0"]) {
+                    SHOWTEXTINWINDOW(@"手牌功能未启用", 1.5);
+                    return;;
+                } else {
+                    for (int i = 0; i < 4; i++) {
+                        
+                        CustomTabBarButton *button = (CustomTabBarButton *)[self viewWithTag:100+i];
+                        if (button == btn) {
+                            button.nameLabel.textColor = LightBrownColor;
+                        } else {
+                            button.nameLabel.textColor = gray104;
+                        }
 
+                    }
+                    [delegate tabBarItemSelectedWithIndex:(int)btn.tag];
+                }
+            }
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                SHOWTEXTINWINDOW(@"获取系统参数异常", 1.5);
+                return;
+            }];
+    } else {
+        if (index == 104) {
+            [delegate tabBarItemSelectedWithIndex:(int)btn.tag];
+            return;
+        }
+    //    NSArray *SelectImages = [NSArray arrayWithObjects:@"Store_tab_icon_Store_pre",@"Store_tab_icon_fenlei_pre",@"Store_tab_icon_pinlei_pre",@"Store_tab_icon_user_pre", nil];
+    //    NSArray *imagesArray = [NSArray arrayWithObjects:@"Store_tab_icon_Store",@"Store_tab_icon_fenlei",@"Store_tab_icon_pinlei",@"Store_tab_icon_user", nil];
+        
+        for (int i = 0; i < 4; i++) {
+            
+            CustomTabBarButton *button = (CustomTabBarButton *)[self viewWithTag:100+i];
+            if (button == btn) {
+    //            button.myImageView.image = [UIImage imageNamed:[SelectImages objectAtIndex:i]];
+                button.nameLabel.textColor = LightBrownColor;
+            } else {
+    //            button.myImageView.image = [UIImage imageNamed:[imagesArray objectAtIndex:i]];
+                button.nameLabel.textColor = gray104;
+            }
+
+        }
+        
+        [delegate tabBarItemSelectedWithIndex:(int)btn.tag];
     }
     
-    [delegate tabBarItemSelectedWithIndex:(int)btn.tag];
+   
 }
 
 - (void) selectIndex:(NSInteger)index {

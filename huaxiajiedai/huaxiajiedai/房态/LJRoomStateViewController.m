@@ -96,12 +96,13 @@
     mySearchBar.barTintColor = LightBrownColor;
     [mySearchBar setImage:[UIImage imageNamed:@"icon_Search_bg white"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
     mySearchBar.backgroundColor = [UIColor clearColor];
-//    for (UIView *subView in mySearchBar.subviews) {
-//        if ([subView isKindOfClass:NSClassFromString(@"UIView")] && subView.subviews.count > 0) {
-//            [[subView.subviews objectAtIndex:0] removeFromSuperview];
-//            break;
-//        }
-//    }
+    for (UIView *view in mySearchBar.subviews.lastObject.subviews) {
+        if ([view isKindOfClass:NSClassFromString(@"UISearchBarBackground")]) {
+            // [view removeFromSuperview];
+            view.layer.contents = nil;
+            break;
+        }
+    }
     
     topMenu = [[TopScrollViewMenuView alloc] initWithFrame:CGRectMake(0, kTopScreenWidth, kappScreenWidth, 50)];
     if (self.titleArray.count) {

@@ -13,6 +13,7 @@
 #import "LJTechnicianViewController.h"
 #import "LJCollectViewController.h"
 #import "HLTotalViewController.h"
+#import "HLShouPaiViewController.h"
 
 @interface ShoppingMallTabBarViewController : UITabBarController <UIActionSheetDelegate>
 @property (nonatomic,strong)CustomTabBarView *bottomTabBarView;
