@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HLShouPaiViewController  : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate, TecTopScrollViewMenuDelegate>
+@interface HLShouPaiViewController  : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate, TecTopScrollViewMenuDelegate, CustomTopNavigationViewDelegate, UISearchBarDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong) UICollectionView *myCollectionView;
 
@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) LJConsumptionHeaderModel *headerEntity;
 
 @property (nonatomic, strong) NSMutableArray *datas;
+
+@property (nonatomic, strong) NSString *handCd;
 
 @end
 

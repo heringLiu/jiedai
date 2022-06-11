@@ -40,8 +40,11 @@
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     NSString *str = @"";
     [dic setObject:str forKey:@"saleManCd"];
+    if (self.handCd.length > 0) {
+        [dic setObject:self.handCd forKey:@"handCd"];
+    }
     
-    [[NetWorkingModel sharedInstance] GET:HANDINDEX parameters:@{} success:^(AFHTTPRequestOperation *operation, id obj) {
+    [[NetWorkingModel sharedInstance] GET:HANDINDEX parameters:dic success:^(AFHTTPRequestOperation *operation, id obj) {
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:obj options:NSJSONWritingPrettyPrinted error:nil];
         NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         NSLog(@"%@", jsonString);
@@ -114,10 +117,12 @@
     [topView addSubview:mySearchBar];
     mySearchBar.delegate = self;
     mySearchBar.placeholder = @"请输入手牌";
-    mySearchBar.showsCancelButton = NO;
+    mySearchBar.showsCancelButton = YES;
+    mySearchBar.returnKeyType = YES;
     mySearchBar.barTintColor = LightBrownColor;
     [mySearchBar setImage:[UIImage imageNamed:@"icon_Search_bg white"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
     mySearchBar.backgroundColor = [UIColor clearColor];
+
     
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
@@ -140,6 +145,18 @@
         [self loadData];
     }];
     [myCollectionView.mj_header beginRefreshing];
+    myCollectionView.tag = 2000;
+    UITapGestureRecognizer* singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+    
+    
+    [myCollectionView addGestureRecognizer:singleTap];
+}
+- (void)handleSingleTap:(UITapGestureRecognizer *)sender {
+    if (sender.view.tag == 2000) {
+        [mySearchBar endEditing:YES];
+        [self loadData];
+
+    }
 }
 - (NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return datas.count;
@@ -298,6 +315,8 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
    
+    self.handCd = searchText;
+    [self loadData];
     
 }
 
@@ -339,11 +358,15 @@
 //    }];
     
 }
-
+-(void)toucheEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    [mySearchBar endEditing:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
 #pragma mark - Navigation
