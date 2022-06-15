@@ -517,7 +517,14 @@
 /* 接口名称：根据手牌获取订单列表
  * 请求地址：/reception/hand/getHandOrder/
  * 请求方式：POST
- * 请求参数：setCd
+ * 请求参数：handCd
+ */
+#define GETHANDERORDER [NSString stringWithFormat:@"%@%@",REQUESTADDRESS,@"/reception/hand/getHandOrder/"]
+
+/* 接口名称：根据手牌获取订单列表
+ * 请求地址：/reception/hand/getHandOrder/
+ * 请求方式：POST
+ * 请求参数：handCd
  */
 #define GETHANDERORDER [NSString stringWithFormat:@"%@%@",REQUESTADDRESS,@"/reception/hand/getHandOrder/"]
 

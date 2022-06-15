@@ -125,9 +125,10 @@ static AFHTTPRequestOperationManager *manager = nil;
     
     // 获取版本号
     NSString *ver = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-    
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    
     [manager.requestSerializer setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+
     [manager.requestSerializer setValue:ver forHTTPHeaderField:@"ver"];
     manager.requestSerializer.timeoutInterval = 15.0f;
     

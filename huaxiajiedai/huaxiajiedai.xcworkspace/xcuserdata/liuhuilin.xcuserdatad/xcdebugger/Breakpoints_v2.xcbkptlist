@@ -55,16 +55,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "07FE5ED2-F6C1-4F0C-92E7-21906611DECF"
+            uuid = "D60E6458-3717-4DDD-8A9D-6C24F5C6B11B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "huaxiajiedai/&#x624b;&#x724c;/HLShouPaiViewController.m"
+            filePath = "huaxiajiedai/&#x7b49;&#x5f85;&#x533a;&#x57df;/LJWaitingAreaViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "362"
-            endingLineNumber = "362"
-            landmarkName = "-didReceiveMemoryWarning"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "-loadData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

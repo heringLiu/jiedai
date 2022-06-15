@@ -16,6 +16,9 @@
 		07A2B8BD2851E5D500638C86 /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2B8B42851E5D500638C86 /* SWUtilityButtonView.m */; };
 		07A2B8BE2851E5D500638C86 /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2B8B52851E5D500638C86 /* NSMutableArray+SWUtilityButtons.m */; };
 		07A2B8C228532C4C00638C86 /* HLShouPaiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2B8C128532C4C00638C86 /* HLShouPaiViewController.m */; };
+		07A2B8C528559C5300638C86 /* HLShouPaiDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2B8C428559C5300638C86 /* HLShouPaiDetailViewController.m */; };
+		07A2B8C82859C3A900638C86 /* HLShouPaiListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2B8C72859C3A900638C86 /* HLShouPaiListViewController.m */; };
+		07A2B8CB2859D71A00638C86 /* HLGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2B8C92859D71A00638C86 /* HLGridView.m */; };
 		9105A0711CBCC218000820F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9105A0701CBCC218000820F1 /* main.m */; };
 		9105A0741CBCC218000820F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9105A0731CBCC218000820F1 /* AppDelegate.m */; };
 		9105A0771CBCC218000820F1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9105A0761CBCC218000820F1 /* ViewController.m */; };
@@ -164,6 +167,12 @@
 		07A2B8B82851E5D500638C86 /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
 		07A2B8C028532C4C00638C86 /* HLShouPaiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLShouPaiViewController.h; sourceTree = "<group>"; };
 		07A2B8C128532C4C00638C86 /* HLShouPaiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLShouPaiViewController.m; sourceTree = "<group>"; };
+		07A2B8C328559C5300638C86 /* HLShouPaiDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLShouPaiDetailViewController.h; sourceTree = "<group>"; };
+		07A2B8C428559C5300638C86 /* HLShouPaiDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLShouPaiDetailViewController.m; sourceTree = "<group>"; };
+		07A2B8C62859C3A900638C86 /* HLShouPaiListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLShouPaiListViewController.h; sourceTree = "<group>"; };
+		07A2B8C72859C3A900638C86 /* HLShouPaiListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLShouPaiListViewController.m; sourceTree = "<group>"; };
+		07A2B8C92859D71A00638C86 /* HLGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLGridView.m; sourceTree = "<group>"; };
+		07A2B8CA2859D71A00638C86 /* HLGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLGridView.h; sourceTree = "<group>"; };
 		276B033E086FD28433CDA64F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9105A06C1CBCC218000820F1 /* huaxiajiedai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = huaxiajiedai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9105A0701CBCC218000820F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -390,8 +399,14 @@
 		07A2B8BF28532B9100638C86 /* 手牌 */ = {
 			isa = PBXGroup;
 			children = (
+				07A2B8CA2859D71A00638C86 /* HLGridView.h */,
+				07A2B8C92859D71A00638C86 /* HLGridView.m */,
 				07A2B8C028532C4C00638C86 /* HLShouPaiViewController.h */,
 				07A2B8C128532C4C00638C86 /* HLShouPaiViewController.m */,
+				07A2B8C328559C5300638C86 /* HLShouPaiDetailViewController.h */,
+				07A2B8C428559C5300638C86 /* HLShouPaiDetailViewController.m */,
+				07A2B8C62859C3A900638C86 /* HLShouPaiListViewController.h */,
+				07A2B8C72859C3A900638C86 /* HLShouPaiListViewController.m */,
 			);
 			path = "手牌";
 			sourceTree = "<group>";
@@ -1171,6 +1186,7 @@
 				91E0ACBA1CD0484A008F1124 /* NetWorkingModel.m in Sources */,
 				913A2B1B1DA9D25900146B16 /* LJRoomListView.m in Sources */,
 				A8C508B41FB4862D00B25098 /* HLSelectTimeViewController.m in Sources */,
+				07A2B8C528559C5300638C86 /* HLShouPaiDetailViewController.m in Sources */,
 				9162B71B1CDB14DC008F5A98 /* LJTechnicianChangedView.m in Sources */,
 				A8BE01051FA9B2FA00DA8002 /* HLBoxTableViewCell.m in Sources */,
 				918AC8F41CC749E000B1688B /* LJCollectionHeaderView.m in Sources */,
@@ -1185,10 +1201,12 @@
 				913A2B1C1DA9D25900146B16 /* LJRoomStateViewController.m in Sources */,
 				915F6E681CBE1D9D00615459 /* CustomTabBarView.m in Sources */,
 				9105A0741CBCC218000820F1 /* AppDelegate.m in Sources */,
+				07A2B8CB2859D71A00638C86 /* HLGridView.m in Sources */,
 				91DB530A1CC07CC500E4C618 /* LJAddClientViewController.m in Sources */,
 				9121DC9D1CC4B7EC003F14BC /* LJReceptionListTableViewCell.m in Sources */,
 				917AC1DD1CD088BF00C93851 /* LJFloorModel.m in Sources */,
 				913A2B171DA9D25900146B16 /* LJAllJieDaiListViewController.m in Sources */,
+				07A2B8C82859C3A900638C86 /* HLShouPaiListViewController.m in Sources */,
 				913A2B1A1DA9D25900146B16 /* LJRoomListCollectionViewCell.m in Sources */,
 				915F6E671CBE1D9D00615459 /* CustomTabBarButton.m in Sources */,
 				917AF7DB1CF5729000785B59 /* MMDrawerController.m in Sources */,

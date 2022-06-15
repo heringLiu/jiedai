@@ -113,7 +113,7 @@
     [self.view addSubview:topView];
 
     topView.delegate = self;
-    mySearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(30, 20, kappScreenWidth - 70, 40)];
+    mySearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(30, 20, kappScreenWidth - 100, 40)];
     [topView addSubview:mySearchBar];
     mySearchBar.delegate = self;
     mySearchBar.placeholder = @"请输入手牌";
@@ -145,11 +145,11 @@
         [self loadData];
     }];
     [myCollectionView.mj_header beginRefreshing];
-    myCollectionView.tag = 2000;
-    UITapGestureRecognizer* singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+//    myCollectionView.tag = 2000;
+//    UITapGestureRecognizer* singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     
     
-    [myCollectionView addGestureRecognizer:singleTap];
+//    [myCollectionView addGestureRecognizer:singleTap];
 }
 - (void)handleSingleTap:(UITapGestureRecognizer *)sender {
     if (sender.view.tag == 2000) {
@@ -291,12 +291,18 @@
     return cell;
 }
 
+- (void)rightButtonPressed {
+    [mySearchBar endEditing: YES];
+    topView.rightButton.hidden = YES;
+}
+
 - (void) buttonClick:(UIButton *) sender {
     [sender setSelected:!sender.isSelected];
 }
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
-    
+    [topView.rightButton setTitle:@"取消" forState:UIControlStateNormal];
+    topView.rightButton.hidden = NO;
     return YES;
 }
 
@@ -324,13 +330,14 @@
     [searchBar endEditing:YES];
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-//    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-//
-//    NSDictionary *dic = [datas objectAtIndex:indexPath.row];
-//
-//    if ([[dic objectForKey:@"curState"] isEqualToString:@"free"]) {
-//        return;
-//    }
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+
+    NSDictionary *dic = [datas objectAtIndex:indexPath.row];
+
+    HLShouPaiListViewController *shouPaiList = [[HLShouPaiListViewController alloc] init];
+    shouPaiList.handCd = [dic objectForKey:@"handCd"];
+    shouPaiList.isConsumption = YES;
+    [self.navigationController pushViewController:shouPaiList animated:YES];
 //    SHOWSTATUSCLEAR
 //    [[NetWorkingModel sharedInstance] GET:CLICKJISHI parameters:@{@"artificerCd":[dic objectForKey:@"artificerCd"]} success:^(AFHTTPRequestOperation *operation, id obj) {
 //        DISMISS
