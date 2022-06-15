@@ -70,20 +70,15 @@
                 
                 [myTableView reloadData];
                 
-                if (!self.comeBack) {
-                    self.comeBack = YES;
-                    if (self.dataList.count == 1) {
-                        LJConsumptionListModel *entity = [self.dataList objectAtIndex:0];
-                        HLShouPaiDetailViewController *next = [[HLShouPaiDetailViewController alloc] init];
-                        next.roomCd = self.roomModel.roomCd;
-                        next.orderCd =entity.orderCd;
-                        [self.navigationController pushViewController:next animated:YES];
-                        
-                        
-                    }
+                if (self.dataList.count == 1) {
+                    LJConsumptionListModel *entity = [self.dataList objectAtIndex:0];
+                    HLShouPaiDetailViewController *next = [[HLShouPaiDetailViewController alloc] init];
+                    next.roomCd = self.roomModel.roomCd;
+                    next.orderCd =entity.orderCd;
+                    [self.navigationController pushViewController:next animated:YES];
+                    
                     
                 }
-                
                 dispatch_async(dispatch_get_global_queue(0, 0), ^{
                     if (self.searchData == nil) {
                         self.searchData = [NSMutableArray array];
@@ -214,6 +209,9 @@
 
 
 - (void) addConsumption {
+    if (self.dataList.count >= 1) {
+        return;
+    }
     SHOWSTATUSCLEAR
     [[NetWorkingModel sharedInstance] POST:BUSINESSDATE parameters:@{} success:^(AFHTTPRequestOperation *operation, id obj) {
         DISMISS
@@ -259,6 +257,26 @@
             } else  {
                 NSLog(@"相等");
             }
+            
+            HLSelectedProjectViewController *next = [[HLSelectedProjectViewController alloc] init];
+//            next.detailEntity = selectedEntity;
+//            if (selectedEntity.artificer1Cd.length) {
+//                next.artificerCd = selectedEntity.artificer1Cd;
+//            } else if (selectedEntity.artificer2Cd.length) {
+//                next.artificerCd = selectedEntity.artificer2Cd;
+//            }
+            next.isConsumption = self.isConsumption;
+            next.delegate = self;
+            next.navColor = NavBackColor;
+//            if (selectedEntity.projectName.length) {
+//                next.titleString = @"修改消费项目";
+//            } else {
+//                next.titleString = @"选择消费项目";
+//            }
+            next.view.backgroundColor = WhiteColor;
+            
+            [self.navigationController pushViewController:next animated:YES];
+            
 //            LJAddClientViewController *addClientViewController = [[LJAddClientViewController alloc] init];
 //            addClientViewController.roomCd = self.roomModel.roomCd;
 //            addClientViewController.isConsumption = YES;
@@ -794,6 +812,33 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)sendProject:(LJProjectModel *)dic {
+//  添加消费订单
+    NSMutableDictionary *entity = [[NSMutableDictionary alloc] init];
+    [entity setValue:dic.projectCd forKey:@"projectCd"];
+    [entity setValue:@"1" forKey:@"customerQty"];
+    [entity setValue:@"04" forKey:@"customerType"];
+    [entity setValue:self.handCd forKey:@"customerCd"];
+    [entity setValue:@"1" forKey:@"manQty"];
+    [entity setValue:@"" forKey:@"roomCd"];
+    [entity setValue:[userDefaults objectForKey:UUID] forKey:@"salemanCd"];
+    [entity setValue:[userDefaults objectForKey:USERNAME]  forKey:@"salemanName"];
+    [entity setValue:[userDefaults objectForKey:STORECD]  forKey:@"storeCd"];
+    [entity setValue:@"0" forKey:@"womanQty"];
+    [entity setValue:[userDefaults objectForKey:UUID]  forKey:@"updateUser"];
+    [[NetWorkingModel sharedInstance] POST:INSERTWITHPJCD parameters:entity success:^(AFHTTPRequestOperation *operation, id obj) {
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:obj options:NSJSONWritingPrettyPrinted error:nil];
+        NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSLog(@"%@", jsonString);
+        if (ISSUCCESS) {
+            [self loadData];
+        }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+        }];
+    
 }
 
 /*

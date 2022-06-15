@@ -10,7 +10,7 @@
 #import "HLShouPaiDetailViewController.h"
 #import "LJHLGridView.h"
 #import "LJAddClientViewController.h"
-#import "HLShouPaiListViewController.h""
+#import "HLShouPaiListViewController.h"
 #import "LJReceptionDetailModel.h"
 #define gridViewWidth 100 *2 + 80 * 7 + 4 * 60
 
@@ -75,6 +75,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     [self loadData];
 }
 
@@ -1067,7 +1068,7 @@
     
     [self.view bringSubviewToFront:topView];
     
-    rightMenuView = [[LJMenuView alloc] initWithFrame:CGRectMake(kappScreenWidth, kTopScreenWidth, kappScreenWidth, kappScreenHeight - kTopScreenWidth) isConsumption:YES];
+    rightMenuView = [[LJMenuView alloc] initWithFrame:CGRectMake(kappScreenWidth, kTopScreenWidth, kappScreenWidth, kappScreenHeight - kTopScreenWidth) isConsumption:YES isHandCd:YES];
     rightMenuView.delegate = self;
     listScrollView.contentSize = CGSizeMake(gridViewWidth, listScrollView.frame.size.height);
     [self.view addSubview:rightMenuView];

@@ -160,7 +160,7 @@
     backView.delegate = self;
     
     
-    rightMenuView = [[LJMenuView alloc] initWithFrame:CGRectMake(kappScreenWidth, kTopScreenWidth, kappScreenWidth, kappScreenHeight - kTopScreenWidth)isConsumption:NO];
+    rightMenuView = [[LJMenuView alloc] initWithFrame:CGRectMake(kappScreenWidth, kTopScreenWidth, kappScreenWidth, kappScreenHeight - kTopScreenWidth)isConsumption:NO isHandCd:NO];
     rightMenuView.delegate = self;
     [self.view addSubview:rightMenuView];
     

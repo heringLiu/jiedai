@@ -18,7 +18,7 @@
 		07A2B8C228532C4C00638C86 /* HLShouPaiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2B8C128532C4C00638C86 /* HLShouPaiViewController.m */; };
 		07A2B8C528559C5300638C86 /* HLShouPaiDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2B8C428559C5300638C86 /* HLShouPaiDetailViewController.m */; };
 		07A2B8C82859C3A900638C86 /* HLShouPaiListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2B8C72859C3A900638C86 /* HLShouPaiListViewController.m */; };
-		07A2B8CB2859D71A00638C86 /* HLGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2B8C92859D71A00638C86 /* HLGridView.m */; };
+		07A2B8CE2859DAEA00638C86 /* HLSelectedProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2B8CD2859DAEA00638C86 /* HLSelectedProjectViewController.m */; };
 		9105A0711CBCC218000820F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9105A0701CBCC218000820F1 /* main.m */; };
 		9105A0741CBCC218000820F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9105A0731CBCC218000820F1 /* AppDelegate.m */; };
 		9105A0771CBCC218000820F1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9105A0761CBCC218000820F1 /* ViewController.m */; };
@@ -171,8 +171,8 @@
 		07A2B8C428559C5300638C86 /* HLShouPaiDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLShouPaiDetailViewController.m; sourceTree = "<group>"; };
 		07A2B8C62859C3A900638C86 /* HLShouPaiListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLShouPaiListViewController.h; sourceTree = "<group>"; };
 		07A2B8C72859C3A900638C86 /* HLShouPaiListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLShouPaiListViewController.m; sourceTree = "<group>"; };
-		07A2B8C92859D71A00638C86 /* HLGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLGridView.m; sourceTree = "<group>"; };
-		07A2B8CA2859D71A00638C86 /* HLGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLGridView.h; sourceTree = "<group>"; };
+		07A2B8CC2859DAEA00638C86 /* HLSelectedProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLSelectedProjectViewController.h; sourceTree = "<group>"; };
+		07A2B8CD2859DAEA00638C86 /* HLSelectedProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLSelectedProjectViewController.m; sourceTree = "<group>"; };
 		276B033E086FD28433CDA64F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9105A06C1CBCC218000820F1 /* huaxiajiedai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = huaxiajiedai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9105A0701CBCC218000820F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -399,8 +399,8 @@
 		07A2B8BF28532B9100638C86 /* 手牌 */ = {
 			isa = PBXGroup;
 			children = (
-				07A2B8CA2859D71A00638C86 /* HLGridView.h */,
-				07A2B8C92859D71A00638C86 /* HLGridView.m */,
+				07A2B8CC2859DAEA00638C86 /* HLSelectedProjectViewController.h */,
+				07A2B8CD2859DAEA00638C86 /* HLSelectedProjectViewController.m */,
 				07A2B8C028532C4C00638C86 /* HLShouPaiViewController.h */,
 				07A2B8C128532C4C00638C86 /* HLShouPaiViewController.m */,
 				07A2B8C328559C5300638C86 /* HLShouPaiDetailViewController.h */,
@@ -1166,6 +1166,7 @@
 				07A2B8BA2851E5D500638C86 /* SWCellScrollView.m in Sources */,
 				913A2B191DA9D25900146B16 /* LJConsumptionViewController.m in Sources */,
 				917AF7E11CF573BA00785B59 /* LJLeftViewController.m in Sources */,
+				07A2B8CE2859DAEA00638C86 /* HLSelectedProjectViewController.m in Sources */,
 				91AA86FB1CD845200062027C /* LJProjectModel.m in Sources */,
 				911CB89F1CE9B11F00092F70 /* LJSofaCollectionViewCell.m in Sources */,
 				A8C508C41FB486B500B25098 /* HLWorksListModel.m in Sources */,
@@ -1201,7 +1202,6 @@
 				913A2B1C1DA9D25900146B16 /* LJRoomStateViewController.m in Sources */,
 				915F6E681CBE1D9D00615459 /* CustomTabBarView.m in Sources */,
 				9105A0741CBCC218000820F1 /* AppDelegate.m in Sources */,
-				07A2B8CB2859D71A00638C86 /* HLGridView.m in Sources */,
 				91DB530A1CC07CC500E4C618 /* LJAddClientViewController.m in Sources */,
 				9121DC9D1CC4B7EC003F14BC /* LJReceptionListTableViewCell.m in Sources */,
 				917AC1DD1CD088BF00C93851 /* LJFloorModel.m in Sources */,

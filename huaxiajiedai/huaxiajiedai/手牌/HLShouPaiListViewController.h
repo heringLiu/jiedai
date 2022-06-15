@@ -11,8 +11,9 @@
 #import "SWTableViewCell.h"
 #import "ljroommodel.h"
 #import "HLShouPaiDetailViewController.h"
+#import "HLSelectedProjectViewController.h"
 
-@interface HLShouPaiListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, topScrollViewMenuDelegate, CustomTopNavigationViewDelegate, SWTableViewCellDelegate, UISearchBarDelegate, UIAlertViewDelegate>
+@interface HLShouPaiListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, topScrollViewMenuDelegate, CustomTopNavigationViewDelegate, SWTableViewCellDelegate, UISearchBarDelegate,HLSelectProjectDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) CustomTopNavigationView *topView;
 

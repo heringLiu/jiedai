@@ -521,13 +521,19 @@
  */
 #define GETHANDERORDER [NSString stringWithFormat:@"%@%@",REQUESTADDRESS,@"/reception/hand/getHandOrder/"]
 
-/* 接口名称：根据手牌获取订单列表
- * 请求地址：/reception/hand/getHandOrder/
+/* 添加消费单（项目）
+ * 请求地址：/reception/consumerOrder/addProjectWithPjcd/
  * 请求方式：POST
  * 请求参数：handCd
  */
-#define GETHANDERORDER [NSString stringWithFormat:@"%@%@",REQUESTADDRESS,@"/reception/hand/getHandOrder/"]
+#define ADDPROJECTWITHPJCD [NSString stringWithFormat:@"%@%@",REQUESTADDRESS,@"/reception/consumerOrder/addProjectWithPjcd/"]
 
+/* 根据手牌增加项目（项目）
+ * 请求地址：/reception/consumerOrder/insertWithPjcd/
+ * 请求方式：POST
+ * 请求参数：handCd
+ */
+#define INSERTWITHPJCD [NSString stringWithFormat:@"%@%@",REQUESTADDRESS,@"/reception/consumerOrder/insertWithPjcd/"]
 
 
 #endif /* Contention_h */

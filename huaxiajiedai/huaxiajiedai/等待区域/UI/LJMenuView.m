@@ -19,7 +19,7 @@
 }
 */
 
-- (instancetype)initWithFrame:(CGRect)frame isConsumption:(BOOL)isConsumption{
+- (instancetype)initWithFrame:(CGRect)frame isConsumption:(BOOL)isConsumption isHandCd:(BOOL)isHandCd{
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor colorWithRed:10/254.0f green:10/254.0f blue:10/254.0f alpha:0.7];
         UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kappScreenWidth, ((kappScreenWidth - 80)/3 * 0.6 + 10) * 4 + 60)];
@@ -29,7 +29,12 @@
         
         NSArray *array = @[];
         if (isConsumption) {
-            array = @[@"增加客户", @"删除客户", @"更改房间", @"增加明细", @"删除明细", @"取消点钟", @"打印"];
+            if (isHandCd) {
+                array = @[@"增加客户", @"删除客户", @"更改房间", @"增加明细", @"删除明细", @"取消点钟", @"打印", @"并入手牌"];
+            } else {
+                array = @[@"增加客户", @"删除客户", @"更改房间", @"增加明细", @"删除明细", @"取消点钟", @"打印", @"增加项目"];
+            }
+            
         } else {
             array = @[@"增加客户", @"删除客户", @"", @"增加明细", @"删除明细", @"", @""];
         }

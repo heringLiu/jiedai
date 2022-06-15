@@ -20,5 +20,5 @@
 
 @property (nonatomic, assign) id<MenuViewDelegate>delegate;
 
-- (instancetype)initWithFrame:(CGRect)frame isConsumption:(BOOL)isConsumption;
+- (instancetype)initWithFrame:(CGRect)frame isConsumption:(BOOL)isConsumption isHandCd:(BOOL) isHandCd;
 @end

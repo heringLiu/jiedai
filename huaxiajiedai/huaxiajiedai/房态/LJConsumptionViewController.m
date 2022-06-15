@@ -1071,7 +1071,7 @@
     
     [self.view bringSubviewToFront:topView];
     
-    rightMenuView = [[LJMenuView alloc] initWithFrame:CGRectMake(kappScreenWidth, kTopScreenWidth, kappScreenWidth, kappScreenHeight - kTopScreenWidth) isConsumption:YES];
+    rightMenuView = [[LJMenuView alloc] initWithFrame:CGRectMake(kappScreenWidth, kTopScreenWidth, kappScreenWidth, kappScreenHeight - kTopScreenWidth) isConsumption:YES isHandCd:NO];
     rightMenuView.delegate = self;
     listScrollView.contentSize = CGSizeMake(gridViewWidth, listScrollView.frame.size.height);
     [self.view addSubview:rightMenuView];
