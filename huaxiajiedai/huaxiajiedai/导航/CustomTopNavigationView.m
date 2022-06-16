@@ -10,11 +10,14 @@
 @implementation CustomTopNavigationView
 @synthesize leftButton,rightButton,titleLabel,delegate,titleButton, rightButton2;
 - (id)initWithFrame:(CGRect)frame{
-    
+
     self = [super initWithFrame:frame];
     if (self) {
         
         [self setBackgroundColor:navLightBrownColor];
+        UIView *safeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kappScreenWidth, kSafeHeight)];
+        [self addSubview:safeView];
+        [safeView setBackgroundColor:navLightBrownColor];
         self.leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [leftButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [leftButton.titleLabel setFont:[UIFont fontWithName:@"Arial" size:15]];
@@ -23,7 +26,8 @@
         [self addSubview:leftButton];
         [leftButton setBackgroundImage:[UIImage imageNamed:@"left_white@3x.png"] forState:UIControlStateNormal];
         [leftButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.mas_equalTo(self.mas_top).with.offset((kTopScreenWidth-20)/2+20);
+            make.top.equalTo(safeView.mas_bottom);
+            make.bottom.equalTo(self);
             make.left.equalTo(self).with.offset(0);
             make.size.mas_equalTo(CGSizeMake(44, 44));
         }];
@@ -35,8 +39,8 @@
         [self addSubview:titleLabel];
         
         [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.mas_equalTo(self.mas_top).with.offset((kTopScreenWidth-20)/2+20);
-            make.centerX.equalTo(self);
+            make.top.equalTo(safeView.mas_bottom);
+            make.bottom.equalTo(self);
             make.left.equalTo(self).with.offset(50);
             make.right.equalTo(self).with.offset(-50);
         }];
@@ -47,8 +51,8 @@
         [self addSubview:titleButton];
         
         [titleButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.mas_equalTo(self.mas_top).with.offset((kTopScreenWidth-20)/2+20);
-            make.centerX.equalTo(self);
+            make.top.equalTo(safeView.mas_bottom);
+            make.bottom.equalTo(self);
             make.left.equalTo(self).with.offset(60);
             make.right.equalTo(self).with.offset(-60);
         }];
@@ -62,7 +66,8 @@
         [rightButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:rightButton];
         [rightButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.mas_equalTo(self.mas_top).with.offset((kTopScreenWidth-20)/2+20);
+            make.top.equalTo(safeView.mas_bottom);
+            make.bottom.equalTo(self);
             make.right.equalTo(self).with.offset(-10);
             make.size.mas_equalTo(CGSizeMake(60, 44));
         }];
@@ -76,7 +81,8 @@
         [rightButton2 addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:rightButton2];
         [rightButton2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.mas_equalTo(self.mas_top).with.offset((kTopScreenWidth-20)/2+20);
+            make.top.equalTo(safeView.mas_bottom);
+            make.bottom.equalTo(self);
             make.right.equalTo(self.rightButton.mas_left).with.offset(0);
             make.size.mas_equalTo(CGSizeMake(80, 80));
         }];

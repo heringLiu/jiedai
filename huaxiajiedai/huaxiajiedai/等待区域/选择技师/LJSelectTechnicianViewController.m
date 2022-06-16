@@ -225,7 +225,7 @@
     topView.rightButton.imageEdgeInsets = UIEdgeInsetsMake(0, 30, 0, 0);
     topView.rightButton.titleEdgeInsets = UIEdgeInsetsMake(0, 30, 0, 0);
     
-    mySearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(40, 20, kappScreenWidth - 80, 40)];
+    mySearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(40, kSafeHeight ? kSafeHeight + 10 : 20 , kappScreenWidth - 80, 40)];
     //    searchBar.
     [topView addSubview:mySearchBar];
     mySearchBar.delegate = self;

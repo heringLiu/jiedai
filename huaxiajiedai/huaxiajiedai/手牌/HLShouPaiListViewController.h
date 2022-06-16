@@ -42,4 +42,6 @@
 
 @property (nonatomic, strong) NSString *handCd;
 
+@property (nonatomic, strong) NSString *sex;
+
 @end

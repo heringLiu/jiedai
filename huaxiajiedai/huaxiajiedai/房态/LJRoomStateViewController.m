@@ -17,7 +17,7 @@
 @interface LJRoomStateViewController () <UIGestureRecognizerDelegate, LJRoomListDelegate> {
     
     TopScrollViewMenuView *topMenu;
-    
+    CGFloat barHeight;
     LJRoomListView *roomList;
 }
 
@@ -73,7 +73,7 @@
     // Do any additional setup after loading the view.
     
     
-    
+    barHeight = [[UIApplication sharedApplication] statusBarFrame].size.height + 29.0f;
     
     [self createUI];
 }
@@ -88,7 +88,7 @@
     topView.rightButton.imageEdgeInsets = UIEdgeInsetsMake(0, 30, 0, 0);
     topView.rightButton.titleEdgeInsets = UIEdgeInsetsMake(0, 30, 0, 0);
     topView.delegate = self;
-    mySearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(30, 20, kappScreenWidth - 70, 40)];
+    mySearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(30, kSafeHeight ? kSafeHeight + 10 : 20, kappScreenWidth - 70, 40)];
     [topView addSubview:mySearchBar];
     mySearchBar.delegate = self;
     mySearchBar.placeholder = @"请输入房间号、名称或名称简码";
@@ -113,7 +113,7 @@
     topMenu.delegate = self;
     [self.view addSubview:topMenu];
     
-    roomList = [[LJRoomListView alloc] initWithFrame:CGRectMake(0, kTopScreenWidth + 50, kappScreenWidth, kappScreenHeight - kTopScreenWidth - 50 - 49)];
+    roomList = [[LJRoomListView alloc] initWithFrame:CGRectMake(0, kTopScreenWidth + 50, kappScreenWidth, kappScreenHeight - kTopScreenWidth - 50 - barHeight - kSafeHeight)];
     roomList.superVC = self;
     roomList.myCollectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self loadData];
@@ -126,7 +126,7 @@
     
     [self.view addSubview:roomList];
     
-    self.mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kTopScreenWidth + 50, kappScreenWidth, kappScreenHeight - kTopScreenWidth - 50 - 49)];
+    self.mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kTopScreenWidth + 50, kappScreenWidth, kappScreenHeight - kTopScreenWidth - 50 - barHeight - kSafeHeight)];
     self.mainScrollView.pagingEnabled = YES;
     self.mainScrollView.showsVerticalScrollIndicator = NO;
     self.mainScrollView.showsHorizontalScrollIndicator = NO;
@@ -144,7 +144,7 @@
     [self.detailBtn setHidden:YES];
     [self.detailBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.view).offset(-20);
-        make.bottom.equalTo(self.view).offset(-20-49);
+        make.bottom.equalTo(self.view).offset(-20-barHeight);
         make.size.mas_equalTo(CGSizeMake(60, 60));
     }];
     
@@ -167,7 +167,7 @@
     [self.view bringSubviewToFront:roomList];
     [UIView animateWithDuration:0.3 animations:^{
         searchBar.showsCancelButton = YES;
-        roomList.frame = CGRectMake(0, kTopScreenWidth, kappScreenWidth, kappScreenHeight - kTopScreenWidth - 220);
+        roomList.frame = CGRectMake(0, kTopScreenWidth, kappScreenWidth, kappScreenHeight - kTopScreenWidth - 220 -barHeight);
         
     }];
     roomList.dataList = self.allDatas;
@@ -180,7 +180,7 @@
     [self.view bringSubviewToFront:self.mainScrollView];
     [UIView animateWithDuration:0.3 animations:^{
         searchBar.showsCancelButton = NO;
-        roomList.frame = CGRectMake(0, kTopScreenWidth + 50, kappScreenWidth, kappScreenHeight - kTopScreenWidth - 50 - 49);
+        roomList.frame = CGRectMake(0, kTopScreenWidth + 50 , kappScreenWidth, kappScreenHeight - kTopScreenWidth - 50 - barHeight);
     }];
     roomList.dataList = [[self.dataList objectAtIndex:self.page] rooms];
     

@@ -1380,7 +1380,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Dongqiang Lv (V7XKX88S2F)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = huaxiajiedai/PrefixHeader.pch;
 				INFOPLIST_FILE = huaxiajiedai/Info.plist;
@@ -1406,7 +1406,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Dongqiang Lv (V7XKX88S2F)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = huaxiajiedai/PrefixHeader.pch;
 				INFOPLIST_FILE = huaxiajiedai/Info.plist;

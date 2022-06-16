@@ -113,7 +113,7 @@
     [self.view addSubview:topView];
 
     topView.delegate = self;
-    mySearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(30, 20, kappScreenWidth - 100, 40)];
+    mySearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(30, kSafeHeight ? kSafeHeight + 10 : 20, kappScreenWidth - 100, 40)];
     [topView addSubview:mySearchBar];
     mySearchBar.delegate = self;
     mySearchBar.placeholder = @"请输入手牌";
@@ -337,6 +337,7 @@
     HLShouPaiListViewController *shouPaiList = [[HLShouPaiListViewController alloc] init];
     shouPaiList.handCd = [dic objectForKey:@"handCd"];
     shouPaiList.isConsumption = YES;
+    shouPaiList.sex = [dic objectForKey:@"sex"];
     [self.navigationController pushViewController:shouPaiList animated:YES];
 //    SHOWSTATUSCLEAR
 //    [[NetWorkingModel sharedInstance] GET:CLICKJISHI parameters:@{@"artificerCd":[dic objectForKey:@"artificerCd"]} success:^(AFHTTPRequestOperation *operation, id obj) {

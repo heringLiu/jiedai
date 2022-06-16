@@ -139,7 +139,7 @@
     topView.rightButton.imageEdgeInsets = UIEdgeInsetsMake(0, 30, 0, 0);
     topView.rightButton.titleEdgeInsets = UIEdgeInsetsMake(0, 30, 0, 0);
     topView.rightButton.hidden = YES;
-    mySearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(40, 20, kappScreenWidth - 80, 40)];
+    mySearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(40, kSafeHeight ? kSafeHeight + 10 : 20, kappScreenWidth - 80, 40)];
     //    searchBar.
     [topView addSubview:mySearchBar];
     mySearchBar.delegate = self;
@@ -346,7 +346,8 @@
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
     [UIView animateWithDuration:0.3 animations:^{
         topMenu.frame = CGRectMake(0, kTopScreenWidth, kappScreenWidth, 0);
-        myCollectionView.frame = CGRectMake(0, kTopScreenWidth, kappScreenWidth, kappScreenHeight - kTopScreenWidth - 49);
+        CGFloat barHeight = [[UIApplication sharedApplication] statusBarFrame].size.height + 29.0f;
+        myCollectionView.frame = CGRectMake(0, kTopScreenWidth, kappScreenWidth, kappScreenHeight - kTopScreenWidth - barHeight);
         
     }];
     datas = self.allDatas;
@@ -358,7 +359,8 @@
 - (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar {
     [UIView animateWithDuration:0.3 animations:^{
         topMenu.frame = CGRectMake(0, kTopScreenWidth, kappScreenWidth, 50);
-        myCollectionView.frame = CGRectMake(0, kTopScreenWidth + 50, kappScreenWidth, kappScreenHeight - kTopScreenWidth - 50 - 49);
+        CGFloat barHeight = [[UIApplication sharedApplication] statusBarFrame].size.height + 29.0f;
+        myCollectionView.frame = CGRectMake(0, kTopScreenWidth + 50, kappScreenWidth, kappScreenHeight - kTopScreenWidth - 50 - barHeight);
     }];
     datas = [[self.dataList objectAtIndex:self.page] rooms];
     [myCollectionView reloadData];

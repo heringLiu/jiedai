@@ -177,7 +177,7 @@
     } else {
         
         [UIView animateWithDuration:0.3 animations:^{
-            rightMenuView.frame = CGRectMake(kappScreenWidth, kTopScreenWidth, kappScreenWidth, kappScreenHeight - kTopScreenWidth);
+            rightMenuView.frame = CGRectMake(kappScreenWidth, kTopScreenWidth, kappScreenWidth, kappScreenHeight - kTopScreenWidth );
             [topView.rightButton setTitle:@"" forState:UIControlStateNormal];
             [topView.rightButton setImage:[UIImage imageNamed:@"icon_Menu"] forState:UIControlStateNormal];
         }];

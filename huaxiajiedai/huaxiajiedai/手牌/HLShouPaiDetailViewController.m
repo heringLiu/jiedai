@@ -572,8 +572,54 @@
         
         
     } else if (buttonTag == 1007) {
-       
+        // 根据手牌增加项目
+        HLSelectedProjectViewController *next = [[HLSelectedProjectViewController alloc] init];
+        next.isConsumption = YES;
+        next.delegate = self;
+        next.navColor = NavBackColor;
+        next.view.backgroundColor = WhiteColor;
+        [self rightButtonPressed];
+        [self.navigationController pushViewController:next animated:YES];
+    
+    } else if (buttonTag == 1008) {
+        
+        
+        
     }
+}
+
+- (void)sendProject:(LJProjectModel *)dic {
+    // 添加项目
+    NSMutableArray *strList = [[NSMutableArray alloc] init];
+    NSMutableArray *cdList = [[NSMutableArray alloc] init];
+    [cdList addObject:[userDefaults objectForKey:UUID] ];
+    NSDictionary *paramDic = [self.dataDic objectForKey:@"receptionOrderHeadTab"];
+    NSMutableDictionary *entity = [[NSMutableDictionary alloc] init];
+    [entity setValue:self.sex forKey:@"sex" ];
+    [entity setValue:self.handCd forKey:@"customerCd" ];
+    [entity setValue:dic.projectCd forKey:@"projectCd" ];
+    [strList addObject:entity];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setValue:[paramDic objectForKey:@"customerTurnCd"]  forKey:@"customerTurnCd"];
+    [params setValue:[paramDic objectForKey:@"orderCd"]  forKey:@"orderCd"];
+    [params setValue:[paramDic objectForKey:@"salemanCd"]  forKey:@"saleManCd"];
+    
+    [params setValue:[paramDic objectForKey:@"customerTurnCd"]  forKey:@"customerTurnCd"];
+    [params setValue:[userDefaults objectForKey:UUID] forKey:@"userId"];
+    [params setValue:strList forKey:@"orderDetil"];
+    
+    [[NetWorkingModel sharedInstance] POST:ADDPROJECTWITHPJCD parameters:params success:^(AFHTTPRequestOperation *operation, id obj) {
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:obj options:NSJSONWritingPrettyPrinted error:nil];
+        NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSLog(@"%@", jsonString);
+        if (ISSUCCESS) {
+            [self rightButtonPressed];
+            [self loadData];
+        }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [self rightButtonPressed];
+        }];
+    
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {

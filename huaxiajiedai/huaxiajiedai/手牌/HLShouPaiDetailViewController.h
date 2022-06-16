@@ -15,9 +15,10 @@
 #import "LJConsumptionHeaderModel.h"
 #import "LJPickerView.h"
 #import "LJHLGridView.h"
+#import "HLSelectedProjectViewController.h"
 
 
-@interface HLShouPaiDetailViewController : UIViewController <CustomTopNavigationViewDelegate, UIScrollViewDelegate, TSTableViewDelegate, MenuViewDelegate,UIAlertViewDelegate>
+@interface HLShouPaiDetailViewController : UIViewController <CustomTopNavigationViewDelegate, UIScrollViewDelegate, TSTableViewDelegate, MenuViewDelegate,UIAlertViewDelegate, HLSelectProjectDelegate>
 
 @property (nonatomic, strong) CustomTopNavigationView *topView;
 
@@ -45,6 +46,8 @@
 @property (nonatomic, strong) UIControl *myControl;
 
 @property (nonatomic, strong) NSString *handCd;
+
+@property (nonatomic, strong) NSString *sex;
 
 - (void) loadData;
 - (void) saveData;

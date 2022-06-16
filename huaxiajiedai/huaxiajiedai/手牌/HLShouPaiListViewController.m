@@ -75,6 +75,8 @@
                     HLShouPaiDetailViewController *next = [[HLShouPaiDetailViewController alloc] init];
                     next.roomCd = self.roomModel.roomCd;
                     next.orderCd =entity.orderCd;
+                    next.sex = self.sex;
+                    next.handCd = self.handCd;
                     [self.navigationController pushViewController:next animated:YES];
                     
                     
@@ -151,7 +153,7 @@
     }
     
     if (mySearchBar == nil) {
-        mySearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(40, 20, kappScreenWidth - 80, 40)];
+        mySearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(40, kSafeHeight ? kSafeHeight + 10 : 20, kappScreenWidth - 80, 40)];
         //    searchBar.
         [topView addSubview:mySearchBar];
         mySearchBar.delegate = self;
@@ -172,8 +174,8 @@
         }
         mySearchBar.hidden = YES;
     }
-    
-    CGFloat tableHeight = kappScreenHeight - kTopScreenWidth - 49;
+    CGFloat barHeight = [[UIApplication sharedApplication] statusBarFrame].size.height + 29.0f;
+    CGFloat tableHeight = kappScreenHeight - kTopScreenWidth - barHeight;
     if (isConsumption) {
         tableHeight = kappScreenHeight - kTopScreenWidth;
     }
@@ -195,7 +197,7 @@
         [self.view addSubview:AddConsumptionButton];
         [AddConsumptionButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self.view);
-            make.bottom.equalTo(self.view).offset(-50);
+            make.bottom.equalTo(self.view).offset(-80);
             make.size.mas_equalTo(CGSizeMake(60, 60));
         }];
         AddConsumptionButton.backgroundColor = LightBrownColor;
@@ -274,6 +276,7 @@
 //                next.titleString = @"选择消费项目";
 //            }
             next.view.backgroundColor = WhiteColor;
+            
             
             [self.navigationController pushViewController:next animated:YES];
             
@@ -439,6 +442,7 @@
         next.roomCd = self.roomModel.roomCd;
         next.orderCd =entity.orderCd;
         next.handCd = self.handCd;
+        next.sex = self.sex;
         self.isPushed = YES;
         [self.navigationController pushViewController:next animated:YES];
         
@@ -821,12 +825,19 @@
     [entity setValue:@"1" forKey:@"customerQty"];
     [entity setValue:@"04" forKey:@"customerType"];
     [entity setValue:self.handCd forKey:@"customerCd"];
-    [entity setValue:@"1" forKey:@"manQty"];
+    if ([self.sex isEqual:@"1"]) {
+        [entity setValue:@"1" forKey:@"manQty"];
+        [entity setValue:@"0" forKey:@"womanQty"];
+    } else {
+        [entity setValue:@"0" forKey:@"manQty"];
+        [entity setValue:@"1" forKey:@"womanQty"];
+    }
+    
     [entity setValue:@"" forKey:@"roomCd"];
     [entity setValue:[userDefaults objectForKey:UUID] forKey:@"salemanCd"];
     [entity setValue:[userDefaults objectForKey:USERNAME]  forKey:@"salemanName"];
     [entity setValue:[userDefaults objectForKey:STORECD]  forKey:@"storeCd"];
-    [entity setValue:@"0" forKey:@"womanQty"];
+    
     [entity setValue:[userDefaults objectForKey:UUID]  forKey:@"updateUser"];
     [[NetWorkingModel sharedInstance] POST:INSERTWITHPJCD parameters:entity success:^(AFHTTPRequestOperation *operation, id obj) {
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:obj options:NSJSONWritingPrettyPrinted error:nil];

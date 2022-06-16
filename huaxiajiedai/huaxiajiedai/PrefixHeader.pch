@@ -88,7 +88,9 @@ dispatch_after(popTime, dispatch_get_main_queue(), ^(void){\
 //[LJOMGToast showWithText:text duration:3];
 //[[iToast makeText:text] show];
 
-
+#define kSafeHeight [[UIApplication sharedApplication] statusBarFrame].size.height - 20
+//#define kTabBarHeight kSafeHeight ? kSafeHeight + 20.0f : 49.0f
+#define kTabBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height) + 29.0f
 
 #define SHOWSTATUS [SVProgressHUD showWithStatus:@"操作中"];
 
@@ -97,7 +99,7 @@ dispatch_after(popTime, dispatch_get_main_queue(), ^(void){\
 #define kMainScreenWidth [[UIScreen mainScreen] bounds].size.width
 #define kappScreenWidth kMainScreenWidth
 #define kappScreenHeight kMainScreenHeight
-#define kTopScreenWidth 64.0f
+#define kTopScreenWidth 64.0f + kSafeHeight
 #define RGB(r,g,b) ((COLORREF)(((BYTE)(r)|((WORD)((BYTE)(g))<<8))|((DWORD)(BYTE)(b)
 #define leftMargin 30.0f
 #define LightBrownColor [UIColor colorWithRed:224/255.0f green:182/255.0f blue:126/255.0f alpha:1]

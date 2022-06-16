@@ -40,7 +40,7 @@
             make.left.equalTo(self);
             make.right.equalTo(self);
             make.top.equalTo(self);
-            make.bottom.equalTo(self);
+            make.height.mas_equalTo(40);
         }];
         
     }

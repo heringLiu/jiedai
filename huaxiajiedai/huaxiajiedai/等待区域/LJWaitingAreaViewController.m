@@ -137,7 +137,7 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = gray238;
-    topView = [[CustomTopNavigationView alloc] initWithFrame:CGRectMake(0, 0, kappScreenWidth, kTopScreenWidth)];
+    topView = [[CustomTopNavigationView alloc] initWithFrame:CGRectMake(0, 0, kappScreenWidth, kTopScreenWidth )];
     [self.view addSubview:topView];
     topView.delegate = self;
     [topView.rightButton setImage:[UIImage imageNamed:@"icon_Search_bg color"] forState:UIControlStateNormal];
@@ -156,7 +156,7 @@
     }
     
     if (mySearchBar == nil) {
-        mySearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(40, 20, kappScreenWidth - 80, 40)];
+        mySearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(40, kSafeHeight ? kSafeHeight + 10 : 20 , kappScreenWidth - 80, 40)];
         //    searchBar.
         [topView addSubview:mySearchBar];
         mySearchBar.delegate = self;
@@ -177,8 +177,8 @@
         }
         mySearchBar.hidden = YES;
     }
-    
-    CGFloat tableHeight = kappScreenHeight - kTopScreenWidth - 49;
+    CGFloat barHeight = [[UIApplication sharedApplication] statusBarFrame].size.height + 29.0f;
+    CGFloat tableHeight = kappScreenHeight - kTopScreenWidth - barHeight;
     if (isConsumption) {
         tableHeight = kappScreenHeight - kTopScreenWidth;
     }

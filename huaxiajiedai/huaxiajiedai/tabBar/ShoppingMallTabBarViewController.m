@@ -86,19 +86,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    bottomTabBarView = [[CustomTabBarView alloc] initWithFrame:CGRectMake(0, kappScreenHeight-49, kappScreenWidth, 49)];
+    CGFloat barHeight = [[UIApplication sharedApplication] statusBarFrame].size.height + 29.0f;
+    bottomTabBarView = [[CustomTabBarView alloc] initWithFrame:CGRectMake(0, kappScreenHeight-barHeight, kappScreenWidth, barHeight)];
     [bottomTabBarView setDelegate:self];
     [bottomTabBarView setBackgroundColor:[[UIColor alloc] initWithRed:245/255.0 green:245/255.0 blue:245/255.0 alpha:1.0]];
     [self.view addSubview:bottomTabBarView];
-    
+//#define kSafeHeight [[UIApplication sharedApplication] statusBarFrame].size.height - 20
+//#define kTabBarHeight kSafeHeight ? kSafeHeight + 20.0f : 49.0f
+    NSLog(@"%F", [[UIApplication sharedApplication] statusBarFrame].size.height);
+    NSLog(@"%F", barHeight);
 }
 - (void)hideTabBar:(BOOL)boo{
-    
+    CGFloat barHeight = [[UIApplication sharedApplication] statusBarFrame].size.height + 29.0f;
     if (boo) {
         
         [UIView animateWithDuration:0.2 animations:^{
             
-            self.bottomTabBarView.frame = CGRectMake(0, kappScreenHeight, kappScreenWidth, 49);
+            self.bottomTabBarView.frame = CGRectMake(0, kappScreenHeight, kappScreenWidth, barHeight);
 //            self.bottomTabBarView.hidden = YES;
 //            homeButton.hidden = YES;
             
@@ -109,7 +113,7 @@
         
         [UIView animateWithDuration:0.2 animations:^{
             
-            self.bottomTabBarView.frame = CGRectMake(0, kappScreenHeight-49, kappScreenWidth, 49);
+            self.bottomTabBarView.frame = CGRectMake(0, kappScreenHeight-barHeight, kappScreenWidth, barHeight);
 //            self.bottomTabBarView.hidden = NO;
 //            homeButton.hidden = NO;
 
