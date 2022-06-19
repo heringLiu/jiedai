@@ -13,7 +13,7 @@
 #import "LJReceptionListViewController.h"
 #import "LJReceptionDetailModel.h"
 
-@protocol HLSelectProjectDelegate <NSObject>
+@protocol HLSelectProjectDelegateList <NSObject>
 
 - (void) sendProject:(LJProjectModel *) dic;
 
@@ -23,7 +23,7 @@
 
 @interface HLSelectedProjectViewController : UIViewController <topScrollViewMenuDelegate, CustomTopNavigationViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UIAlertViewDelegate, UISearchBarDelegate>
 
-@property (nonatomic, assign) id<HLSelectProjectDelegate> delegate;
+@property (nonatomic, assign) id<HLSelectProjectDelegateList> delegate;
 
 @property (nonatomic, strong) CustomTopNavigationView *topView;
 

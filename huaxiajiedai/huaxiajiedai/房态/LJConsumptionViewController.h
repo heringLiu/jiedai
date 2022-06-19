@@ -15,6 +15,7 @@
 #import "LJConsumptionHeaderModel.h"
 #import "LJPickerView.h"
 #import "LJHLGridView.h"
+#import "LJSelectShoupaiViewController.h"
 
 
 @interface LJConsumptionViewController : UIViewController <CustomTopNavigationViewDelegate, UIScrollViewDelegate, TSTableViewDelegate, MenuViewDelegate,UIAlertViewDelegate>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		073C3BD2285DF7CF00D0E9E9 /* LJSelectShoupaiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 073C3BD1285DF7CF00D0E9E9 /* LJSelectShoupaiViewController.m */; };
 		075D3F4028509D83004EC4AF /* saoma@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 075D3F3F28509D83004EC4AF /* saoma@2x.png */; };
 		075D3F422850D0EB004EC4AF /* saoyi_sao_org.png in Resources */ = {isa = PBXBuildFile; fileRef = 075D3F412850D0EB004EC4AF /* saoyi_sao_org.png */; };
 		07A2B8B92851E5D500638C86 /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2B8AD2851E5D400638C86 /* SWUtilityButtonTapGestureRecognizer.m */; };
@@ -151,6 +152,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		073C3BD0285DF7CF00D0E9E9 /* LJSelectShoupaiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LJSelectShoupaiViewController.h; sourceTree = "<group>"; };
+		073C3BD1285DF7CF00D0E9E9 /* LJSelectShoupaiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LJSelectShoupaiViewController.m; sourceTree = "<group>"; };
 		075D3F3F28509D83004EC4AF /* saoma@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "saoma@2x.png"; sourceTree = "<group>"; };
 		075D3F412850D0EB004EC4AF /* saoyi_sao_org.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saoyi_sao_org.png; sourceTree = "<group>"; };
 		07A2B8AD2851E5D400638C86 /* SWUtilityButtonTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonTapGestureRecognizer.m; sourceTree = "<group>"; };
@@ -407,6 +410,8 @@
 				07A2B8C428559C5300638C86 /* HLShouPaiDetailViewController.m */,
 				07A2B8C62859C3A900638C86 /* HLShouPaiListViewController.h */,
 				07A2B8C72859C3A900638C86 /* HLShouPaiListViewController.m */,
+				073C3BD0285DF7CF00D0E9E9 /* LJSelectShoupaiViewController.h */,
+				073C3BD1285DF7CF00D0E9E9 /* LJSelectShoupaiViewController.m */,
 			);
 			path = "手牌";
 			sourceTree = "<group>";
@@ -1159,6 +1164,7 @@
 				915F6E6F1CBE269900615459 /* CustomTopNavigationView.m in Sources */,
 				07A2B8BC2851E5D500638C86 /* SWTableViewCell.m in Sources */,
 				91347C8F1CC609E1009D5DA7 /* LJReceptionDetailModel.m in Sources */,
+				073C3BD2285DF7CF00D0E9E9 /* LJSelectShoupaiViewController.m in Sources */,
 				91FA50291CD354B50008B4E7 /* LJConsumptionHeaderModel.m in Sources */,
 				913A2B1F1DA9D25900146B16 /* TopScrollViewMenuView.m in Sources */,
 				9188981E1CE06217001BE27C /* LJPListTModel.m in Sources */,
@@ -1380,7 +1386,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Dongqiang Lv (V7XKX88S2F)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = huaxiajiedai/PrefixHeader.pch;
 				INFOPLIST_FILE = huaxiajiedai/Info.plist;
@@ -1406,7 +1412,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Dongqiang Lv (V7XKX88S2F)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = huaxiajiedai/PrefixHeader.pch;
 				INFOPLIST_FILE = huaxiajiedai/Info.plist;

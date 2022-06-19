@@ -578,7 +578,13 @@
         next.delegate = self;
         next.navColor = NavBackColor;
         next.view.backgroundColor = WhiteColor;
-        [self rightButtonPressed];
+        if (rightMenuView.frame.origin.x != kappScreenWidth) {
+            [UIView animateWithDuration:0.3 animations:^{
+                rightMenuView.frame = CGRectMake(kappScreenWidth, kTopScreenWidth, kappScreenWidth, kappScreenHeight - kTopScreenWidth);
+                [topView.rightButton setTitle:@"" forState:UIControlStateNormal];
+                [topView.rightButton setImage:[UIImage imageNamed:@"icon_Menu"] forState:UIControlStateNormal];
+            }];
+        }
         [self.navigationController pushViewController:next animated:YES];
     
     } else if (buttonTag == 1008) {

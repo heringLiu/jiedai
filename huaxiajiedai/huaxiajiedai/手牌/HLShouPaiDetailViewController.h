@@ -18,7 +18,7 @@
 #import "HLSelectedProjectViewController.h"
 
 
-@interface HLShouPaiDetailViewController : UIViewController <CustomTopNavigationViewDelegate, UIScrollViewDelegate, TSTableViewDelegate, MenuViewDelegate,UIAlertViewDelegate, HLSelectProjectDelegate>
+@interface HLShouPaiDetailViewController : UIViewController <CustomTopNavigationViewDelegate, UIScrollViewDelegate, TSTableViewDelegate, MenuViewDelegate,UIAlertViewDelegate>
 
 @property (nonatomic, strong) CustomTopNavigationView *topView;
 

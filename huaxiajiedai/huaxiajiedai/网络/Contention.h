@@ -534,6 +534,12 @@
  * 请求参数：handCd
  */
 #define INSERTWITHPJCD [NSString stringWithFormat:@"%@%@",REQUESTADDRESS,@"/reception/consumerOrder/insertWithPjcd/"]
+/* 并入手牌
+ * 请求地址：/reception/consumerOrder/bandHand/
+ * 请求方式：POST
+ * 请求参数：handCd
+ */
+#define BANDHAND [NSString stringWithFormat:@"%@%@",REQUESTADDRESS,@"/reception/consumerOrder/bandHand/"]
 
 
 #endif /* Contention_h */

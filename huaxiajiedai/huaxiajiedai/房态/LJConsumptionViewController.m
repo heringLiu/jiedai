@@ -575,10 +575,66 @@
         
         
     } else if (buttonTag == 1007) {
-       
+       // 并入手牌
+        if (self.pendingList) {
+            [self.pendingList removeAllObjects];
+        } else {
+            self.pendingList = [NSMutableArray array];
+        }
+        BOOL isHandFlag = YES;
+        for (int i = 0; i < self.dataList.count; i++) {
+            LJReceptionDetailModel *entity = [self.dataList objectAtIndex:i];
+            NSMutableDictionary *orderDetail = [[NSMutableDictionary alloc] init];
+            if (entity.isSelected) {
+                [orderDetail setValue:entity.customerCd forKey:@"customerCd"];
+                [orderDetail setValue:entity.orderCd forKey:@"orderCd"];
+                [self.pendingList addObject:orderDetail];
+                if ([entity.customerCd containsString:@"C"]) {
+                    
+                    isHandFlag = NO;
+                    break;
+                }
+            }
+        }
+        if (isHandFlag) {
+            SHOWTEXTINWINDOW(@"请选择非手牌用户", 1.5);
+            return;
+        }
+        
+        if (self.pendingList.count) {
+            LJSelectShoupaiViewController *next = [[LJSelectShoupaiViewController alloc] init];
+            next.delegate = self;
+            [self.navigationController pushViewController:next animated:YES];
+            
+        } else {
+            SHOWTEXTINWINDOW(@"请至少选择一条", 1);
+        }
+      
+        
     }
 }
-
+- (void)sendShouPai:(NSString *)handCd andSex:(NSString *)sex{
+    [self rightButtonPressed];
+    if (self.pendingList.count>0) {
+        NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+        [params setValue:handCd forKey:@"handCd"];
+        [params setValue:sex forKey:@"sex"];
+        [params setValue:[userDefaults objectForKey:UUID] forKey:@"userId"];
+        [params setValue:self.pendingList forKey:@"orderDetil"];
+        [[NetWorkingModel sharedInstance] POST:BANDHAND parameters:params success:^(AFHTTPRequestOperation *operation, id obj) {
+            if (ISSUCCESS) {
+                SHOWTEXTINWINDOW(@"并入手牌成功", 1.5);
+                [self loadData];
+            } else {
+                SHOWTEXTINWINDOW(OBJMESSAGE, 1.1);
+            }
+//            [self rightButtonPressed];
+                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    
+                }];
+        
+    }
+}
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     if (actionSheet.tag == 5000) {

@@ -13,7 +13,7 @@
 #import "HLShouPaiDetailViewController.h"
 #import "HLSelectedProjectViewController.h"
 
-@interface HLShouPaiListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, topScrollViewMenuDelegate, CustomTopNavigationViewDelegate, SWTableViewCellDelegate, UISearchBarDelegate,HLSelectProjectDelegate, UIAlertViewDelegate>
+@interface HLShouPaiListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, topScrollViewMenuDelegate, CustomTopNavigationViewDelegate, SWTableViewCellDelegate, UISearchBarDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) CustomTopNavigationView *topView;
 
