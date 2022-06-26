@@ -37,10 +37,10 @@
     topView.backgroundColor = navLightBrownColor ;
     //    topView.rightButton.hidden = YES;
     [topView.leftButton setImage:[UIImage imageNamed:@"icon_Back"] forState:UIControlStateNormal];
-    topView.leftButton.imageEdgeInsets = UIEdgeInsetsMake(7, 7, 7, 7);
-    [topView.rightButton setImage:[UIImage imageNamed:@"search2"] forState:UIControlStateNormal];
-    topView.rightButton.imageEdgeInsets = UIEdgeInsetsMake(7, 20, 7, 7);
-    topView.rightButton.titleEdgeInsets = UIEdgeInsetsMake(0, 30, 0, 0);
+//    topView.leftButton.imageEdgeInsets = UIEdgeInsetsMake(7, 7, 7, 7);
+    [topView.rightButton setImage:[UIImage imageNamed:@"search3"] forState:UIControlStateNormal];
+//    topView.rightButton.imageEdgeInsets = UIEdgeInsetsMake(7, 20, 7, 7);
+//    topView.rightButton.titleEdgeInsets = UIEdgeInsetsMake(0, 30, 0, 0);
     
     myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kTopScreenWidth + 20, kMainScreenWidth, kMainScreenHeight - kTopScreenWidth - 20)];
     myTableView.backgroundColor = gray238;

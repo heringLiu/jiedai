@@ -16,7 +16,7 @@
 @end
 
 @implementation HLShouPaiListViewController
-@synthesize topView, myTableView, isConsumption, AddConsumptionButton, mySearchBar;
+@synthesize topView, myTableView, isConsumption, AddConsumptionButton, mySearchBar, tuanButton;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -24,10 +24,8 @@
         self.navigationController.interactivePopGestureRecognizer.delegate = self;
     }
     self.isPushed = NO;
-    if (!isConsumption) {
-        [self.tabBarController.tabBar removeFromSuperview];
-        [(ShoppingMallTabBarViewController *)self.tabBarController hideTabBar:NO];
-    }
+    [self.tabBarController.tabBar removeFromSuperview];
+    [(ShoppingMallTabBarViewController *)self.tabBarController hideTabBar:YES];
     
     [myTableView.mj_header beginRefreshing];
 }
@@ -163,13 +161,16 @@
         mySearchBar.barTintColor = LightBrownColor;
         [mySearchBar setImage:[UIImage imageNamed:@"icon_Search_bg white"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
         mySearchBar.backgroundColor = [UIColor clearColor];
-        for (UIView *subView in mySearchBar.subviews) {
-//            if ([subView isKindOfClass:NSClassFromString(@"UIView")] && subView.subviews.count > 0) {
-//                [[subView.subviews objectAtIndex:0] removeFromSuperview];
-//                break;
-//            }
-            if ([subView isKindOfClass:NSClassFromString(@"UISearchBarBackground")]) {
-                subView.layer.contents = nil;
+        NSString *version = [UIDevice currentDevice].systemVersion;
+        if (version.doubleValue >= 13.0) {
+            mySearchBar.searchTextField.backgroundColor = [UIColor clearColor];
+        } else {
+            for (UIView *view in mySearchBar.subviews.lastObject.subviews) {
+                if ([view isKindOfClass:NSClassFromString(@"UISearchBarBackground")]) {
+                     [view removeFromSuperview];
+    //                view.layer.contents = nil;
+                    break;
+                }
             }
         }
         mySearchBar.hidden = YES;
@@ -196,8 +197,8 @@
         AddConsumptionButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.view addSubview:AddConsumptionButton];
         [AddConsumptionButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.view);
-            make.bottom.equalTo(self.view).offset(-80);
+            make.centerX.equalTo(self.view).offset(-50);
+            make.bottom.equalTo(self.view).offset(-40);
             make.size.mas_equalTo(CGSizeMake(60, 60));
         }];
         AddConsumptionButton.backgroundColor = LightBrownColor;
@@ -205,6 +206,23 @@
         AddConsumptionButton.layer.cornerRadius = 30;
         AddConsumptionButton.layer.masksToBounds = YES;
         [AddConsumptionButton addTarget:self action:@selector(addConsumption) forControlEvents:UIControlEventTouchUpInside];
+        
+        tuanButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.view addSubview:tuanButton];
+        [tuanButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.view).offset(50);
+            make.bottom.equalTo(self.view).offset(-40);
+            make.size.mas_equalTo(CGSizeMake(60, 60));
+        }];
+        tuanButton.backgroundColor = LightBrownColor;
+//        [tuanButton setImage:[UIImage imageNamed:@"icon_order"] forState:UIControlStateNormal];
+        [tuanButton setTitle:@"团" forState:UIControlStateNormal];
+        [tuanButton.titleLabel setFont:FONT20];
+        tuanButton.layer.cornerRadius = 30;
+        tuanButton.layer.masksToBounds = YES;
+        [tuanButton addTarget:self action:@selector(addConsumption) forControlEvents:UIControlEventTouchUpInside];
+        
+        
     }
     
 }

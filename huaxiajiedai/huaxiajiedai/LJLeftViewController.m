@@ -73,6 +73,8 @@
     
     [userDefaults setObject:@"" forKey:ISLOGIN];
     LJLoginViewController *login = [LJLoginViewController shareLogin];
+    self.modalPresentationStyle = UIModalPresentationFullScreen;
+    login.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:login animated:YES completion:^{
         
     }];

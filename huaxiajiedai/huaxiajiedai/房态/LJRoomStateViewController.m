@@ -42,6 +42,7 @@
         LJLoginViewController *rootViewController = [LJLoginViewController shareLogin];
         //        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:rootViewController];
         //        nav.navigationBarHidden = YES;
+        rootViewController.modalPresentationStyle = 0;
         [self presentViewController:rootViewController animated:YES completion:^{
             
         }];
@@ -93,16 +94,28 @@
     mySearchBar.delegate = self;
     mySearchBar.placeholder = @"请输入房间号、名称或名称简码";
     mySearchBar.showsCancelButton = NO;
-    mySearchBar.barTintColor = LightBrownColor;
-    [mySearchBar setImage:[UIImage imageNamed:@"icon_Search_bg white"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
-    mySearchBar.backgroundColor = [UIColor clearColor];
-    for (UIView *view in mySearchBar.subviews.lastObject.subviews) {
-        if ([view isKindOfClass:NSClassFromString(@"UISearchBarBackground")]) {
-            // [view removeFromSuperview];
-            view.layer.contents = nil;
-            break;
+//    mySearchBar.barTintColor = LightBrownColor;
+    NSString *version = [UIDevice currentDevice].systemVersion;
+    if (version.doubleValue >= 13.0) {
+        mySearchBar.searchTextField.backgroundColor = [UIColor clearColor];
+    } else {
+        for (UIView *view in mySearchBar.subviews.lastObject.subviews) {
+            if ([view isKindOfClass:NSClassFromString(@"UISearchBarBackground")]) {
+                 [view removeFromSuperview];
+//                view.layer.contents = nil;
+                break;
+            }
         }
     }
+    
+    [mySearchBar setImage:[UIImage imageNamed:@"icon_Search_bg white"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
+    mySearchBar.backgroundColor = [UIColor clearColor];
+    
+//    UIImageView *imageView = [[UIImageView alloc] init];
+//    imageView.frame = mySearchBar.frame;
+//    imageView.backgroundColor = [UIColor whiteColor];
+//    [mySearchBar insertSubview:imageView atIndex:1];
+
     
     topMenu = [[TopScrollViewMenuView alloc] initWithFrame:CGRectMake(0, kTopScreenWidth, kappScreenWidth, 50)];
     if (self.titleArray.count) {

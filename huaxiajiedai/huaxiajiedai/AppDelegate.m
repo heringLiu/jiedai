@@ -31,6 +31,7 @@
     }
     
     MMDrawerController * rootVC =[MMDrawerController shareRootVC];
+    rootVC.modalPresentationStyle = UIModalPresentationFullScreen;
     self.window.rootViewController = rootVC;
     
     NSLog(@"1 %@",[userDefaults objectForKey:ISLOGIN]);

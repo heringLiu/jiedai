@@ -117,12 +117,23 @@
     [topView addSubview:mySearchBar];
     mySearchBar.delegate = self;
     mySearchBar.placeholder = @"请输入手牌";
-    mySearchBar.showsCancelButton = YES;
+    mySearchBar.showsCancelButton = NO;
     mySearchBar.returnKeyType = YES;
     mySearchBar.barTintColor = LightBrownColor;
     [mySearchBar setImage:[UIImage imageNamed:@"icon_Search_bg white"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
     mySearchBar.backgroundColor = [UIColor clearColor];
-
+    NSString *version = [UIDevice currentDevice].systemVersion;
+    if (version.doubleValue >= 13.0) {
+        mySearchBar.searchTextField.backgroundColor = [UIColor clearColor];
+    } else {
+        for (UIView *view in mySearchBar.subviews.lastObject.subviews) {
+            if ([view isKindOfClass:NSClassFromString(@"UISearchBarBackground")]) {
+                 [view removeFromSuperview];
+//                view.layer.contents = nil;
+                break;
+            }
+        }
+    }
     
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
@@ -217,9 +228,9 @@
                     make.centerX.equalTo(btn.mas_centerX).offset(0);
                     make.centerY.equalTo(btn.mas_centerY).offset(0);
                     make.height.mas_equalTo(1);
-                    make.width.mas_equalTo(btn.mas_width);
+                    make.width.mas_equalTo(btn.mas_width).multipliedBy(0.9);
         }];
-        midelView.backgroundColor = gray146;
+        midelView.backgroundColor = gray191;
         
         
         UILabel *handlCDLabel = [[UILabel alloc] init];
@@ -231,7 +242,7 @@
                     make.right.equalTo(btn.mas_right);
                     make.height.equalTo(btn.mas_height).multipliedBy(0.5);
         }];
-        [handlCDLabel setFont:FONT18];
+        [handlCDLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:18]];
         [handlCDLabel setTextColor: [UIColor blackColor]];
         handlCDLabel.textAlignment = NSTextAlignmentCenter;
 
@@ -273,10 +284,10 @@
     UILabel *maleLabel = (UILabel *)[cell viewWithTag:1003];
     if ([[dic objectForKey:@"sex"] isEqual:@"1"]) {
         [maleLabel setText: @"  男"];
-        [maleLabel setTextColor: [UIColor blueColor]];
+        [maleLabel setTextColor: [UIColor colorWithRed:3/255.0f green:169/255.0f blue:244/255.0f alpha:1]];
     } else if ([[dic objectForKey:@"sex"] isEqual:@"2"]) {
         [maleLabel setText: @"  女"];
-        [maleLabel setTextColor: [UIColor redColor]];
+        [maleLabel setTextColor: [UIColor colorWithRed:245/255.0f green:112/255.0f blue:116/255.0f alpha:1]];
     }
     
     UILabel *availableLabel = (UILabel *)[cell viewWithTag:1004];

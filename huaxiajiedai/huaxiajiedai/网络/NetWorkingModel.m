@@ -34,11 +34,11 @@ static AFHTTPRequestOperationManager *manager = nil;
 #if TARGET_IPHONE_SIMULATOR//模拟器
     
 #elif TARGET_OS_IPHONE//真机
-    if ([self getWifiName] == nil) {
-        [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
-        SHOWTEXTINWINDOW(@"没有连接WiFi", 1);
-        failure(nil, nil);
-    }
+//    if ([self getWifiName] == nil) {
+//        [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
+//        SHOWTEXTINWINDOW(@"没有连接WiFi", 1);
+//        failure(nil, nil);
+//    }
 #endif
     
     
@@ -115,11 +115,11 @@ static AFHTTPRequestOperationManager *manager = nil;
 #if TARGET_IPHONE_SIMULATOR//模拟器
     
 #elif TARGET_OS_IPHONE//真机
-    if ([self getWifiName] == nil) {
-        [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
-        SHOWTEXTINWINDOW(@"没有连接WiFi", 1);
-        failure(nil, nil);
-    }
+//    if ([self getWifiName] == nil) {
+//        [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
+//        SHOWTEXTINWINDOW(@"没有连接WiFi", 1);
+//        failure(nil, nil);
+//    }
 #endif
     NSString * encodingString = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
@@ -167,11 +167,11 @@ static AFHTTPRequestOperationManager *manager = nil;
 #if TARGET_IPHONE_SIMULATOR//模拟器
     
 #elif TARGET_OS_IPHONE//真机
-    if ([self getWifiName] == nil) {
-        [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
-        SHOWTEXTINWINDOW(@"没有连接WiFi", 1);
-        failure(nil, nil);
-    }
+//    if ([self getWifiName] == nil) {
+//        [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
+//        SHOWTEXTINWINDOW(@"没有连接WiFi", 1);
+//        failure(nil, nil);
+//    }
 #endif
     NSString * encodingString = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
@@ -245,11 +245,11 @@ static AFHTTPRequestOperationManager *manager = nil;
 #if TARGET_IPHONE_SIMULATOR//模拟器
     
 #elif TARGET_OS_IPHONE//真机
-    if ([self getWifiName] == nil) {
-        [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
-        SHOWTEXTINWINDOW(@"没有连接WiFi", 1);
-        failure(nil, nil);
-    }
+//    if ([self getWifiName] == nil) {
+//        [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
+//        SHOWTEXTINWINDOW(@"没有连接WiFi", 1);
+//        failure(nil, nil);
+//    }
 #endif
     NSString * encodingString = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
@@ -295,7 +295,7 @@ static AFHTTPRequestOperationManager *manager = nil;
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         DISMISS
-        NSLog(operation.response.description);
+        
         if (operation.response.statusCode == 500) {
             
             WINDOWSHOWTEXT(@"服务器内部错误 500", 1);

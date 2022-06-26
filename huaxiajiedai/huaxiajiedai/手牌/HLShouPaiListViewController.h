@@ -25,6 +25,8 @@
 
 
 @property (nonatomic, strong) UIButton *AddConsumptionButton;
+@property (nonatomic, strong) UIButton *tuanButton;
+
 
 @property (nonatomic, strong) UISearchBar *mySearchBar;
 

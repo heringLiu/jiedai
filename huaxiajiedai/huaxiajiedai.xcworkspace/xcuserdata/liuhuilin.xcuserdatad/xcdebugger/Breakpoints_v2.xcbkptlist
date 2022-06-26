@@ -55,86 +55,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D60E6458-3717-4DDD-8A9D-6C24F5C6B11B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "huaxiajiedai/&#x7b49;&#x5f85;&#x533a;&#x57df;/LJWaitingAreaViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
-            landmarkName = "-loadData"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E7FD9786-6702-421C-BCB0-D8F4DC3190A6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "huaxiajiedai/&#x767b;&#x5f55;/LJLoginViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "268"
-            endingLineNumber = "268"
-            landmarkName = "-loginBtnClick:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "881F5C6C-C07C-499D-838E-36FB05C3B6CF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "huaxiajiedai/&#x623f;&#x6001;/LJRoomStateViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
-            landmarkName = "-searchBarShouldBeginEditing:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "49014B84-C514-410E-A944-0528C039975C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "huaxiajiedai/&#x623f;&#x6001;/LJRoomStateViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
-            landmarkName = "-searchBarShouldEndEditing:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "90182467-4115-43CE-93E6-96A7C919ED48"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "huaxiajiedai/&#x7b49;&#x5f85;&#x533a;&#x57df;/&#x9009;&#x62e9;&#x6280;&#x5e08;/LJSelectTechnicianViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "798"
-            endingLineNumber = "798"
-            landmarkName = "-nextButtonClick:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "9AA441A0-9ADD-42C3-AD68-72015B5AD202"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -142,8 +62,8 @@
             filePath = "huaxiajiedai/&#x7b49;&#x5f85;&#x533a;&#x57df;/&#x9009;&#x62e9;&#x6280;&#x5e08;/LJSelectTechnicianViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "937"
-            endingLineNumber = "937"
+            startingLineNumber = "946"
+            endingLineNumber = "946"
             landmarkName = "-alertView:clickedButtonAtIndex:"
             landmarkType = "7">
          </BreakpointContent>
@@ -158,8 +78,8 @@
             filePath = "huaxiajiedai/&#x7b49;&#x5f85;&#x533a;&#x57df;/&#x9879;&#x76ee;&#x540d;&#x79f0;/LJSelectedProjectViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "303"
-            endingLineNumber = "303"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
             landmarkName = "-nextButtonClick:"
             landmarkType = "7">
          </BreakpointContent>
@@ -174,8 +94,8 @@
             filePath = "huaxiajiedai/&#x7b49;&#x5f85;&#x533a;&#x57df;/&#x9879;&#x76ee;&#x540d;&#x79f0;/LJSelectedProjectViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "408"
-            endingLineNumber = "408"
+            startingLineNumber = "411"
+            endingLineNumber = "411"
             landmarkName = "-alertView:clickedButtonAtIndex:"
             landmarkType = "7">
          </BreakpointContent>
@@ -190,8 +110,8 @@
             filePath = "huaxiajiedai/&#x624b;&#x724c;/HLSelectedProjectViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "303"
-            endingLineNumber = "303"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
             landmarkName = "-nextButtonClick:"
             landmarkType = "7">
          </BreakpointContent>
@@ -206,9 +126,25 @@
             filePath = "huaxiajiedai/&#x624b;&#x724c;/HLSelectedProjectViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "408"
-            endingLineNumber = "408"
+            startingLineNumber = "411"
+            endingLineNumber = "411"
             landmarkName = "-alertView:clickedButtonAtIndex:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C0B74B8A-B83C-484C-9F1F-7BE24BCEE3C7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huaxiajiedai/Util/&#x8868;&#x683c;&#x63a7;&#x4ef6;/LJHLGridView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1035"
+            endingLineNumber = "1035"
+            landmarkName = "-collectionView:didSelectItemAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

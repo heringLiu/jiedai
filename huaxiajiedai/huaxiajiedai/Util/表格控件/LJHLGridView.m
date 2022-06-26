@@ -714,7 +714,7 @@
                                     next.isConsumption = self.isConsumption;
                                     next.delegate = self;
                                     next.navColor = NavBackColor;
-                                    if (selectedEntity.artificer1Cd) {
+                                    if (selectedEntity.artificer1Cd.length > 0) {
                                         next.titleString = @"更换技师";
                                     } else {
                                         next.titleString = @"选择技师";
@@ -802,7 +802,7 @@
                         next.isConsumption = self.isConsumption;
                         next.delegate = self;
                         next.navColor = NavBackColor;
-                        if (selectedEntity.artificer1Cd) {
+                        if (selectedEntity.artificer1Cd.length>0) {
                             next.titleString = @"更换技师";
                         } else {
                             next.titleString = @"选择技师";

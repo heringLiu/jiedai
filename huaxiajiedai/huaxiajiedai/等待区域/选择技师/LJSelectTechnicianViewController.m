@@ -111,6 +111,11 @@
     
     lastTechnicianView = [[UIView alloc] initWithFrame:CGRectMake(0, kTopScreenWidth, kappScreenWidth, heightForLast)];
     [self.view addSubview:lastTechnicianView];
+    if ([self.titleString isEqualToString:@"更换技师"]) {
+        [lastTechnicianView setHidden:NO];
+    } else {
+        [lastTechnicianView setHidden:YES];
+    }
     UILabel *label = [UILabel new];
     [lastTechnicianView addSubview:label];
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -235,13 +240,16 @@
     mySearchBar.barTintColor = LightBrownColor;
     [mySearchBar setImage:[UIImage imageNamed:@"icon_Search_bg white"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
     mySearchBar.backgroundColor = [UIColor clearColor];
-    for (UIView *subView in mySearchBar.subviews) {
-//        if ([subView isKindOfClass:NSClassFromString(@"UIView")] && subView.subviews.count > 0) {
-//            [[subView.subviews objectAtIndex:0] removeFromSuperview];
-//            break;
-//        }
-        if ([subView isKindOfClass:NSClassFromString(@"UISearchBarBackground")]) {
-            subView.layer.contents = nil;
+    NSString *version = [UIDevice currentDevice].systemVersion;
+    if (version.doubleValue >= 13.0) {
+        mySearchBar.searchTextField.backgroundColor = [UIColor clearColor];
+    } else {
+        for (UIView *view in mySearchBar.subviews.lastObject.subviews) {
+            if ([view isKindOfClass:NSClassFromString(@"UISearchBarBackground")]) {
+                 [view removeFromSuperview];
+//                view.layer.contents = nil;
+                break;
+            }
         }
     }
     mySearchBar.hidden = YES;
@@ -298,7 +306,7 @@
         }];
         [nextButton setTitleColor:WhiteColor forState:UIControlStateNormal];
         nextButton.backgroundColor = self.isConsumption ? LightBrownColor : NavBackColor;
-        [nextButton setTitle:@"确定" forState:UIControlStateNormal];
+        [nextButton setTitle:@"点钟" forState:UIControlStateNormal];
         [nextButton addTarget:self action:@selector(nextButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         nextButton.layer.masksToBounds = YES;
         nextButton.layer.cornerRadius = 30;
@@ -870,6 +878,7 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     self.selectSex = [NSString stringWithFormat:@"%ld", (long)buttonIndex + 1];
+    [self nextButtonClick:nextButton];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {

@@ -166,13 +166,16 @@
         mySearchBar.barTintColor = LightBrownColor;
         [mySearchBar setImage:[UIImage imageNamed:@"icon_Search_bg white"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
         mySearchBar.backgroundColor = [UIColor clearColor];
-        for (UIView *subView in mySearchBar.subviews) {
-//            if ([subView isKindOfClass:NSClassFromString(@"UIView")] && subView.subviews.count > 0) {
-//                [[subView.subviews objectAtIndex:0] removeFromSuperview];
-//                break;
-//            }
-            if ([subView isKindOfClass:NSClassFromString(@"UISearchBarBackground")]) {
-                subView.layer.contents = nil;
+        NSString *version = [UIDevice currentDevice].systemVersion;
+        if (version.doubleValue >= 13.0) {
+            mySearchBar.searchTextField.backgroundColor = [UIColor clearColor];
+        } else {
+            for (UIView *view in mySearchBar.subviews.lastObject.subviews) {
+                if ([view isKindOfClass:NSClassFromString(@"UISearchBarBackground")]) {
+                     [view removeFromSuperview];
+    //                view.layer.contents = nil;
+                    break;
+                }
             }
         }
         mySearchBar.hidden = YES;

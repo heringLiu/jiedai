@@ -73,7 +73,7 @@
                 }
             }
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                SHOWTEXTINWINDOW(@"获取系统参数异常", 1.5);
+//                SHOWTEXTINWINDOW(@"获取系统参数异常", 1.5);
                 return;
             }];
     } else {

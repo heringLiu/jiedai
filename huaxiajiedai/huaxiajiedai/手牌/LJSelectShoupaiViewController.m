@@ -119,7 +119,18 @@
     mySearchBar.barTintColor = LightBrownColor;
     [mySearchBar setImage:[UIImage imageNamed:@"icon_Search_bg white"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
     mySearchBar.backgroundColor = [UIColor clearColor];
-
+    NSString *version = [UIDevice currentDevice].systemVersion;
+    if (version.doubleValue >= 13.0) {
+        mySearchBar.searchTextField.backgroundColor = [UIColor clearColor];
+    } else {
+        for (UIView *view in mySearchBar.subviews.lastObject.subviews) {
+            if ([view isKindOfClass:NSClassFromString(@"UISearchBarBackground")]) {
+                 [view removeFromSuperview];
+//                view.layer.contents = nil;
+                break;
+            }
+        }
+    }
     
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
@@ -192,21 +203,6 @@
         btn.titleLabel.textAlignment = NSTextAlignmentCenter;
         
         CGFloat width = (kappScreenWidth - 20)/4/4;
-        UILabel *label = [UILabel new];
-        [cell addSubview:label];
-        [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.mas_equalTo(CGSizeMake(width, width));
-            make.centerX.equalTo(btn.mas_right).offset(-2);
-            make.centerY.equalTo(btn.mas_top).offset(5);
-        }];
-        label.font = FONT13;
-        label.textColor = WhiteColor;
-        label.backgroundColor = [UIColor greenColor];
-        label.textAlignment = NSTextAlignmentCenter;
-        label.text = @"占";
-        label.layer.cornerRadius = width/2;
-        label.layer.masksToBounds = YES;
-        label.tag = 1001;
         
         UIView *midelView = [[UIView alloc] init];
         [btn addSubview:midelView];
@@ -214,7 +210,7 @@
                     make.centerX.equalTo(btn.mas_centerX).offset(0);
                     make.centerY.equalTo(btn.mas_centerY).offset(0);
                     make.height.mas_equalTo(1);
-                    make.width.mas_equalTo(btn.mas_width);
+                    make.width.mas_equalTo(width).multipliedBy(0.1);
         }];
         midelView.backgroundColor = gray146;
         

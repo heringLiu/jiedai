@@ -322,10 +322,11 @@
         NSLog(@"等待区域");
         UINavigationController *waitingNavController = [[UINavigationController alloc] initWithRootViewController:self.waitingViewController];
         waitingNavController.navigationBarHidden = YES;
+        [self.navigationController pushViewController:waitingNavController animated:YES];
 //        waitingNavController.modalPresentationStyle = UIModalPresentationFullScreen;
-        [self presentViewController:waitingNavController animated:YES completion:^{
-            
-        }];
+//        [self presentViewController:waitingNavController animated:YES completion:^{
+//
+//        }];
     }
 }
 

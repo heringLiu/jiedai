@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		071EDFBD286870FD00D70D42 /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 071EDFBC286870FD00D70D42 /* search@2x.png */; };
+		071EDFBF2868715100D70D42 /* search3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 071EDFBE2868715100D70D42 /* search3@2x.png */; };
 		073C3BD2285DF7CF00D0E9E9 /* LJSelectShoupaiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 073C3BD1285DF7CF00D0E9E9 /* LJSelectShoupaiViewController.m */; };
 		075D3F4028509D83004EC4AF /* saoma@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 075D3F3F28509D83004EC4AF /* saoma@2x.png */; };
 		075D3F422850D0EB004EC4AF /* saoyi_sao_org.png in Resources */ = {isa = PBXBuildFile; fileRef = 075D3F412850D0EB004EC4AF /* saoyi_sao_org.png */; };
@@ -152,6 +154,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		071EDFBC286870FD00D70D42 /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search@2x.png"; sourceTree = "<group>"; };
+		071EDFBE2868715100D70D42 /* search3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search3@2x.png"; sourceTree = "<group>"; };
 		073C3BD0285DF7CF00D0E9E9 /* LJSelectShoupaiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LJSelectShoupaiViewController.h; sourceTree = "<group>"; };
 		073C3BD1285DF7CF00D0E9E9 /* LJSelectShoupaiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LJSelectShoupaiViewController.m; sourceTree = "<group>"; };
 		075D3F3F28509D83004EC4AF /* saoma@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "saoma@2x.png"; sourceTree = "<group>"; };
@@ -399,6 +403,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		071EDFBB2866F37A00D70D42 /* 团购 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "团购";
+			sourceTree = "<group>";
+		};
 		07A2B8BF28532B9100638C86 /* 手牌 */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,6 +461,7 @@
 		9105A06E1CBCC218000820F1 /* huaxiajiedai */ = {
 			isa = PBXGroup;
 			children = (
+				071EDFBB2866F37A00D70D42 /* 团购 */,
 				07A2B8BF28532B9100638C86 /* 手牌 */,
 				A8C508B71FB4867700B25098 /* 做活信息 */,
 				A8C508AA1FB4862D00B25098 /* 汇总 */,
@@ -726,6 +738,8 @@
 		9179C2AE1CBE45B200348A8D /* img */ = {
 			isa = PBXGroup;
 			children = (
+				071EDFBE2868715100D70D42 /* search3@2x.png */,
+				071EDFBC286870FD00D70D42 /* search@2x.png */,
 				075D3F412850D0EB004EC4AF /* saoyi_sao_org.png */,
 				075D3F3F28509D83004EC4AF /* saoma@2x.png */,
 				A8C508C51FB489FF00B25098 /* search2@2x.png */,
@@ -1045,8 +1059,10 @@
 				A8BE00FA1FA9B2DE00DA8002 /* wq_code_scanner_line@2x.png in Resources */,
 				9179C2E71CBE45BA00348A8D /* xf_jb1@3x.png in Resources */,
 				9179C2E51CBE45BA00348A8D /* xf_icon_blue.png in Resources */,
+				071EDFBF2868715100D70D42 /* search3@2x.png in Resources */,
 				9105A07F1CBCC218000820F1 /* LaunchScreen.storyboard in Resources */,
 				9185F5EF1D654994006FB47E /* Images.xcassets in Resources */,
+				071EDFBD286870FD00D70D42 /* search@2x.png in Resources */,
 				9179C2DC1CBE45BA00348A8D /* icon_Back@3x.png in Resources */,
 				9179C2D01CBE45BA00348A8D /* bg_bq_luozhong@3x.png in Resources */,
 				9179C2D71CBE45BA00348A8D /* jd_btn_unchecked@3x.png in Resources */,
