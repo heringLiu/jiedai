@@ -8,7 +8,7 @@
 
 #import "CustomTopNavigationView.h"
 @implementation CustomTopNavigationView
-@synthesize leftButton,rightButton,titleLabel,delegate,titleButton, rightButton2;
+@synthesize leftButton,rightButton,titleLabel,delegate,titleButton, rightButton2, leftButton2;
 - (id)initWithFrame:(CGRect)frame{
 
     self = [super initWithFrame:frame];
@@ -29,6 +29,20 @@
             make.top.equalTo(safeView.mas_bottom);
             make.bottom.equalTo(self);
             make.left.equalTo(self).with.offset(0);
+            make.size.mas_equalTo(CGSizeMake(44, 44));
+        }];
+        
+        self.leftButton2 = [UIButton buttonWithType:UIButtonTypeCustom];
+        [leftButton2 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [leftButton2.titleLabel setFont:[UIFont fontWithName:@"Arial" size:15]];
+        [leftButton2 setTag:103];
+        [leftButton2 addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:leftButton2];
+        [leftButton2 setBackgroundImage:[UIImage imageNamed:@"left_white@3x.png"] forState:UIControlStateNormal];
+        [leftButton2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(safeView.mas_bottom);
+            make.bottom.equalTo(self);
+            make.left.mas_equalTo(self.leftButton.mas_right).offset(10);
             make.size.mas_equalTo(CGSizeMake(44, 44));
         }];
         
@@ -73,6 +87,7 @@
         }];
         
         self.rightButton2 = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.rightButton2.tag = 102;
         [rightButton2.titleLabel setFont:[UIFont fontWithName:@"Arial" size:15]];
         rightButton2.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
         rightButton2.contentMode = UIViewContentModeScaleAspectFill;
@@ -106,9 +121,13 @@
         if ([delegate respondsToSelector:@selector(rightButtonPressed)]) {
             [delegate rightButtonPressed];
         }
-    } else{
+    } else if (btn.tag == 102){
         if ([delegate respondsToSelector:@selector(rightButton2Pressed)]) {
             [delegate rightButton2Pressed];
+        }
+    }else if (btn.tag == 103){
+        if ([delegate respondsToSelector:@selector(leftButton2Pressed)]) {
+            [delegate leftButton2Pressed];
         }
     }
     

@@ -39,6 +39,7 @@
 #define STORCDSTRING [[userDefaults objectForKey:STORECD] length] ? [userDefaults objectForKey:STORECD] : @""
 
 #define OBJMESSAGE [obj objectForKey:@"message"]
+#define OBJSTATUS [obj objectForKey:@"status"]
 #define CONTENTOBJ [obj objectForKey:@"content"]
 
 //#define SHOWSTATUSCLEAR [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];

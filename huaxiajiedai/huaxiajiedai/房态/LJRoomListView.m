@@ -79,8 +79,9 @@
     LJWaitingAreaViewController *next = [[LJWaitingAreaViewController alloc] init];
     
     next.roomName = [[self.dataList objectAtIndex:indexPath.row] roomName];
+    next.roomCd = [[self.dataList objectAtIndex:indexPath.row] roomCd];
     next.isConsumption = YES;
-    next.roomModel = [self.dataList objectAtIndex:indexPath.row];   
+    next.roomModel = [self.dataList objectAtIndex:indexPath.row];
     
     [self.superVC.tabBarController.tabBar removeFromSuperview];
     [(ShoppingMallTabBarViewController *)self.superVC.tabBarController hideTabBar:YES];

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		071EDFBD286870FD00D70D42 /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 071EDFBC286870FD00D70D42 /* search@2x.png */; };
 		071EDFBF2868715100D70D42 /* search3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 071EDFBE2868715100D70D42 /* search3@2x.png */; };
+		071EDFC228687B1100D70D42 /* HLTuanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071EDFC128687B1100D70D42 /* HLTuanDetailViewController.m */; };
+		071EDFC52869C00E00D70D42 /* HLGroupEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 071EDFC42869C00E00D70D42 /* HLGroupEntity.m */; };
+		071EDFC82869C22800D70D42 /* HLGroupProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 071EDFC72869C22800D70D42 /* HLGroupProject.m */; };
 		073C3BD2285DF7CF00D0E9E9 /* LJSelectShoupaiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 073C3BD1285DF7CF00D0E9E9 /* LJSelectShoupaiViewController.m */; };
 		075D3F4028509D83004EC4AF /* saoma@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 075D3F3F28509D83004EC4AF /* saoma@2x.png */; };
 		075D3F422850D0EB004EC4AF /* saoyi_sao_org.png in Resources */ = {isa = PBXBuildFile; fileRef = 075D3F412850D0EB004EC4AF /* saoyi_sao_org.png */; };
@@ -156,6 +159,12 @@
 /* Begin PBXFileReference section */
 		071EDFBC286870FD00D70D42 /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search@2x.png"; sourceTree = "<group>"; };
 		071EDFBE2868715100D70D42 /* search3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search3@2x.png"; sourceTree = "<group>"; };
+		071EDFC028687B1100D70D42 /* HLTuanDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLTuanDetailViewController.h; sourceTree = "<group>"; };
+		071EDFC128687B1100D70D42 /* HLTuanDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLTuanDetailViewController.m; sourceTree = "<group>"; };
+		071EDFC32869C00E00D70D42 /* HLGroupEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLGroupEntity.h; sourceTree = "<group>"; };
+		071EDFC42869C00E00D70D42 /* HLGroupEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLGroupEntity.m; sourceTree = "<group>"; };
+		071EDFC62869C22800D70D42 /* HLGroupProject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLGroupProject.h; sourceTree = "<group>"; };
+		071EDFC72869C22800D70D42 /* HLGroupProject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLGroupProject.m; sourceTree = "<group>"; };
 		073C3BD0285DF7CF00D0E9E9 /* LJSelectShoupaiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LJSelectShoupaiViewController.h; sourceTree = "<group>"; };
 		073C3BD1285DF7CF00D0E9E9 /* LJSelectShoupaiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LJSelectShoupaiViewController.m; sourceTree = "<group>"; };
 		075D3F3F28509D83004EC4AF /* saoma@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "saoma@2x.png"; sourceTree = "<group>"; };
@@ -406,6 +415,12 @@
 		071EDFBB2866F37A00D70D42 /* 团购 */ = {
 			isa = PBXGroup;
 			children = (
+				071EDFC028687B1100D70D42 /* HLTuanDetailViewController.h */,
+				071EDFC128687B1100D70D42 /* HLTuanDetailViewController.m */,
+				071EDFC32869C00E00D70D42 /* HLGroupEntity.h */,
+				071EDFC42869C00E00D70D42 /* HLGroupEntity.m */,
+				071EDFC62869C22800D70D42 /* HLGroupProject.h */,
+				071EDFC72869C22800D70D42 /* HLGroupProject.m */,
 			);
 			path = "团购";
 			sourceTree = "<group>";
@@ -1167,9 +1182,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				917AF7DC1CF5729000785B59 /* MMDrawerVisualState.m in Sources */,
+				071EDFC228687B1100D70D42 /* HLTuanDetailViewController.m in Sources */,
 				917AF7DD1CF5729000785B59 /* MMExampleDrawerVisualStateManager.m in Sources */,
 				91347C851CC5D73A009D5DA7 /* LJMenuView.m in Sources */,
 				910AD76D1CC896880092801F /* LJColorImage.m in Sources */,
+				071EDFC82869C22800D70D42 /* HLGroupProject.m in Sources */,
 				9105A0A51CBCDA44000820F1 /* LJLoginViewController.m in Sources */,
 				07A2B8C228532C4C00638C86 /* HLShouPaiViewController.m in Sources */,
 				91AA86F81CD845010062027C /* LJProjectTitleModel.m in Sources */,
@@ -1204,6 +1221,7 @@
 				07A2B8BB2851E5D500638C86 /* SWLongPressGestureRecognizer.m in Sources */,
 				A8C508BF1FB4867700B25098 /* HLWorksTableViewCell.m in Sources */,
 				917AC1D71CD085D800C93851 /* SofaModel.m in Sources */,
+				071EDFC52869C00E00D70D42 /* HLGroupEntity.m in Sources */,
 				07A2B8BE2851E5D500638C86 /* NSMutableArray+SWUtilityButtons.m in Sources */,
 				91BEBD211CBF960900E0193F /* LJNormalInfomationViewController.m in Sources */,
 				91E0ACBA1CD0484A008F1124 /* NetWorkingModel.m in Sources */,
@@ -1402,7 +1420,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Dongqiang Lv (V7XKX88S2F)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = huaxiajiedai/PrefixHeader.pch;
 				INFOPLIST_FILE = huaxiajiedai/Info.plist;
@@ -1428,7 +1446,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Dongqiang Lv (V7XKX88S2F)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = huaxiajiedai/PrefixHeader.pch;
 				INFOPLIST_FILE = huaxiajiedai/Info.plist;

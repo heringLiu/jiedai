@@ -541,5 +541,20 @@
  */
 #define BANDHAND [NSString stringWithFormat:@"%@%@",REQUESTADDRESS,@"/reception/consumerOrder/bandHand/"]
 
+// 2022年6月26日
+/* 查询团购信息
+ * 请求地址：/reception/group/getXMDInfoByGroupCd/
+ * 请求方式：get
+ * 请求参数：
+ */
+#define GETXMDINFO [NSString stringWithFormat:@"%@%@",REQUESTADDRESS,@"/reception/group/getXMDInfoByGroupCd/"]
+// 2022年6月30日
+/* 团购转消费单
+ * 请求地址：/reception/group/groupConsump/
+ * 请求方式：post
+ * 请求参数：
+ */
+#define GROUPCONSUMP [NSString stringWithFormat:@"%@%@",REQUESTADDRESS,@"/reception/group/groupConsump/"]
+
 
 #endif /* Contention_h */

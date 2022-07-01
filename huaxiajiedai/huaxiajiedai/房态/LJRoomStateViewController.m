@@ -74,7 +74,10 @@
     // Do any additional setup after loading the view.
     
     
-    barHeight = [[UIApplication sharedApplication] statusBarFrame].size.height + 29.0f;
+    barHeight = 0;
+    if ([UIApplication sharedApplication].statusBarFrame.size.height >= 44.0f) {
+        barHeight = 50;
+    }
     
     [self createUI];
 }
@@ -139,7 +142,7 @@
     
     [self.view addSubview:roomList];
     
-    self.mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kTopScreenWidth + 50, kappScreenWidth, kappScreenHeight - kTopScreenWidth - 50 - barHeight - kSafeHeight)];
+    self.mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kTopScreenWidth + 50, kappScreenWidth, kappScreenHeight - kTopScreenWidth - 50 -barHeight - kSafeHeight)];
     self.mainScrollView.pagingEnabled = YES;
     self.mainScrollView.showsVerticalScrollIndicator = NO;
     self.mainScrollView.showsHorizontalScrollIndicator = NO;

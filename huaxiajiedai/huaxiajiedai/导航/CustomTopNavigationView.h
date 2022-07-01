@@ -12,6 +12,7 @@
 
 @optional
 - (void)leftButtonPressed;
+- (void)leftButton2Pressed;
 - (void)rightButtonPressed;
 - (void)rightButton2Pressed;
 
@@ -20,6 +21,7 @@
 @interface CustomTopNavigationView : UIView
 
 @property (nonatomic,strong)UIButton *leftButton;
+@property (nonatomic,strong)UIButton *leftButton2;
 @property (nonatomic,strong)UIButton *rightButton;
 @property (nonatomic, strong) UIButton *rightButton2;
 @property (nonatomic,strong)UILabel *titleLabel;

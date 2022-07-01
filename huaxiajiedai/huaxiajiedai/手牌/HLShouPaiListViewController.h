@@ -12,6 +12,7 @@
 #import "ljroommodel.h"
 #import "HLShouPaiDetailViewController.h"
 #import "HLSelectedProjectViewController.h"
+#import "HLTuanDetailViewController.h"
 
 @interface HLShouPaiListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, topScrollViewMenuDelegate, CustomTopNavigationViewDelegate, SWTableViewCellDelegate, UISearchBarDelegate, UIAlertViewDelegate>
 

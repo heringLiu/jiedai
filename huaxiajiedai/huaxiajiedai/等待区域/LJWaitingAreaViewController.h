@@ -21,7 +21,7 @@
 @property (strong,nonatomic) UITableView *myTableView;
 
 @property (nonatomic, assign) BOOL isConsumption;
-
+@property (nonatomic, strong) UIButton *tuanButton;
 
 @property (nonatomic, strong) UIButton *AddConsumptionButton;
 
@@ -32,6 +32,7 @@
 @property (nonatomic, strong) NSString *keyWords;
 
 @property (nonatomic, strong) NSString *roomName;
+@property (nonatomic, strong) NSString *roomCd;
 
 @property (nonatomic, strong) NSMutableArray *searchData;
 

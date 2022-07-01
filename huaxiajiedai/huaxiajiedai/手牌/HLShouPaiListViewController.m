@@ -147,7 +147,9 @@
     } else {
         topView.backgroundColor = NavBackColor;
         topView.titleLabel.text = @"等待区域";
-        [topView.leftButton setImage:[UIImage imageNamed:@"icon_order"] forState:UIControlStateNormal];
+        [topView.leftButton setImage:[UIImage imageNamed:@"icon_Back"] forState:UIControlStateNormal];
+        [topView.leftButton2 setHidden:NO];
+        [topView.leftButton2 setImage:[UIImage imageNamed:@"icon_order"] forState:UIControlStateNormal];
     }
     
     if (mySearchBar == nil) {
@@ -220,13 +222,74 @@
         [tuanButton.titleLabel setFont:FONT20];
         tuanButton.layer.cornerRadius = 30;
         tuanButton.layer.masksToBounds = YES;
-        [tuanButton addTarget:self action:@selector(addConsumption) forControlEvents:UIControlEventTouchUpInside];
+        [tuanButton addTarget:self action:@selector(addTuan) forControlEvents:UIControlEventTouchUpInside];
         
         
     }
     
 }
 
+- (void) addTuan {
+    SHOWSTATUSCLEAR
+    [[NetWorkingModel sharedInstance] POST:BUSINESSDATE parameters:@{} success:^(AFHTTPRequestOperation *operation, id obj) {
+        DISMISS
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:obj options:NSJSONWritingPrettyPrinted error:nil];
+        NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        
+        NSLog(@"%@", jsonString);
+        
+        if (ISSUCCESS) {
+            NSString *dateStr = [CONTENTOBJ objectForKey:@"BusinessDate"];
+            NSDateFormatter *df = [[NSDateFormatter alloc] init];
+            [df setTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Shanghai"]];
+            df.dateFormat = @"YYYY-MM-dd";
+            NSDate *date = [df dateFromString:dateStr];
+            date = [self getNowDateFromatAnDate:date];
+            
+            NSCalendar *calendar = [NSCalendar currentCalendar];
+
+            NSDate *nowDate = [NSDate date];
+
+            NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:nowDate];
+            nowDate = [calendar dateFromComponents:components];
+            nowDate = [self getNowDateFromatAnDate:nowDate];
+            
+            NSLog(@"date = %@, nowdate = %@", date, nowDate);
+            NSTimeInterval business = [date timeIntervalSince1970];
+            NSTimeInterval now = [nowDate timeIntervalSince1970];
+            
+            if (business > now) {
+                //NSLog(@"Date1  is in the future");
+                NSLog(@"大");
+            } else if (business < now){
+                //NSLog(@"Date1 is in the past");
+                NSLog(@"小");
+                                NSUInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+                NSDate *now = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
+                NSDateComponents *dateComponent = [calendar components:unitFlags fromDate:now];
+                int hour = (int) [dateComponent hour];
+                if (hour >= 7) {
+                    SHOWTEXTINWINDOW(@"还未日结，请日结后开单", 1);
+                    return ;
+                }
+            } else  {
+                NSLog(@"相等");
+            }
+            
+            HLTuanDetailViewController *next = [[HLTuanDetailViewController alloc] init];
+            next.roomCd = self.handCd;
+            [self.navigationController pushViewController:next animated:YES];
+            
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        DISMISS
+        SHOWTEXTINWINDOW(@"获取营业日失败", 1);
+        
+    }];
+   
+}
 
 - (void) addConsumption {
     if (self.dataList.count >= 1) {

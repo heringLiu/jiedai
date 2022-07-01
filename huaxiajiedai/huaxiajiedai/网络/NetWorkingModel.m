@@ -57,7 +57,7 @@ static AFHTTPRequestOperationManager *manager = nil;
                                           URLString:encodingString
                                           parameters:jsonString
                                           error:nil];
-    mutableRequest.timeoutInterval = 15.0f;
+    mutableRequest.timeoutInterval = 85.0f;
     if ([self networkIsAvailable]) {
         [mutableRequest setCachePolicy: NSURLRequestReloadIgnoringCacheData];
     } else {
@@ -130,7 +130,7 @@ static AFHTTPRequestOperationManager *manager = nil;
     [manager.requestSerializer setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
 
     [manager.requestSerializer setValue:ver forHTTPHeaderField:@"ver"];
-    manager.requestSerializer.timeoutInterval = 15.0f;
+    manager.requestSerializer.timeoutInterval = 85.0f;
     
     [manager GET:encodingString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([@"error" isEqualToString:[responseObject objectForKey:@"status"]] && [[responseObject objectForKey:@"message"] isEqualToString:@"error_Noauthority"]) {
@@ -191,7 +191,7 @@ static AFHTTPRequestOperationManager *manager = nil;
 //                                          URLString:encodingString
 //                                          parameters:jsonString
 //                                          error:nil];
-    mutableRequest.timeoutInterval = 15.0f;
+    mutableRequest.timeoutInterval = 85.0f;
     if ([self networkIsAvailable]) {
         [mutableRequest setCachePolicy: NSURLRequestReloadIgnoringCacheData];
     } else {
@@ -266,7 +266,7 @@ static AFHTTPRequestOperationManager *manager = nil;
                                           URLString:encodingString
                                           parameters:jsonString
                                           error:nil];
-    mutableRequest.timeoutInterval = 15.0f;
+    mutableRequest.timeoutInterval = 85.0f;
     if ([self networkIsAvailable]) {
         [mutableRequest setCachePolicy: NSURLRequestReloadIgnoringCacheData];
     } else {
