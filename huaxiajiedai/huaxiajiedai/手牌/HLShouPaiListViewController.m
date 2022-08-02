@@ -925,7 +925,7 @@
         NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         NSLog(@"%@", jsonString);
         if (ISSUCCESS) {
-            [self loadData];
+            
         }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             

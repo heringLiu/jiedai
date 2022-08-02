@@ -77,6 +77,13 @@
     [super viewWillAppear:animated];
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     [self loadData];
+    if (rightMenuView && rightMenuView.frame.origin.x == 0) {
+        [UIView animateWithDuration:0.3 animations:^{
+            rightMenuView.frame = CGRectMake(kappScreenWidth, kTopScreenWidth, kappScreenWidth, kappScreenHeight - kTopScreenWidth);
+            [topView.rightButton setTitle:@"" forState:UIControlStateNormal];
+            [topView.rightButton setImage:[UIImage imageNamed:@"icon_Menu"] forState:UIControlStateNormal];
+        }];
+    }
 }
 
 
@@ -509,23 +516,23 @@
                 }
                 
                 if (!detailArr.count) {
-                    SHOWTEXTINWINDOW(@"至少选择一条明细", 1);
-                    return;
+                    
+                    [detailArr addObjectsFromArray:self.dataList];
                 }
                 
                 //        如果数组中有未落钟的项目则可以继续
-                BOOL flag = YES;
-                for (LJReceptionDetailModel *entity in detailArr) {
-                    if (!entity.qtyUpdateFlg && ![entity.serveStatus isEqualToString:@"downtime"]) {
-                        flag = NO;
-                        break;
-                    }
-                }
-                
-                if (flag) {
-                    SHOWTEXTINWINDOW(@"您选择的客户的项目都已落钟，不能进行更换房间", 1);
-                    return;
-                }
+//                BOOL flag = YES;
+//                for (LJReceptionDetailModel *entity in detailArr) {
+//                    if (!entity.qtyUpdateFlg && ![entity.serveStatus isEqualToString:@"downtime"]) {
+//                        flag = NO;
+//                        break;
+//                    }
+//                }
+//
+//                if (flag) {
+//                    SHOWTEXTINWINDOW(@"您选择的客户的项目都已落钟，不能进行更换房间", 1);
+//                    return;
+//                }
                 
                 LJSelectRoomViewController *next = [[LJSelectRoomViewController alloc] init];
                 next.delegate = self;
@@ -597,6 +604,7 @@
 
 
 - (void)sendProject:(LJProjectModel *)dic {
+
     // 添加项目
     NSMutableArray *strList = [[NSMutableArray alloc] init];
     NSMutableArray *cdList = [[NSMutableArray alloc] init];
@@ -621,11 +629,10 @@
         NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         NSLog(@"%@", jsonString);
         if (ISSUCCESS) {
-            [self rightButtonPressed];
             [self loadData];
         }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [self rightButtonPressed];
+            
         }];
     
 }

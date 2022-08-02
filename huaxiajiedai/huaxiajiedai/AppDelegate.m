@@ -27,7 +27,7 @@
     
     
     if (![[userDefaults objectForKey:IPADD] length]) {
-        [userDefaults setObject:@"47.93.240.77:9999" forKey:IPADD];
+        [userDefaults setObject:@"47.92.85.73:9999" forKey:IPADD];
     }
     
     MMDrawerController * rootVC =[MMDrawerController shareRootVC];

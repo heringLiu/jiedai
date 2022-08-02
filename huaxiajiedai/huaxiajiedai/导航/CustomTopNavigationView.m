@@ -17,7 +17,7 @@
         [self setBackgroundColor:navLightBrownColor];
         UIView *safeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kappScreenWidth, kSafeHeight)];
         [self addSubview:safeView];
-        [safeView setBackgroundColor:navLightBrownColor];
+        [safeView setBackgroundColor:[UIColor clearColor]];
         self.leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [leftButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [leftButton.titleLabel setFont:[UIFont fontWithName:@"Arial" size:15]];
