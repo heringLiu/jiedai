@@ -32,6 +32,7 @@
 @property (nonatomic, strong) NSString *orderCd;
 
 @property (nonatomic, strong) NSString *roomCd;
+@property (nonatomic, strong) NSString *roomName;
 
 @property (nonatomic, strong) NSString *deleReason;
 

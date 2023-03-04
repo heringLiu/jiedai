@@ -255,6 +255,7 @@
     if (isConsumption) {
         LJConsumptionViewController *next = [[LJConsumptionViewController alloc] init];
         next.roomCd = self.roomModel.roomCd;
+        next.roomName = self.roomModel.roomName;
         next.isAll = YES;
         self.isPushed = YES;
         [self.navigationController pushViewController:next animated:YES];

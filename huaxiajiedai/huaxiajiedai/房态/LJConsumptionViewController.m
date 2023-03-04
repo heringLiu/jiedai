@@ -948,206 +948,328 @@
         count = 8;
     }
     
-    if (dataList.count < count) {
-        listHeight = (dataList.count+1) * 50;
-    } else {
-        listHeight = 50 * count + 50;
-    }
-    NSLog(@"加载了数据");
-    backView.contentSize = CGSizeMake(kappScreenWidth, 50 + 70 * 1 + 50 + listHeight + 100);
-    
-    // 第一行
-    if (!firstLineView) {
-        firstLineView = [[UIView alloc] init];
-        [backView addSubview:firstLineView];
-        [firstLineView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.width.mas_equalTo(kappScreenWidth);
-            make.top.equalTo(backView);
-            make.left.equalTo(self.view);
-            make.height.mas_equalTo(50);
-        }];
-        firstLineView.backgroundColor = WhiteColor;
-    }
-    
-    //    人数
-    if (personCountLbel == nil) {
-        personCountLbel = [UILabel new];
-        [firstLineView addSubview:personCountLbel];
-        [personCountLbel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(firstLineView.mas_right).offset(-20);
-            make.centerY.equalTo(firstLineView.mas_centerY);
-            make.top.equalTo(firstLineView);
-        }];
+    if (self.isAll) {
+        // 全部消费订单详情
+        if (dataList.count < count) {
+            listHeight = (dataList.count+1) * 50;
+        } else {
+            listHeight = 50 * count + 50;
+        }
+        backView.contentSize = CGSizeMake(kappScreenWidth, 50 + 70 * 1 + 50 + listHeight + 100);
+        // 第一行
+        if (!firstLineView) {
+            firstLineView = [[UIView alloc] init];
+            [backView addSubview:firstLineView];
+            [firstLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.width.mas_equalTo(kappScreenWidth);
+                make.top.equalTo(backView);
+                make.left.equalTo(self.view);
+                make.height.mas_equalTo(60);
+            }];
+            firstLineView.backgroundColor = WhiteColor;
+        }
+        //    人数
+        if (personCountLbel == nil) {
+            personCountLbel = [UILabel new];
+            [firstLineView addSubview:personCountLbel];
+            [personCountLbel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.right.equalTo(firstLineView.mas_right).offset(-20);
+                make.centerY.equalTo(firstLineView.mas_centerY);
+                make.top.equalTo(firstLineView);
+            }];
+            
+            personCountLbel.textColor = gray104;
+            personCountLbel.font = FONT14;
+            personCountLbel.textAlignment = NSTextAlignmentRight;
+        }
         
-        personCountLbel.textColor = gray104;
-        personCountLbel.font = FONT12;
-        personCountLbel.textAlignment = NSTextAlignmentRight;
-    }
+        //    波数
+        if (daysBoNumberLabel == nil) {
+            daysBoNumberLabel = [UILabel new];
+            [firstLineView addSubview:daysBoNumberLabel];
+            [daysBoNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                if (kappScreenWidth <= 320) {
+                    make.right.equalTo(personCountLbel.mas_left).offset(-3);
+                } else {
+                    make.right.equalTo(personCountLbel.mas_left).offset(-10);
+                }
+                
+                make.centerY.equalTo(firstLineView.mas_centerY);
+                make.top.equalTo(firstLineView);
+            }];
+            daysBoNumberLabel.lineBreakMode = NSLineBreakByTruncatingHead;
+            daysBoNumberLabel.textColor = gray104;
+            daysBoNumberLabel.font = FONT14;
+            daysBoNumberLabel.textAlignment = NSTextAlignmentRight;
+        }
+        
+        //    订单号
+        if (orderNumberLabel == nil) {
+            orderNumberLabel = [UILabel new];
+            [firstLineView addSubview:orderNumberLabel];
+            [orderNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(firstLineView).offset(20);
+                make.centerY.equalTo(firstLineView.mas_centerY);
+                make.top.equalTo(firstLineView);
+                if (kappScreenWidth <= 320) {
+                    make.right.equalTo(daysBoNumberLabel.mas_left).offset(-3);
+                } else {
+                    make.right.equalTo(daysBoNumberLabel.mas_left).offset(-10);
+                }
+                
+            }];
+            orderNumberLabel.lineBreakMode = NSLineBreakByTruncatingMiddle;
+            orderNumberLabel.textColor = gray104;
+            orderNumberLabel.font = FONT14;
+        }
+        
+        
+        // line
+        if (!lineView) {
+            lineView =  [UIView new];
+            [firstLineView addSubview:lineView];
+            lineView.backgroundColor = gray238;
+            [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(firstLineView);
+                make.right.equalTo(firstLineView);
+                make.bottom.equalTo(firstLineView);
+                make.height.mas_equalTo(10);
+            }];
+        }
+        
+        // 接待  录入  变更
+        CGFloat height = 70;
+        if (kappScreenWidth == 320) {
+            height = 70;
+        }
+        if (!firstReceptionView ) {
+            firstReceptionView = [[LJReceptionListRowView alloc] init];
+            [backView addSubview:firstReceptionView];
+            [firstReceptionView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(firstLineView);
+                make.right.equalTo(firstLineView);
+                make.top.equalTo(firstLineView.mas_bottom);
+                make.height.mas_equalTo(height);
+            }];
+        }
     
-    //    波数
-    if (daysBoNumberLabel == nil) {
-        daysBoNumberLabel = [UILabel new];
-        [firstLineView addSubview:daysBoNumberLabel];
-        [daysBoNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            if (kappScreenWidth <= 320) {
-                make.right.equalTo(personCountLbel.mas_left).offset(-3);
-            } else {
-                make.right.equalTo(personCountLbel.mas_left).offset(-10);
-            }
-            
-            make.centerY.equalTo(firstLineView.mas_centerY);
-            make.top.equalTo(firstLineView);
-        }];
-        daysBoNumberLabel.lineBreakMode = NSLineBreakByTruncatingHead;
-        daysBoNumberLabel.textColor = gray104;
-        daysBoNumberLabel.font = FONT12;
-        daysBoNumberLabel.textAlignment = NSTextAlignmentRight;
-    }
-    
-    //    订单号
-    if (orderNumberLabel == nil) {
-        orderNumberLabel = [UILabel new];
-        [firstLineView addSubview:orderNumberLabel];
-        [orderNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(firstLineView).offset(20);
-            make.centerY.equalTo(firstLineView.mas_centerY);
-            make.top.equalTo(firstLineView);
-            if (kappScreenWidth <= 320) {
-                make.right.equalTo(daysBoNumberLabel.mas_left).offset(-3);
-            } else {
-                make.right.equalTo(daysBoNumberLabel.mas_left).offset(-10);
-            }
-            
-        }];
-        orderNumberLabel.lineBreakMode = NSLineBreakByTruncatingMiddle;
-        orderNumberLabel.textColor = gray104;
-        orderNumberLabel.font = FONT12;
-    }
-    
-    
-    // line
-    if (!lineView) {
-        lineView =  [UIView new];
-        [firstLineView addSubview:lineView];
-        lineView.backgroundColor = gray238;
-        [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(firstLineView);
-            make.right.equalTo(firstLineView);
-            make.bottom.equalTo(firstLineView);
-            make.height.mas_equalTo(1);
-        }];
-    }
-    
-    // 接待  录入  变更
-    CGFloat height = 70;
-    if (kappScreenWidth == 320) {
-        height = 70;
-    }
-    if (!firstReceptionView ) {
-        firstReceptionView = [[LJReceptionListRowView alloc] init];
-        [backView addSubview:firstReceptionView];
-        [firstReceptionView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(firstLineView);
-            make.right.equalTo(firstLineView);
-            make.top.equalTo(firstLineView.mas_bottom);
-            make.height.mas_equalTo(height);
-        }];
-    }
-    
-//    if (!secondReceptionView) {
-//        secondReceptionView = [[LJReceptionListRowView alloc] init];
-//        [backView addSubview:secondReceptionView];
-//        [secondReceptionView mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.equalTo(firstLineView);
-//            make.right.equalTo(firstLineView);
-//            make.top.equalTo(firstReceptionView.mas_bottom);
-//            make.height.mas_equalTo(height);
-//        }];
-//    }
-//    
-//    if (!thirdReceptionView) {
-//        thirdReceptionView = [[LJReceptionListRowView alloc] init];
-//        [backView addSubview:thirdReceptionView];
-//        [thirdReceptionView mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.equalTo(firstLineView);
-//            make.right.equalTo(firstLineView);
-//            make.top.equalTo(secondReceptionView.mas_bottom);
-//            make.height.mas_equalTo(height);
-//        }];
-//        thirdReceptionView.bottomLineView.hidden = YES;
-//    }
-    if (!listScrollView) {
-        listScrollView = [[UIScrollView alloc] init];
-        listScrollView.backgroundColor = WhiteColor;
-        listScrollView.bounces = NO;
-        [backView addSubview:listScrollView];
+        if (!listScrollView) {
+            listScrollView = [[UIScrollView alloc] init];
+            listScrollView.backgroundColor = WhiteColor;
+            listScrollView.bounces = NO;
+            [backView addSubview:listScrollView];
 
-    }
-    listScrollView.frame = CGRectMake(0,  50 + 70 * 1 + 10, kappScreenWidth, listHeight);
-//    listScrollView.frame = CGRectMake(0,  50 + 70 * 3 + 10, kappScreenWidth, listHeight);
-    listScrollView.contentSize = CGSizeMake(gridViewWidth, listScrollView.frame.size.height);
-    if (!gridView) {
-        gridView = [[LJHLGridView alloc] init];
-        gridView.isConsumption = YES;
-        gridView.delegate = self;
-        gridView.superVC = self;
+        }
+        listScrollView.frame = CGRectMake(0,  70, kappScreenWidth, listHeight);
+    //    listScrollView.frame = CGRectMake(0,  50 + 70 * 3 + 10, kappScreenWidth, listHeight);
+        listScrollView.contentSize = CGSizeMake(gridViewWidth, listScrollView.frame.size.height);
+        if (!gridView) {
+            gridView = [[LJHLGridView alloc] init];
+            gridView.isConsumption = YES;
+            gridView.delegate = self;
+            gridView.superVC = self;
+            gridView.dataList = dataList;
+            [listScrollView addSubview:gridView];
+        }
+        gridView.frame = CGRectMake(0, 0, gridViewWidth, listHeight);
         gridView.dataList = dataList;
-        [listScrollView addSubview:gridView];
-    }
-    gridView.frame = CGRectMake(0, 0, gridViewWidth, listHeight);
-    gridView.dataList = dataList;
 
-    
-    if (!rightBottomButton) {
-        rightBottomButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [backView addSubview:rightBottomButton];
-        rightBottomButton.clipsToBounds = YES;
-        [rightBottomButton setBackgroundImage:[LJColorImage imageWithColor:gray146] forState:UIControlStateSelected];
         
-        [rightBottomButton setBackgroundImage:[LJColorImage imageWithColor:[UIColor lightGrayColor]] forState:UIControlStateHighlighted];
-        [rightBottomButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [rightBottomButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            if (kappScreenHeight - kTopScreenWidth - (50 + 3 * height + 10 + listHeight) > 110) {
-                make.bottom.equalTo(self.view).offset(-30);
-                make.left.equalTo(self.view).offset(30);
-                make.right.equalTo(self.view).offset(-30);
+        if (!rightBottomButton) {
+            rightBottomButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            [backView addSubview:rightBottomButton];
+            rightBottomButton.clipsToBounds = YES;
+            [rightBottomButton setBackgroundImage:[LJColorImage imageWithColor:gray146] forState:UIControlStateSelected];
+            
+            [rightBottomButton setBackgroundImage:[LJColorImage imageWithColor:[UIColor lightGrayColor]] forState:UIControlStateHighlighted];
+            [rightBottomButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+            [rightBottomButton mas_makeConstraints:^(MASConstraintMaker *make) {
+                if (kappScreenHeight - kTopScreenWidth - (50 + 3 * height + 10 + listHeight) > 110) {
+                    make.bottom.equalTo(self.view).offset(-30);
+                    make.left.equalTo(self.view).offset(30);
+                    make.right.equalTo(self.view).offset(-30);
+                    make.height.mas_equalTo(50);
+                } else {
+                    make.top.equalTo(listScrollView.mas_bottom).offset(30);
+                    make.left.equalTo(self.view).offset(30);
+                    make.right.equalTo(self.view).offset(-30);
+                    make.height.mas_equalTo(50);
+                }
+            }];
+            rightBottomButton.backgroundColor = LightBrownColor;
+            [rightBottomButton setTitle:@"确定" forState:UIControlStateNormal];
+            rightBottomButton.layer.cornerRadius = 25;
+        }
+        
+        orderNumberLabel.text =[NSString stringWithFormat:@"房间:%@", self.roomName];
+        daysBoNumberLabel.text = [NSString stringWithFormat:@"房号:%@", self.roomCd];
+        
+    } else {
+        // 旧消费订单
+        if (dataList.count < count) {
+            listHeight = (dataList.count+1) * 50;
+        } else {
+            listHeight = 50 * count + 50;
+        }
+        backView.contentSize = CGSizeMake(kappScreenWidth, 50 + 70 * 1 + 50 + listHeight + 100);
+        // 第一行
+        if (!firstLineView) {
+            firstLineView = [[UIView alloc] init];
+            [backView addSubview:firstLineView];
+            [firstLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.width.mas_equalTo(kappScreenWidth);
+                make.top.equalTo(backView);
+                make.left.equalTo(self.view);
                 make.height.mas_equalTo(50);
-            } else {
-                make.top.equalTo(listScrollView.mas_bottom).offset(30);
-                make.left.equalTo(self.view).offset(30);
-                make.right.equalTo(self.view).offset(-30);
-                make.height.mas_equalTo(50);
-            }
-        }];
-        rightBottomButton.backgroundColor = LightBrownColor;
-        [rightBottomButton setTitle:@"确定" forState:UIControlStateNormal];
-        rightBottomButton.layer.cornerRadius = 25;
+            }];
+            firstLineView.backgroundColor = WhiteColor;
+        }
+        //    人数
+        if (personCountLbel == nil) {
+            personCountLbel = [UILabel new];
+            [firstLineView addSubview:personCountLbel];
+            [personCountLbel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.right.equalTo(firstLineView.mas_right).offset(-20);
+                make.centerY.equalTo(firstLineView.mas_centerY);
+                make.top.equalTo(firstLineView);
+            }];
+            
+            personCountLbel.textColor = gray104;
+            personCountLbel.font = FONT12;
+            personCountLbel.textAlignment = NSTextAlignmentRight;
+        }
+        
+        //    波数
+        if (daysBoNumberLabel == nil) {
+            daysBoNumberLabel = [UILabel new];
+            [firstLineView addSubview:daysBoNumberLabel];
+            [daysBoNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                if (kappScreenWidth <= 320) {
+                    make.right.equalTo(personCountLbel.mas_left).offset(-3);
+                } else {
+                    make.right.equalTo(personCountLbel.mas_left).offset(-10);
+                }
+                
+                make.centerY.equalTo(firstLineView.mas_centerY);
+                make.top.equalTo(firstLineView);
+            }];
+            daysBoNumberLabel.lineBreakMode = NSLineBreakByTruncatingHead;
+            daysBoNumberLabel.textColor = gray104;
+            daysBoNumberLabel.font = FONT12;
+            daysBoNumberLabel.textAlignment = NSTextAlignmentRight;
+        }
+        
+        //    订单号
+        if (orderNumberLabel == nil) {
+            orderNumberLabel = [UILabel new];
+            [firstLineView addSubview:orderNumberLabel];
+            [orderNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(firstLineView).offset(20);
+                make.centerY.equalTo(firstLineView.mas_centerY);
+                make.top.equalTo(firstLineView);
+                if (kappScreenWidth <= 320) {
+                    make.right.equalTo(daysBoNumberLabel.mas_left).offset(-3);
+                } else {
+                    make.right.equalTo(daysBoNumberLabel.mas_left).offset(-10);
+                }
+                
+            }];
+            orderNumberLabel.lineBreakMode = NSLineBreakByTruncatingMiddle;
+            orderNumberLabel.textColor = gray104;
+            orderNumberLabel.font = FONT12;
+        }
+        
+        
+        // line
+        if (!lineView) {
+            lineView =  [UIView new];
+            [firstLineView addSubview:lineView];
+            lineView.backgroundColor = gray238;
+            [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(firstLineView);
+                make.right.equalTo(firstLineView);
+                make.bottom.equalTo(firstLineView);
+                make.height.mas_equalTo(1);
+            }];
+        }
+        
+        // 接待  录入  变更
+        CGFloat height = 70;
+        if (kappScreenWidth == 320) {
+            height = 70;
+        }
+        if (!firstReceptionView ) {
+            firstReceptionView = [[LJReceptionListRowView alloc] init];
+            [backView addSubview:firstReceptionView];
+            [firstReceptionView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(firstLineView);
+                make.right.equalTo(firstLineView);
+                make.top.equalTo(firstLineView.mas_bottom);
+                make.height.mas_equalTo(height);
+            }];
+        }
+   
+        if (!listScrollView) {
+            listScrollView = [[UIScrollView alloc] init];
+            listScrollView.backgroundColor = WhiteColor;
+            listScrollView.bounces = NO;
+            [backView addSubview:listScrollView];
+
+        }
+        listScrollView.frame = CGRectMake(0,  50 + 70 * 1 + 10, kappScreenWidth, listHeight);
+    //    listScrollView.frame = CGRectMake(0,  50 + 70 * 3 + 10, kappScreenWidth, listHeight);
+        listScrollView.contentSize = CGSizeMake(gridViewWidth, listScrollView.frame.size.height);
+        if (!gridView) {
+            gridView = [[LJHLGridView alloc] init];
+            gridView.isConsumption = YES;
+            gridView.delegate = self;
+            gridView.superVC = self;
+            gridView.dataList = dataList;
+            [listScrollView addSubview:gridView];
+        }
+        gridView.frame = CGRectMake(0, 0, gridViewWidth, listHeight);
+        gridView.dataList = dataList;
+
+        
+        if (!rightBottomButton) {
+            rightBottomButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            [backView addSubview:rightBottomButton];
+            rightBottomButton.clipsToBounds = YES;
+            [rightBottomButton setBackgroundImage:[LJColorImage imageWithColor:gray146] forState:UIControlStateSelected];
+            
+            [rightBottomButton setBackgroundImage:[LJColorImage imageWithColor:[UIColor lightGrayColor]] forState:UIControlStateHighlighted];
+            [rightBottomButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+            [rightBottomButton mas_makeConstraints:^(MASConstraintMaker *make) {
+                if (kappScreenHeight - kTopScreenWidth - (50 + 3 * height + 10 + listHeight) > 110) {
+                    make.bottom.equalTo(self.view).offset(-30);
+                    make.left.equalTo(self.view).offset(30);
+                    make.right.equalTo(self.view).offset(-30);
+                    make.height.mas_equalTo(50);
+                } else {
+                    make.top.equalTo(listScrollView.mas_bottom).offset(30);
+                    make.left.equalTo(self.view).offset(30);
+                    make.right.equalTo(self.view).offset(-30);
+                    make.height.mas_equalTo(50);
+                }
+            }];
+            rightBottomButton.backgroundColor = LightBrownColor;
+            [rightBottomButton setTitle:@"确定" forState:UIControlStateNormal];
+            rightBottomButton.layer.cornerRadius = 25;
+        }
+        
+        orderNumberLabel.text =[NSString stringWithFormat:@"单号:%@", [[self.dataDic objectForKey:@"receptionOrderHeadTab"]  objectForKey:@"orderCd"]];
+        daysBoNumberLabel.text = [NSString stringWithFormat:@"当日波数:%@", [[self.dataDic objectForKey:@"receptionOrderHeadTab"]  objectForKey:@"customerTurnCd"]];
+        personCountLbel.text = [NSString stringWithFormat:@"人数:%@", [[self.dataDic objectForKey:@"receptionOrderHeadTab"]  objectForKey:@"customerQty"]];
+        
+        firstReceptionView.nameLabel.text = [NSString stringWithFormat:@"接待员:%@",self.headerEntity.salemanName];
+        firstReceptionView.numberLabel.text = [NSString stringWithFormat:@"编号:%@",self.headerEntity.salemanCd];
+        firstReceptionView.dutyLabel.text = [NSString stringWithFormat:@"职务:%@",self.headerEntity.salemanPosition];
+        firstReceptionView.timeLbael.text = [NSString stringWithFormat:@"接待时间:%@",self.headerEntity.createDate];
+        
+        
     }
-    
-    orderNumberLabel.text =[NSString stringWithFormat:@"单号:%@", [[self.dataDic objectForKey:@"receptionOrderHeadTab"]  objectForKey:@"orderCd"]];
-    daysBoNumberLabel.text = [NSString stringWithFormat:@"当日波数:%@", [[self.dataDic objectForKey:@"receptionOrderHeadTab"]  objectForKey:@"customerTurnCd"]];
-    personCountLbel.text = [NSString stringWithFormat:@"人数:%@", [[self.dataDic objectForKey:@"receptionOrderHeadTab"]  objectForKey:@"customerQty"]];
-    
-    firstReceptionView.nameLabel.text = [NSString stringWithFormat:@"接待员:%@",self.headerEntity.salemanName];
-    firstReceptionView.numberLabel.text = [NSString stringWithFormat:@"编号:%@",self.headerEntity.salemanCd];
-    firstReceptionView.dutyLabel.text = [NSString stringWithFormat:@"职务:%@",self.headerEntity.salemanPosition];
-    firstReceptionView.timeLbael.text = [NSString stringWithFormat:@"接待时间:%@",self.headerEntity.createDate];
-    
-    
-//    secondReceptionView.nameLabel.text = [NSString stringWithFormat:@"录入员:%@",self.headerEntity.createUserName];
-//    secondReceptionView.numberLabel.text = [NSString stringWithFormat:@"编号:%@",self.headerEntity.createUser];
-//    secondReceptionView.dutyLabel.text = [NSString stringWithFormat:@"职务:%@",self.headerEntity.createUserPosition];
-//
-//    secondReceptionView.timeLbael.text = [NSString stringWithFormat:@"录入时间:%@",self.headerEntity.createDate];
-//    
-//    
-//    thirdReceptionView.nameLabel.text = [NSString stringWithFormat:@"变更员:%@",self.headerEntity.updateUserName];
-//    thirdReceptionView.numberLabel.text = [NSString stringWithFormat:@"编号:%@",self.headerEntity.updateUser];
-//    thirdReceptionView.dutyLabel.text = [NSString stringWithFormat:@"职务:%@",self.headerEntity.updateUserPosition];
-//    
-//    thirdReceptionView.timeLbael.text = [NSString stringWithFormat:@"变更时间:%@",self.headerEntity.updateDate];
-    
-    
+    // 旧代码
+   
     
     [self.view bringSubviewToFront:topView];
     
