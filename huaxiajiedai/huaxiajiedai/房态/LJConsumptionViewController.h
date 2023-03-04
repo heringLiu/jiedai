@@ -47,6 +47,7 @@
 @property (nonatomic, strong) UIControl *myControl;
 
 @property (nonatomic, assign) BOOL isAll;
+@property (nonatomic, assign) CGFloat gridViewWidth;
 
 - (void) loadData;
 - (void) saveData;

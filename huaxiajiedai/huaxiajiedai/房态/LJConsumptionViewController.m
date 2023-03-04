@@ -12,7 +12,7 @@
 #import "LJAddClientViewController.h"
 #import "LJWaitingAreaViewController.h"
 #import "LJReceptionDetailModel.h"
-#define gridViewWidth 100 *2 + 80 * 7 + 4 * 60
+//#define gridViewWidth 100 *2 + 80 * 7 + 4 * 60
 
 @interface LJConsumptionViewController () <GridViewDelegate,SelectRoomDelegate, UIActionSheetDelegate> {
     
@@ -70,11 +70,16 @@
 @end
 
 @implementation LJConsumptionViewController
-@synthesize topView, rightMenuView, dataList, myControl, pickView;
+@synthesize topView, rightMenuView, dataList, myControl, pickView, gridViewWidth;
 
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    if (self.isAll) {
+        gridViewWidth = 100 *2 + 80 * 7 + 4 * 60 + 160;
+    } else {
+        gridViewWidth = 100 *2 + 80 * 7 + 4 * 60;
+    }
     [self loadData];
 }
 
@@ -172,6 +177,7 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     listHeight = 300;
+
     [self loadData];
     
     [self registerForKeyboardNotifications];
@@ -1065,6 +1071,7 @@
         listScrollView.contentSize = CGSizeMake(gridViewWidth, listScrollView.frame.size.height);
         if (!gridView) {
             gridView = [[LJHLGridView alloc] init];
+            gridView.isAll = YES;
             gridView.isConsumption = YES;
             gridView.delegate = self;
             gridView.superVC = self;

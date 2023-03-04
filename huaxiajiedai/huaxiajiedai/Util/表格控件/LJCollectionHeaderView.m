@@ -9,7 +9,7 @@
 #import "LJCollectionHeaderView.h"
 
 @implementation LJCollectionHeaderView
-@synthesize selectedAllBtn, clientNumberBtn, sexBtn, sofaBtn, projectNameBtn, techniciaBtn, roomNuberBtn, countNumberBtn, moneyBtn, projectStatusBtn, accountStatusBtn, salesmanBtn, serviceStatusBtn;
+@synthesize selectedAllBtn, clientNumberBtn, sexBtn, sofaBtn, projectNameBtn, techniciaBtn, roomNuberBtn, countNumberBtn, moneyBtn, projectStatusBtn, accountStatusBtn, salesmanBtn, serviceStatusBtn, custmerCdBtn;
 
 
 /*
@@ -28,7 +28,7 @@
     return self;
 }
 /* @"全选" @"客户编号" @"性别" @"沙发号" @"项目名称" @"技师" @"房间" @"数量" @"金额" @"项目状态" @"结算状态" @"推销员" */
-- (instancetype)initWithFrame:(CGRect)frame isConsumpton:(BOOL) isConsumption;{
+- (instancetype)initWithFrame:(CGRect)frame isConsumpton:(BOOL) isConsumption isAll:(BOOL)isAll;{
     if (self = [super initWithFrame:frame]) {
         
         self.backgroundColor = WhiteColor;
@@ -49,10 +49,23 @@
         selectedAllBtn.tag = 1000;
         [selectedAllBtn addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
         
+        custmerCdBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self addSubview:custmerCdBtn];
+        [custmerCdBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(selectedAllBtn.mas_right);
+            make.top.equalTo(self);
+            make.bottom.equalTo(self);
+            make.width.mas_equalTo(isAll ? 160 : 0);
+        }];
+        [custmerCdBtn setTitle:@"消费单号" forState:UIControlStateNormal];
+        [custmerCdBtn setTitleColor:gray146 forState:UIControlStateNormal];
+        custmerCdBtn.titleLabel.font = FONT14;
+        custmerCdBtn.tag = 1021;
+        
         clientNumberBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [self addSubview:clientNumberBtn];
         [clientNumberBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(selectedAllBtn.mas_right);
+            make.left.equalTo(custmerCdBtn.mas_right);
             make.top.equalTo(self);
             make.bottom.equalTo(self);
             make.width.mas_equalTo(80);

@@ -268,39 +268,39 @@
             filePath = "huaxiajiedai/Util/&#x8868;&#x683c;&#x63a7;&#x4ef6;/LJHLGridView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1107"
-            endingLineNumber = "1107"
+            startingLineNumber = "1656"
+            endingLineNumber = "1656"
             landmarkName = "-collectionView:didSelectItemAtIndexPath:"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "C0B74B8A-B83C-484C-9F1F-7BE24BCEE3C7 - a125ea97b8445138"
+                  uuid = "C0B74B8A-B83C-484C-9F1F-7BE24BCEE3C7 - 5e6518f6ec99dd1d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[LJHLGridView collectionView:didSelectItemAtIndexPath:]"
+                  symbolName = "__56-[LJHLGridView collectionView:didSelectItemAtIndexPath:]_block_invoke_14"
                   moduleName = "huaxiajiedai"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liuhuilin/Documents/%E6%88%91%E7%9A%84%E7%AC%94%E8%AE%B0/%E5%8D%8E%E5%A4%8F/code/jiedai/huaxiajiedai/huaxiajiedai/Util/%E8%A1%A8%E6%A0%BC%E6%8E%A7%E4%BB%B6/LJHLGridView.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1107"
-                  endingLineNumber = "1107"
-                  offsetFromSymbolStart = "11188">
+                  startingLineNumber = "1656"
+                  endingLineNumber = "1656"
+                  offsetFromSymbolStart = "3524">
                </Location>
                <Location
-                  uuid = "C0B74B8A-B83C-484C-9F1F-7BE24BCEE3C7 - 23fde556b15a8e61"
+                  uuid = "C0B74B8A-B83C-484C-9F1F-7BE24BCEE3C7 - 5e6518f6ec99dd1d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__56-[LJHLGridView collectionView:didSelectItemAtIndexPath:]_block_invoke_7"
+                  symbolName = "__56-[LJHLGridView collectionView:didSelectItemAtIndexPath:]_block_invoke_14"
                   moduleName = "huaxiajiedai"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liuhuilin/Documents/%E6%88%91%E7%9A%84%E7%AC%94%E8%AE%B0/%E5%8D%8E%E5%A4%8F/code/jiedai/huaxiajiedai/huaxiajiedai/Util/%E8%A1%A8%E6%A0%BC%E6%8E%A7%E4%BB%B6/LJHLGridView.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1107"
-                  endingLineNumber = "1107"
+                  startingLineNumber = "1656"
+                  endingLineNumber = "1656"
                   offsetFromSymbolStart = "3456">
                </Location>
             </Locations>
@@ -644,70 +644,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6811FA71-8D3E-419B-B865-5F692D1D5CAF"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "huaxiajiedai/Util/&#x8868;&#x683c;&#x63a7;&#x4ef6;/LJHLGridView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
-            landmarkName = "-collectionView:cellForItemAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4465CC87-D511-4145-9EAD-42D5163B48D2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "huaxiajiedai/Util/&#x8868;&#x683c;&#x63a7;&#x4ef6;/LJHLGridView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
-            landmarkName = "-collectionView:cellForItemAtIndexPath:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "4465CC87-D511-4145-9EAD-42D5163B48D2 - efb1048fcbbf52d4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[LJHLGridView collectionView:cellForItemAtIndexPath:]"
-                  moduleName = "huaxiajiedai"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/liuhuilin/Documents/%E6%88%91%E7%9A%84%E7%AC%94%E8%AE%B0/%E5%8D%8E%E5%A4%8F/code/jiedai/huaxiajiedai/huaxiajiedai/Util/%E8%A1%A8%E6%A0%BC%E6%8E%A7%E4%BB%B6/LJHLGridView.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "243"
-                  endingLineNumber = "243"
-                  offsetFromSymbolStart = "2540">
-               </Location>
-               <Location
-                  uuid = "4465CC87-D511-4145-9EAD-42D5163B48D2 - efb1048fcbbf52d4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[LJHLGridView collectionView:cellForItemAtIndexPath:]"
-                  moduleName = "huaxiajiedai"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/liuhuilin/Documents/%E6%88%91%E7%9A%84%E7%AC%94%E8%AE%B0/%E5%8D%8E%E5%A4%8F/code/jiedai/huaxiajiedai/huaxiajiedai/Util/%E8%A1%A8%E6%A0%BC%E6%8E%A7%E4%BB%B6/LJHLGridView.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "243"
-                  endingLineNumber = "243"
-                  offsetFromSymbolStart = "2556">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "2C4E305B-8BC2-485A-ABDD-D04B07AFA9FE"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -772,69 +708,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7705743B-AA76-43D0-86B2-DD28A4287DCD"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "huaxiajiedai/Util/&#x8868;&#x683c;&#x63a7;&#x4ef6;/LJHLGridView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "592"
-            endingLineNumber = "592"
-            landmarkName = "-collectionView:didSelectItemAtIndexPath:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "7705743B-AA76-43D0-86B2-DD28A4287DCD - 8d2ec6651d387a2a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__56-[LJHLGridView collectionView:didSelectItemAtIndexPath:]_block_invoke"
-                  moduleName = "huaxiajiedai"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/liuhuilin/Documents/%E6%88%91%E7%9A%84%E7%AC%94%E8%AE%B0/%E5%8D%8E%E5%A4%8F/code/jiedai/huaxiajiedai/huaxiajiedai/Util/%E8%A1%A8%E6%A0%BC%E6%8E%A7%E4%BB%B6/LJHLGridView.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "592"
-                  endingLineNumber = "592"
-                  offsetFromSymbolStart = "60">
-               </Location>
-               <Location
-                  uuid = "7705743B-AA76-43D0-86B2-DD28A4287DCD - 8d2ec6651d387a2a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__56-[LJHLGridView collectionView:didSelectItemAtIndexPath:]_block_invoke"
-                  moduleName = "huaxiajiedai"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/liuhuilin/Documents/%E6%88%91%E7%9A%84%E7%AC%94%E8%AE%B0/%E5%8D%8E%E5%A4%8F/code/jiedai/huaxiajiedai/huaxiajiedai/Util/%E8%A1%A8%E6%A0%BC%E6%8E%A7%E4%BB%B6/LJHLGridView.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "592"
-                  endingLineNumber = "592"
-                  offsetFromSymbolStart = "52">
-               </Location>
-               <Location
-                  uuid = "7705743B-AA76-43D0-86B2-DD28A4287DCD - 8d2ec6651d387acb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__56-[LJHLGridView collectionView:didSelectItemAtIndexPath:]_block_invoke"
-                  moduleName = "huaxiajiedai"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/liuhuilin/Documents/%E6%88%91%E7%9A%84%E7%AC%94%E8%AE%B0/%E5%8D%8E%E5%A4%8F/code/jiedai/huaxiajiedai/huaxiajiedai/Util/%E8%A1%A8%E6%A0%BC%E6%8E%A7%E4%BB%B6/LJHLGridView.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "593"
-                  endingLineNumber = "593"
-                  offsetFromSymbolStart = "84">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "68B38086-2FAB-403B-98DB-EF710B3FD7E2"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -842,9 +715,137 @@
             filePath = "huaxiajiedai/&#x623f;&#x6001;/LJConsumptionViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1104"
-            endingLineNumber = "1104"
+            startingLineNumber = "1111"
+            endingLineNumber = "1111"
             landmarkName = "-createUI"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8A4FFC66-27D9-4DB3-83CC-D2701714C245"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huaxiajiedai/Util/&#x8868;&#x683c;&#x63a7;&#x4ef6;/LJHLGridView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "-buttonP:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0FC24467-17D0-4200-B32A-FA2149791E4A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huaxiajiedai/Util/&#x8868;&#x683c;&#x63a7;&#x4ef6;/LJHLGridView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-setIsConsumption:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5FEDA7DA-4D47-4C33-AE1A-1A7B0E4E67F0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huaxiajiedai/&#x623f;&#x6001;/LJConsumptionViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "-loadData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "476B983D-7F21-4A64-8B15-1C21ABA9AB14"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huaxiajiedai/Util/&#x8868;&#x683c;&#x63a7;&#x4ef6;/LJHLGridView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2309"
+            endingLineNumber = "2309"
+            landmarkName = "-actionSheet:clickedButtonAtIndex:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AFB11E2E-9859-445E-AA86-6E6ECCBB4007"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huaxiajiedai/Util/&#x8868;&#x683c;&#x63a7;&#x4ef6;/LJHLGridView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2307"
+            endingLineNumber = "2307"
+            landmarkName = "-actionSheet:clickedButtonAtIndex:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AFB11E2E-9859-445E-AA86-6E6ECCBB4007 - 58e44728b363f3d3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[LJHLGridView actionSheet:clickedButtonAtIndex:]"
+                  moduleName = "huaxiajiedai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liuhuilin/Documents/%E6%88%91%E7%9A%84%E7%AC%94%E8%AE%B0/%E5%8D%8E%E5%A4%8F/code/jiedai/huaxiajiedai/huaxiajiedai/Util/%E8%A1%A8%E6%A0%BC%E6%8E%A7%E4%BB%B6/LJHLGridView.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "2305"
+                  endingLineNumber = "2305"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "AFB11E2E-9859-445E-AA86-6E6ECCBB4007 - 58e44728b363f311"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[LJHLGridView actionSheet:clickedButtonAtIndex:]"
+                  moduleName = "huaxiajiedai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liuhuilin/Documents/%E6%88%91%E7%9A%84%E7%AC%94%E8%AE%B0/%E5%8D%8E%E5%A4%8F/code/jiedai/huaxiajiedai/huaxiajiedai/Util/%E8%A1%A8%E6%A0%BC%E6%8E%A7%E4%BB%B6/LJHLGridView.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "2307"
+                  endingLineNumber = "2307"
+                  offsetFromSymbolStart = "76">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8DA758D2-AD9F-4DAB-AEA6-A563B5ABB4C8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huaxiajiedai/Util/&#x8868;&#x683c;&#x63a7;&#x4ef6;/LJHLGridView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "703"
+            endingLineNumber = "703"
+            landmarkName = "-collectionView:didSelectItemAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

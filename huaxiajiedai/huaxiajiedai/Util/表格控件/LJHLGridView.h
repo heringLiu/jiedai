@@ -47,6 +47,8 @@
 
 @property (nonatomic, strong) NSMutableArray *empListData;
 
+@property (nonatomic, assign) BOOL isAll;
+
 - (void)selectedDone:(NSInteger)index;
 
 //- (instancetype)initWithFrame:(CGRect)frame isConsumpton:( BOOL) isConsumption ;

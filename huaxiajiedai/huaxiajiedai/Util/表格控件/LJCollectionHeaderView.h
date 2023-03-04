@@ -47,7 +47,7 @@
 //@property (nonatomic, assign) BOOL isConsumption;
 
 @property (nonatomic, strong) UIButton *selectedAllBtn;
-
+@property (nonatomic, strong) UIButton *custmerCdBtn;
 @property (nonatomic, strong) UIButton *clientNumberBtn;
 
 @property (nonatomic, strong) UIButton *sexBtn;
@@ -75,7 +75,7 @@
 @property (nonatomic, strong) UIButton *serviceStatusBtn;
 
 
-- (instancetype)initWithFrame:(CGRect)frame isConsumpton:(BOOL) isConsumption;
+- (instancetype)initWithFrame:(CGRect)frame isConsumpton:(BOOL) isConsumption isAll:(BOOL) isAll;
 
 
 
