@@ -45,6 +45,8 @@
 
 @property (nonatomic, strong) UIControl *myControl;
 
+@property (nonatomic, assign) BOOL isAll;
+
 - (void) loadData;
 - (void) saveData;
 

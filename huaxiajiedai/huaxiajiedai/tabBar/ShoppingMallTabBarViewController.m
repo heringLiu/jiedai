@@ -206,7 +206,7 @@
         
         return;
     } else if (index == 104) {
-        UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"请选择菜单" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"开单", @"开单明细", @"销售业绩", @"等待区域", nil];
+        UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"请选择菜单" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"开单", @"开单明细", @"销售业绩", nil];
         [as showInView:self.view];
         return;
     }
@@ -318,16 +318,17 @@
         [self presentViewController:nav animated:YES completion:^{
             
         }];
-    } else if (buttonIndex == 3) {
-        NSLog(@"等待区域");
-        UINavigationController *waitingNavController = [[UINavigationController alloc] initWithRootViewController:self.waitingViewController];
-        waitingNavController.navigationBarHidden = YES;
-        
-        waitingNavController.modalPresentationStyle = UIModalPresentationFullScreen;
-        [self presentViewController:waitingNavController animated:YES completion:^{
-
-        }];
     }
+//    else if (buttonIndex == 3) {
+//        NSLog(@"等待区域");
+//        UINavigationController *waitingNavController = [[UINavigationController alloc] initWithRootViewController:self.waitingViewController];
+//        waitingNavController.navigationBarHidden = YES;
+//        
+//        waitingNavController.modalPresentationStyle = UIModalPresentationFullScreen;
+//        [self presentViewController:waitingNavController animated:YES completion:^{
+//
+//        }];
+//    }
 }
 
 // called when keyboard search button pressed

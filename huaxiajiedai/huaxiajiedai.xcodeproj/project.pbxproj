@@ -25,6 +25,7 @@
 		07A2B8C528559C5300638C86 /* HLShouPaiDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2B8C428559C5300638C86 /* HLShouPaiDetailViewController.m */; };
 		07A2B8C82859C3A900638C86 /* HLShouPaiListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2B8C72859C3A900638C86 /* HLShouPaiListViewController.m */; };
 		07A2B8CE2859DAEA00638C86 /* HLSelectedProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2B8CD2859DAEA00638C86 /* HLSelectedProjectViewController.m */; };
+		07A72D9D29ACDD4F009F469A /* LJJishiVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A72D9C29ACDD4F009F469A /* LJJishiVIew.m */; };
 		9105A0711CBCC218000820F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9105A0701CBCC218000820F1 /* main.m */; };
 		9105A0741CBCC218000820F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9105A0731CBCC218000820F1 /* AppDelegate.m */; };
 		9105A0771CBCC218000820F1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9105A0761CBCC218000820F1 /* ViewController.m */; };
@@ -189,6 +190,8 @@
 		07A2B8C72859C3A900638C86 /* HLShouPaiListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLShouPaiListViewController.m; sourceTree = "<group>"; };
 		07A2B8CC2859DAEA00638C86 /* HLSelectedProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLSelectedProjectViewController.h; sourceTree = "<group>"; };
 		07A2B8CD2859DAEA00638C86 /* HLSelectedProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLSelectedProjectViewController.m; sourceTree = "<group>"; };
+		07A72D9B29ACDD4F009F469A /* LJJishiVIew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LJJishiVIew.h; sourceTree = "<group>"; };
+		07A72D9C29ACDD4F009F469A /* LJJishiVIew.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LJJishiVIew.m; sourceTree = "<group>"; };
 		276B033E086FD28433CDA64F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9105A06C1CBCC218000820F1 /* huaxiajiedai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = huaxiajiedai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9105A0701CBCC218000820F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -567,6 +570,8 @@
 				91600B801CE17C18005AEB0C /* LJTechnicianButton.m */,
 				9162B7191CDB14DC008F5A98 /* LJTechnicianChangedView.h */,
 				9162B71A1CDB14DC008F5A98 /* LJTechnicianChangedView.m */,
+				07A72D9B29ACDD4F009F469A /* LJJishiVIew.h */,
+				07A72D9C29ACDD4F009F469A /* LJJishiVIew.m */,
 			);
 			path = "选择技师";
 			sourceTree = "<group>";
@@ -1226,6 +1231,7 @@
 				91BEBD211CBF960900E0193F /* LJNormalInfomationViewController.m in Sources */,
 				91E0ACBA1CD0484A008F1124 /* NetWorkingModel.m in Sources */,
 				913A2B1B1DA9D25900146B16 /* LJRoomListView.m in Sources */,
+				07A72D9D29ACDD4F009F469A /* LJJishiVIew.m in Sources */,
 				A8C508B41FB4862D00B25098 /* HLSelectTimeViewController.m in Sources */,
 				07A2B8C528559C5300638C86 /* HLShouPaiDetailViewController.m in Sources */,
 				9162B71B1CDB14DC008F5A98 /* LJTechnicianChangedView.m in Sources */,
@@ -1415,16 +1421,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Dongqiang Lv (V7XKX88S2F)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 16;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X36EZ7D67K;
 				GCC_PREFIX_HEADER = huaxiajiedai/PrefixHeader.pch;
 				INFOPLIST_FILE = huaxiajiedai/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 2.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lianjun.hxlzjiedai2;
@@ -1441,16 +1448,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Dongqiang Lv (V7XKX88S2F)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 16;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X36EZ7D67K;
 				GCC_PREFIX_HEADER = huaxiajiedai/PrefixHeader.pch;
 				INFOPLIST_FILE = huaxiajiedai/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 2.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lianjun.hxlzjiedai2;

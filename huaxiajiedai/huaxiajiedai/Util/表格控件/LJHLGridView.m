@@ -165,6 +165,11 @@
 
     cell.backgroundColor = WhiteColor;
     
+    UIView *aView = [cell viewWithTag:9004];
+    if (aView) {
+        [aView removeFromSuperview];
+    }
+    
     LJReceptionDetailModel *entity = [self.dataList objectAtIndex:indexPath.section];
     LJReceptionDetailModel * lastEntity;
     if (indexPath.section > 0) {
@@ -230,50 +235,53 @@
             cell.cornerImage.hidden = NO;
             
         } else if (indexPath.row == 4) {
-//            技师
+//            技师  2.0.7 修改为跑马灯效果。
             
-            if (entity.artificer1Cd.length) {
+            if (entity.artificerList.count) {
                 NSString *str = @"";
-                if (entity.artificer1Cd.length) {
-                    if ([entity.artificer1SelectType isEqualToString:@"wheelTime"]) {
-                        //                        轮钟
-                        str = [NSString stringWithFormat:@"%@", entity.artificer1Cd];
+                for (int i = 0;i < entity.artificerList.count; i++) {
+                    NSDictionary *dic = [entity.artificerList objectAtIndex:i];
+                    if(i == entity.artificerList.count -1) {
+                        if([[dic objectForKey:@"selectType"] isEqual:@"callTime"]) {
+                            str = [NSString stringWithFormat:@"%@ %@ (%@)", str, [dic objectForKey:@"artificerName"], [dic objectForKey:@"artificerCd"]];
+                        } else {
+                            str = [NSString stringWithFormat:@"%@ %@ %@", str, [dic objectForKey:@"artificerName"], [dic objectForKey:@"artificerCd"]];
+                        }
                     } else {
-                        //                        点钟
-                        str = [NSString stringWithFormat:@"(%@)", entity.artificer1Cd];
+                        if([[dic objectForKey:@"selectType"] isEqual:@"callTime"]) {
+                            str = [NSString stringWithFormat:@"%@ %@ (%@)，", str, [dic objectForKey:@"artificerName"], [dic objectForKey:@"artificerCd"]];
+                        } else {
+                            str = [NSString stringWithFormat:@"%@ %@ %@，", str, [dic objectForKey:@"artificerName"], [dic objectForKey:@"artificerCd"]];
+                        }
                     }
                     
-                    if (entity.artificer2Cd.length) {
-                        if ([entity.artificer2SelectType isEqualToString:@"wheelTime"]) {
-                            //                        轮钟
-                            str = [NSString stringWithFormat:@"%@、%@", str, entity.artificer2Cd];
-                        } else {
-                            //                        点钟
-                            str = [NSString stringWithFormat:@"%@、(%@)", str, entity.artificer2Cd];
-                        }
-                        
-                        if (entity.artificer3Cd.length) {
-                            if ([entity.artificer3SelectType isEqualToString:@"wheelTime"]) {
-                                //                        轮钟
-                                str = [NSString stringWithFormat:@"%@、%@", str, entity.artificer3Cd];
-                            } else {
-                                //                        点钟
-                                str = [NSString stringWithFormat:@"%@、(%@)", str, entity.artificer3Cd];
-                            }
-                            
-                            if (entity.artificer4Cd.length) {
-                                if ([entity.artificer4SelectType isEqualToString:@"wheelTime"]) {
-                                    //                        轮钟
-                                    str = [NSString stringWithFormat:@"%@、%@", str, entity.artificer4Cd];
-                                } else {
-                                    //                        点钟
-                                    str = [NSString stringWithFormat:@"%@、(%@)", str, entity.artificer4Cd];
-                                }
-                            }
-                        }
-                    }
                 }
-                [cell setCellWithTitle:str];
+                [cell setCellWithTitle:@""];
+                cell.clipsToBounds = YES;
+//                cell.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+//                cell.titleLabel.numberOfLines = 0;
+//                [cell.titleLabel sizeToFit];
+                UILabel *label = [[UILabel alloc] init];
+                [cell addSubview:label];
+                
+                label.tag = 9004;
+                [label setText:str];
+                [label sizeToFit];
+                CGRect frame = label.frame;
+                frame.origin.x = cell.bounds.size.width;
+                frame.size.height = cell.bounds.size.height;
+                label.frame = frame;
+                [UIView beginAnimations:@"scrollLabelTest" context:NULL];
+                [UIView setAnimationDuration:3.0f];
+                [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+                [UIView setAnimationDelegate:self];
+                [UIView setAnimationRepeatAutoreverses:NO];
+                [UIView setAnimationRepeatCount:100];
+                frame = label.frame;
+                frame.origin.x = -frame.size.width;
+                label.frame = frame;
+                [UIView commitAnimations];
+                
             } else {
                 [cell setCellWithTitle:@""];
             }
@@ -540,18 +548,82 @@
             
             if ([selectedEntity.serveStatus isEqualToString:@"overdue"] || [selectedEntity.serveStatus isEqualToString:@"uptime"]) {
 //                起钟落钟
-                NSString *str = @"起钟";
-                if ([selectedEntity.serveStatus isEqualToString:@"uptime"]) {
-                    str = @"落钟";
+                NSString *str = @"技师编号：";
+                if (selectedEntity.artificerList.count) {
+                    for (int i = 0; i < selectedEntity.artificerList.count; i++) {
+                        NSDictionary *dic = [selectedEntity.artificerList objectAtIndex:i];
+                        NSString *jishi = [dic objectForKey:@"artificerCd"];
+                        if(i == selectedEntity.artificerList.count -1) {
+                            // 最后一位，不加逗号
+                            if ([[dic objectForKey:@"selectType"] isEqual:@"wheelTime"]){
+                                // 轮钟技师
+                                str = [NSString stringWithFormat:@"%@(%@)", str, jishi];
+                            }else {
+                                // 点钟技师
+                                str = [NSString stringWithFormat:@"%@%@", str, jishi];
+                            }
+                        } else {
+                            if ([[dic objectForKey:@"selectType"] isEqual:@"wheelTime"]){
+                                // 轮钟技师
+                                str = [NSString stringWithFormat:@"%@(%@),", str, jishi];
+                            }else {
+                                // 点钟技师
+                                str = [NSString stringWithFormat:@"%@%@,", str, jishi];
+                            }
+                        }
+                    }
                 }
+                str = [NSString stringWithFormat:@"%@\n项目时长：%@分钟", str, selectedEntity.projectTime];
                 NSString *cdStr = [NSString stringWithFormat:@"%@", selectedEntity.artificer1Cd];
                 if (selectedEntity.artificer2Cd.length) {
                     cdStr = [NSString stringWithFormat:@"%@、", selectedEntity.artificer2Cd];
                 }
                 DISMISS
-                UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"技师状态" message:[NSString stringWithFormat:@"技师编号:%@\n项目时长:%@分钟", cdStr, selectedEntity.projectTime] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:str, nil];
-                av.tag = 2002;
-                [av show];
+                
+//                UIAlertController *alterController = [[UIAlertController alloc] init];
+//
+//                [alterController setTitle:@"技师状态"];
+//                [alterController setMessage:@"aaa\n bbb/n"];
+                
+                UIAlertController *alterController = [UIAlertController alertControllerWithTitle:@"技师状态" message:str preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction *startAction = [UIAlertAction actionWithTitle:@"起钟" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    [self startEndTime:@"start"];
+                    
+                }];
+                [alterController addAction:startAction];
+                
+                UIAlertAction *endAction = [UIAlertAction actionWithTitle:@"落钟" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    [self startEndTime:@"end"];
+                }];
+                [alterController addAction:endAction];
+                
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                }];
+                [alterController addAction:cancelAction];
+                UIViewController *viewController = nil;
+                for(UIView* next = [self superview]; next; next = next.superview) {
+
+                    UIResponder*nextResponder = [next nextResponder];
+
+                    if ([nextResponder isKindOfClass:[UIViewController class]]) {
+
+                        viewController = (UIViewController *)nextResponder;
+
+                    }
+                }
+                if (viewController) {
+                    [viewController presentViewController:alterController animated:YES completion:^{
+                        
+                    }];
+                }
+                
+                
+                
+//                UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"技师状态" message:[NSString stringWithFormat:@"技师编号:%@\n项目时长:%@分钟", cdStr, selectedEntity.projectTime] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:str, nil];
+//                av.tag = 2002;
+//                [av show];
             } else {
 //                查看等待信息和技师信息
                 DISMISS
@@ -646,92 +718,92 @@
                     if ([CONTENTOBJ boolValue]) {
             
                         if ([selectedEntity.serviceHeadcount longLongValue] > 1) {
-                            [[NetWorkingModel sharedInstance] GET:testDoubleArt parameters:@{@"orderCd":selectedEntity.orderCd, @"customerCd":selectedEntity.customerCd, @"detailNo":selectedEntity.detailNo, @"serviceHeadcount":selectedEntity.serviceHeadcount, @"fag":@"consume"} success:^(AFHTTPRequestOperation *operation, id obj) {
-                                
-                                if (ISSUCCESS) {
-                                    //        技师
-                                    // 技师下钟 不可选  技师上钟的不能选
-                                    if ([selectedEntity.serveStatus isEqualToString:@"downtime"] || [selectedEntity.serveStatus isEqualToString:@"uptime"]) {
-                                        SHOWTEXTINWINDOW(@"上钟或下钟明细不能修改技师", 1);
-                                        return;
-                                    }
-                                    
-                                    if (!selectedEntity.projectName.length) {
-                                        SHOWTEXTINWINDOW(@"项目不能为空", 1);
-                                        return;
-                                    }
-                                    //             商品不能选择技师
-                                    if (selectedEntity.qtyUpdateFlg) {
-                                        return;
-                                    }
-                                    
-                                    LJReceptionDetailModel *model = nil;
-                                    //            当前客户选择技师的时候判断  当前用户是否存在上钟的技师
-                                    for (LJReceptionDetailModel *entity in self.dataList) {
-                                        if ([entity.customerCd isEqualToString:selectedEntity.customerCd] && (entity.artificer1Cd.length || entity.artificer2Cd.length) && ([entity.serveStatus isEqualToString:@"uptime"] || [entity.serveStatus isEqualToString:@"suspend"]) && ![entity.detailNo isEqualToString:selectedEntity.detailNo]) {
-                                            // 点钟  技师cd 非落钟项目有技师 并且该记录不是点击的这一条的记录  选择技师时  就只能选择该技师
-                                            model = entity;
-                                        }
-                                    }
-                                    
-                                    
-                                    LJSelectTechnicianViewController *next = [[LJSelectTechnicianViewController alloc] init];
-                                    next.artRecModel = model;
-                                    
-                                    next.canLunFlag = YES;
-                                    if (![selectedEntity.serveStatus isEqualToString:@"suspend"]) {
-                                        for (LJReceptionDetailModel *entity in self.dataList) {
-                                            if ([entity.customerCd isEqualToString:selectedEntity.customerCd] && ([entity.serveStatus isEqualToString:@"overdue"] || [entity.serveStatus isEqualToString:@"suspend"] || [entity.serveStatus isEqualToString:@"uptime"] || [entity.serveStatus isEqualToString:@"wait"]) && ![entity.detailNo isEqualToString:selectedEntity.detailNo]) {
-                                                next.canLunFlag = NO;
-                                                break;
-                                            }
-                                        }
-                                    }
-                                    
-                                    next.canSelectNotFree = YES;
-                                    for (LJReceptionDetailModel *entity in self.dataList) {
-                                        if ([entity.customerCd isEqualToString:selectedEntity.customerCd] && ![entity.serveStatus isEqualToString:@"downtime"] && [entity.serviceHeadcount integerValue] > 1 && ![entity.detailNo isEqualToString:selectedEntity.detailNo]) {
-                                            next.canSelectNotFree = NO;
-                                            next.doubleEntity = entity;
-                                            break;
-                                        }
-                                    }
-                                    next.detailEntity = selectedEntity;
-                                    next.projectCd = selectedEntity.projectCd;
-                                    next.artificer1Cd = selectedEntity.artificer1Cd;
-                                    next.artificer1SelectType = selectedEntity.artificer1SelectType;
-                                    
-                                    next.artificer2Cd = selectedEntity.artificer2Cd;
-                                    next.artificer2SelectType = selectedEntity.artificer2SelectType;
-                                    
-                                    next.artificer3Cd = selectedEntity.artificer3Cd;
-                                    next.artificer3SelectType = selectedEntity.artificer3SelectType;
-                                    
-                                    next.artificer4Cd = selectedEntity.artificer4Cd;
-                                    next.artificer4SelectType = selectedEntity.artificer4SelectType;
-                                    
-                                    next.technicianCount = [selectedEntity.serviceHeadcount integerValue];
-                                    next.isConsumption = self.isConsumption;
-                                    next.delegate = self;
-                                    next.navColor = NavBackColor;
-                                    if (selectedEntity.artificer1Cd.length > 0) {
-                                        next.titleString = @"更换技师";
-                                    } else {
-                                        next.titleString = @"选择技师";
-                                    }
-                                    
-                                    next.view.backgroundColor = WhiteColor;
-                                    
-                                    [superVC.navigationController pushViewController:next animated:YES];
-                                } else {
-                                    SHOWTEXTINWINDOW(@"不能选择多人项目技师", 1);
-                                }
-                                
-                            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                
-                            }];
-                            
-                            return ;
+//                            [[NetWorkingModel sharedInstance] GET:testDoubleArt parameters:@{@"orderCd":selectedEntity.orderCd, @"customerCd":selectedEntity.customerCd, @"detailNo":selectedEntity.detailNo, @"serviceHeadcount":selectedEntity.serviceHeadcount, @"fag":@"consume"} success:^(AFHTTPRequestOperation *operation, id obj) {
+//                                
+//                                if (ISSUCCESS) {
+//                                    //        技师
+//                                    // 技师下钟 不可选  技师上钟的不能选
+//                                    if ([selectedEntity.serveStatus isEqualToString:@"downtime"] || [selectedEntity.serveStatus isEqualToString:@"uptime"]) {
+//                                        SHOWTEXTINWINDOW(@"上钟或下钟明细不能修改技师", 1);
+//                                        return;
+//                                    }
+//                                    
+//                                    if (!selectedEntity.projectName.length) {
+//                                        SHOWTEXTINWINDOW(@"项目不能为空", 1);
+//                                        return;
+//                                    }
+//                                    //             商品不能选择技师
+//                                    if (selectedEntity.qtyUpdateFlg) {
+//                                        return;
+//                                    }
+//                                    
+//                                    LJReceptionDetailModel *model = nil;
+//                                    //            当前客户选择技师的时候判断  当前用户是否存在上钟的技师
+//                                    for (LJReceptionDetailModel *entity in self.dataList) {
+//                                        if ([entity.customerCd isEqualToString:selectedEntity.customerCd] && (entity.artificer1Cd.length || entity.artificer2Cd.length) && ([entity.serveStatus isEqualToString:@"uptime"] || [entity.serveStatus isEqualToString:@"suspend"]) && ![entity.detailNo isEqualToString:selectedEntity.detailNo]) {
+//                                            // 点钟  技师cd 非落钟项目有技师 并且该记录不是点击的这一条的记录  选择技师时  就只能选择该技师
+//                                            model = entity;
+//                                        }
+//                                    }
+//                                    
+//                                    
+//                                    LJSelectTechnicianViewController *next = [[LJSelectTechnicianViewController alloc] init];
+//                                    next.artRecModel = model;
+//                                    
+//                                    next.canLunFlag = YES;
+//                                    if (![selectedEntity.serveStatus isEqualToString:@"suspend"]) {
+//                                        for (LJReceptionDetailModel *entity in self.dataList) {
+//                                            if ([entity.customerCd isEqualToString:selectedEntity.customerCd] && ([entity.serveStatus isEqualToString:@"overdue"] || [entity.serveStatus isEqualToString:@"suspend"] || [entity.serveStatus isEqualToString:@"uptime"] || [entity.serveStatus isEqualToString:@"wait"]) && ![entity.detailNo isEqualToString:selectedEntity.detailNo]) {
+//                                                next.canLunFlag = NO;
+//                                                break;
+//                                            }
+//                                        }
+//                                    }
+//                                    
+//                                    next.canSelectNotFree = YES;
+//                                    for (LJReceptionDetailModel *entity in self.dataList) {
+//                                        if ([entity.customerCd isEqualToString:selectedEntity.customerCd] && ![entity.serveStatus isEqualToString:@"downtime"] && [entity.serviceHeadcount integerValue] > 1 && ![entity.detailNo isEqualToString:selectedEntity.detailNo]) {
+//                                            next.canSelectNotFree = NO;
+//                                            next.doubleEntity = entity;
+//                                            break;
+//                                        }
+//                                    }
+//                                    next.detailEntity = selectedEntity;
+//                                    next.projectCd = selectedEntity.projectCd;
+//                                    next.artificer1Cd = selectedEntity.artificer1Cd;
+//                                    next.artificer1SelectType = selectedEntity.artificer1SelectType;
+//                                    
+//                                    next.artificer2Cd = selectedEntity.artificer2Cd;
+//                                    next.artificer2SelectType = selectedEntity.artificer2SelectType;
+//                                    
+//                                    next.artificer3Cd = selectedEntity.artificer3Cd;
+//                                    next.artificer3SelectType = selectedEntity.artificer3SelectType;
+//                                    
+//                                    next.artificer4Cd = selectedEntity.artificer4Cd;
+//                                    next.artificer4SelectType = selectedEntity.artificer4SelectType;
+//                                    
+//                                    next.technicianCount = [selectedEntity.serviceHeadcount integerValue];
+//                                    next.isConsumption = self.isConsumption;
+//                                    next.delegate = self;
+//                                    next.navColor = NavBackColor;
+//                                    if (selectedEntity.artificer1Cd.length > 0) {
+//                                        next.titleString = @"更换技师";
+//                                    } else {
+//                                        next.titleString = @"选择技师";
+//                                    }
+//                                    
+//                                    next.view.backgroundColor = WhiteColor;
+//                                    
+//                                    [superVC.navigationController pushViewController:next animated:YES];
+//                                } else {
+//                                    SHOWTEXTINWINDOW(@"不能选择多人项目技师", 1);
+//                                }
+//                                
+//                            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//                                
+//                            }];
+//                            
+//                            return ;
                         }
                         
                         
@@ -1257,6 +1329,122 @@
 
 - (void) closeKeyBoard:(UIButton *) sender {
     [self endEditing:YES];
+}
+
+-(void) startEndTime:(NSString *) status {
+    NSDictionary *dic = [NSMutableDictionary dictionary];
+    if (selectedEntity.orderCd.length) {
+        [dic setValue:selectedEntity.orderCd forKey:@"orderCd"];
+    }
+    if (selectedEntity.customerCd.length) {
+        [dic setValue:selectedEntity.customerCd forKey:@"customerCd"];
+    }
+    if (selectedEntity.projectCd.length) {
+        [dic setValue:selectedEntity.projectCd forKey:@"projectCd"];
+    }
+    if (selectedEntity.detailNo.length) {
+        [dic setValue:selectedEntity.detailNo forKey:@"detailNo"];
+    }
+    
+    [dic setValue:[userDefaults objectForKey:USERID] forKey:@"userId"];
+
+    NSString *url = XIAOFEISTARTTIME;
+    if ([status isEqualToString:@"end"]) {
+        url = XIAOFEIENDTIME;
+    }
+    SHOWSTATUSCLEAR
+    [[NetWorkingModel sharedInstance] POST:url parameters:dic success:^(AFHTTPRequestOperation *operation, id obj) {
+        DISMISS
+        if (ISSUCCESS) {
+            LJConsumptionViewController *vc = (LJConsumptionViewController *)self.superVC;
+            [vc loadData];
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.superview.superview animated:YES];
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText = @"操作成功";
+//                        需要刷新
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                [MBProgressHUD hideHUDForView:self.superview.superview animated:YES];
+            });
+            
+        } else {
+            if ([OBJMESSAGE isEqualToString:@"sofaNo_is_null"]) {
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.superview.superview animated:YES];
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText = @"请先选择沙发";
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [MBProgressHUD hideHUDForView:self.superview.superview animated:YES];
+                });
+            } else if ([OBJMESSAGE isEqualToString:@"error_working"]) {
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.superview.superview animated:YES];
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText = @"当前技师正在上钟";
+                
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [MBProgressHUD hideHUDForView:self.superview.superview animated:YES];
+                });
+            } else if ([OBJMESSAGE isEqualToString:@"error_artificer2Cd"]) {
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.superview.superview animated:YES];
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText = @"技师2不能为空";
+                
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [MBProgressHUD hideHUDForView:self.superview.superview animated:YES];
+                });
+            } else if ([OBJMESSAGE isEqualToString:@"error_project"]) {
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.superview.superview animated:YES];
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText = @"项目不能为空";
+                
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [MBProgressHUD hideHUDForView:self.superview.superview animated:YES];
+                });
+            } else if ([OBJMESSAGE isEqualToString:@"error_shangpin"]) {
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.superview.superview animated:YES];
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText = @"商品不能起钟";
+                
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [MBProgressHUD hideHUDForView:self.superview.superview animated:YES];
+                });
+            } else if ([OBJMESSAGE isEqualToString:@"error_artificerCdNotEnough "]) {
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.superview.superview animated:YES];
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText = @"固定技师项目派遣技师数量不够，不允许起钟";
+                
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [MBProgressHUD hideHUDForView:self.superview.superview animated:YES];
+                });
+            } else if ([OBJMESSAGE isEqualToString:@"error_noUserArtificer "]) {
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.superview.superview animated:YES];
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText = @"技师用户只能起/落钟自己的项目";
+                
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [MBProgressHUD hideHUDForView:self.superview.superview animated:YES];
+                });
+            } else {
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.superview.superview animated:YES];
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText = @"操作失败";
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [MBProgressHUD hideHUDForView:self.superview.superview animated:YES];
+                });
+            }
+            
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
 }
 
 #pragma -mark 选择房间

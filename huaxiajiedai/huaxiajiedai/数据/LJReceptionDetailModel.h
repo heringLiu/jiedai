@@ -101,6 +101,10 @@
 
 @property (nonatomic, strong) NSString *starTime;
 
+// 更新数
+@property (nonatomic, strong) NSString *modifyCount;
 
+// 订单技师
+@property (nonatomic, strong) NSArray *artificerList;
 
 @end

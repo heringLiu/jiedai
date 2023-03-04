@@ -90,6 +90,12 @@
  * 请求参数：orderCd
  */
 #define RECEPTIONEDITORDER [NSString stringWithFormat:@"%@%@",REQUESTADDRESS,@"/reception/consumerOrder/toEditOrder/"]
+/* 接口名称：消费订单详情
+ * 请求地址：/reception/room/toEditRoomOrder
+ * 请求方式：GET
+ * 请求参数：roomCd
+ */
+#define RECEPTIONEDITROOMORDER [NSString stringWithFormat:@"%@%@",REQUESTADDRESS,@"/reception/consumerOrder/toEditRoomOrder/"]
 
 
 /* 接口名称：房间内接待单列表
@@ -397,7 +403,7 @@
 
 /* 接口名称：双技师能否选择项目
  * 请求地址：/reception/artificer/testDoubleArt/
- * 请求方式：post
+ * 请求方式：get
  * 请求参数：
  */
 #define testDoubleArt [NSString stringWithFormat:@"%@%@",REQUESTADDRESS,@"/reception/artificer/testDoubleArt/"]

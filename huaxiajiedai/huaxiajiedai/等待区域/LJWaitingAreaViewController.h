@@ -22,6 +22,7 @@
 
 @property (nonatomic, assign) BOOL isConsumption;
 @property (nonatomic, strong) UIButton *tuanButton;
+@property (nonatomic, strong) UIButton *allButton;
 
 @property (nonatomic, strong) UIButton *AddConsumptionButton;
 

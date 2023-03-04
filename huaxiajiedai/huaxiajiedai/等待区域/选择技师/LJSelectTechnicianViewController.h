@@ -12,6 +12,7 @@
 #import "LJArtModel.h"
 #import "LJReceptionDetailModel.h"
 #import "LJPickerView.h"
+#import "LJJishiVIew.h"
 
 @class LJSelectTechnicianViewController;
 
@@ -27,6 +28,8 @@
 @property (nonatomic, assign) id<SelectTechnicianDelegate> delegate;
 
 @property (nonatomic, strong) CustomTopNavigationView *topView;
+
+@property (nonatomic, strong) UIView *jishiView;
 
 @property (nonatomic, strong) UIControl *myControl;
 
@@ -100,5 +103,13 @@
 @property (nonatomic, assign) BOOL canSelectNotFree;
 
 @property (nonatomic, strong) NSString *changeStr;
+
+@property (nonatomic, strong) NSString *modifyCount;
+
+@property (nonatomic, assign) NSInteger longPressTag;
+
+@property (nonatomic, assign) NSInteger operateType;
+
+@property (nonatomic, assign) BOOL selectedJishi;
 
 @end

@@ -16,7 +16,7 @@
 @end
 
 @implementation LJWaitingAreaViewController
-@synthesize topView, myTableView, isConsumption, AddConsumptionButton, mySearchBar, tuanButton;
+@synthesize topView, myTableView, isConsumption, AddConsumptionButton, mySearchBar, tuanButton, allButton;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -204,7 +204,7 @@
         AddConsumptionButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.view addSubview:AddConsumptionButton];
         [AddConsumptionButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.view).offset(-50);
+            make.left.equalTo(self.view.mas_left).offset(50);
             make.bottom.equalTo(self.view).offset(-40);
             make.size.mas_equalTo(CGSizeMake(60, 60));
         }];
@@ -218,7 +218,7 @@
         tuanButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.view addSubview:tuanButton];
         [tuanButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.view).offset(50);
+            make.centerX.equalTo(self.view);
             make.bottom.equalTo(self.view).offset(-40);
             make.size.mas_equalTo(CGSizeMake(60, 60));
         }];
@@ -230,12 +230,46 @@
         tuanButton.layer.masksToBounds = YES;
         [tuanButton addTarget:self action:@selector(addTuan) forControlEvents:UIControlEventTouchUpInside];
         
+        allButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.view addSubview:allButton];
+        [allButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(self.view.mas_right).offset(-50);
+            make.bottom.equalTo(self.view).offset(-40);
+            make.size.mas_equalTo(CGSizeMake(60, 60));
+        }];
+        allButton.backgroundColor = LightBrownColor;
+//        [tuanButton setImage:[UIImage imageNamed:@"icon_order"] forState:UIControlStateNormal];
+        [allButton setTitle:@"全" forState:UIControlStateNormal];
+        [allButton.titleLabel setFont:FONT20];
+        allButton.layer.cornerRadius = 30;
+        allButton.layer.masksToBounds = YES;
+        [allButton addTarget:self action:@selector(allBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        
 
 
 
     }
     
 }
+- (void) allBtnClick {
+    if (isConsumption) {
+        LJConsumptionViewController *next = [[LJConsumptionViewController alloc] init];
+        next.roomCd = self.roomModel.roomCd;
+        next.isAll = YES;
+        self.isPushed = YES;
+        [self.navigationController pushViewController:next animated:YES];
+        
+    } else {
+
+        LJReceptionListViewController *next = [[LJReceptionListViewController alloc] init];
+        next.roomCd = self.roomModel.roomCd;
+        [self.tabBarController.tabBar removeFromSuperview];
+        [(ShoppingMallTabBarViewController *)self.tabBarController hideTabBar:YES];
+        self.isPushed = YES;
+        [self.navigationController pushViewController:next animated:YES];
+    }
+}
+
 - (void) addTuan {
     SHOWSTATUSCLEAR
     [[NetWorkingModel sharedInstance] POST:BUSINESSDATE parameters:@{} success:^(AFHTTPRequestOperation *operation, id obj) {

@@ -84,26 +84,50 @@
 }
 
 - (void) loadData {
-    if (self.orderCd.length) {
-        SHOWSTATUSCLEAR
-        [[NetWorkingModel sharedInstance] GET:RECEPTIONEDITORDER parameters:@{@"orderCd":self.orderCd} success:^(AFHTTPRequestOperation *operation, id obj) {
-            DISMISS
-            NSData *jsonData = [NSJSONSerialization dataWithJSONObject:obj options:NSJSONWritingPrettyPrinted error:nil];
-            NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-            NSLog(@"%@", jsonString);
-            
-            if (ISSUCCESS) {
-                self.dataDic = CONTENTOBJ;
-                self.headerEntity = [[LJConsumptionHeaderModel alloc] init];
-                [self.headerEntity setValuesForKeysWithDictionary:CONTENTOBJ];
-                [self.headerEntity setValuesForKeysWithDictionary:[CONTENTOBJ objectForKey:@"receptionOrderHeadTab"]];
-                [self createUI];
-            }
-            
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        }];
+    if(self.isAll) {
+        if(self.roomCd.length) {
+            SHOWSTATUSCLEAR
+            [[NetWorkingModel sharedInstance] GET:RECEPTIONEDITROOMORDER parameters:@{@"roomCd":self.roomCd} success:^(AFHTTPRequestOperation *operation, id obj) {
+                DISMISS
+                NSData *jsonData = [NSJSONSerialization dataWithJSONObject:obj options:NSJSONWritingPrettyPrinted error:nil];
+                NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+                NSLog(@"%@", jsonString);
+                
+                if (ISSUCCESS) {
+                    self.dataDic = CONTENTOBJ;
+                    self.headerEntity = [[LJConsumptionHeaderModel alloc] init];
+                    [self.headerEntity setValuesForKeysWithDictionary:CONTENTOBJ];
+                    [self.headerEntity setValuesForKeysWithDictionary:[CONTENTOBJ objectForKey:@"receptionOrderHeadTab"]];
+                    [self createUI];
+                }
+                
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            }];
+        } else {
+            SHOWTEXTINWINDOW(@"缺少房间号", 1);
+        }
     } else {
-        SHOWTEXTINWINDOW(@"缺少单号", 1);
+        if (self.orderCd.length) {
+            SHOWSTATUSCLEAR
+            [[NetWorkingModel sharedInstance] GET:RECEPTIONEDITORDER parameters:@{@"orderCd":self.orderCd} success:^(AFHTTPRequestOperation *operation, id obj) {
+                DISMISS
+                NSData *jsonData = [NSJSONSerialization dataWithJSONObject:obj options:NSJSONWritingPrettyPrinted error:nil];
+                NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+                NSLog(@"%@", jsonString);
+                
+                if (ISSUCCESS) {
+                    self.dataDic = CONTENTOBJ;
+                    self.headerEntity = [[LJConsumptionHeaderModel alloc] init];
+                    [self.headerEntity setValuesForKeysWithDictionary:CONTENTOBJ];
+                    [self.headerEntity setValuesForKeysWithDictionary:[CONTENTOBJ objectForKey:@"receptionOrderHeadTab"]];
+                    [self createUI];
+                }
+                
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            }];
+        } else {
+            SHOWTEXTINWINDOW(@"缺少单号", 1);
+        }
     }
 }
 - (void)closePickView {
