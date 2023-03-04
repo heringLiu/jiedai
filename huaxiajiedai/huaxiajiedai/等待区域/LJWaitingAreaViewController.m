@@ -78,8 +78,9 @@
                         next.roomCd = self.roomModel.roomCd;
                         next.orderCd =entity.orderCd;
                         [self.navigationController pushViewController:next animated:YES];
-                        
-                        
+ 
+                    } else if (self.dataList.count > 1) {
+                        [self allBtnClick];
                     }
                     
                 }
@@ -244,9 +245,7 @@
         allButton.layer.cornerRadius = 30;
         allButton.layer.masksToBounds = YES;
         [allButton addTarget:self action:@selector(allBtnClick) forControlEvents:UIControlEventTouchUpInside];
-        
-
-
+     
 
     }
     
